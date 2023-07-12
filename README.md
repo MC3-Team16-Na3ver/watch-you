@@ -32,7 +32,7 @@ Feature : 기능 개발을 진행할 때 사용합니다.
 Hot-Fix : 배포를 진행한 후 발생한 버그를 수정해야 할 때 사용합니다.-->
 
 브랜치 관리 전략 참고 문헌
-우아한 형제들 기술 블로그(http://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html)
+[우아한 형제들 기술 블로그](http://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html)
 
 ## DB ERD
 <img width="457" alt="스크린샷 2023-07-11 오후 9 11 37" src="https://github.com/MC3-Team16-Na3ver/watchOS-pippi/assets/59304977/57ae4e0e-7c9b-4eb0-9119-3df8390de02d">
