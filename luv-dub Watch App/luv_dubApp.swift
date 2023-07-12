@@ -11,7 +11,8 @@ import SwiftUI
 struct luv_dub_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainPushView()
+            // NotificationView()
         }
         
         #if os(watchOS)
