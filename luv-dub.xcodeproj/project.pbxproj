@@ -1,0 +1,1021 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6552A5E71CE00066D47 /* luv_dubApp.swift */; };
+		1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6572A5E71CE00066D47 /* ContentView.swift */; };
+		1839B65A2A5E71D000066D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1839B6592A5E71D000066D47 /* Assets.xcassets */; };
+		1839B65D2A5E71D000066D47 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1839B65C2A5E71D000066D47 /* Preview Assets.xcassets */; };
+		1839B6672A5E71D000066D47 /* luv_dubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6662A5E71D000066D47 /* luv_dubTests.swift */; };
+		1839B6712A5E71D000066D47 /* luv_dubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6702A5E71D000066D47 /* luv_dubUITests.swift */; };
+		1839B6732A5E71D000066D47 /* luv_dubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6722A5E71D000066D47 /* luv_dubUITestsLaunchTests.swift */; };
+		1839B6792A5E71D000066D47 /* luv-dub Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1839B6782A5E71D000066D47 /* luv-dub Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B67D2A5E71D000066D47 /* luv_dubApp.swift */; };
+		1839B6802A5E71D000066D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B67F2A5E71D000066D47 /* ContentView.swift */; };
+		1839B6822A5E71D100066D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1839B6812A5E71D100066D47 /* Assets.xcassets */; };
+		1839B6852A5E71D100066D47 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1839B6842A5E71D100066D47 /* Preview Assets.xcassets */; };
+		1839B68F2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B68E2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift */; };
+		1839B6992A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6982A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift */; };
+		1839B69B2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1839B6632A5E71D000066D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1839B64A2A5E71CD00066D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1839B6512A5E71CE00066D47;
+			remoteInfo = "luv-dub";
+		};
+		1839B66D2A5E71D000066D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1839B64A2A5E71CD00066D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1839B6512A5E71CE00066D47;
+			remoteInfo = "luv-dub";
+		};
+		1839B67A2A5E71D000066D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1839B64A2A5E71CD00066D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1839B6772A5E71D000066D47;
+			remoteInfo = "luv-dub Watch App";
+		};
+		1839B68B2A5E71D100066D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1839B64A2A5E71CD00066D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1839B6772A5E71D000066D47;
+			remoteInfo = "luv-dub Watch App";
+		};
+		1839B6952A5E71D100066D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1839B64A2A5E71CD00066D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1839B6772A5E71D000066D47;
+			remoteInfo = "luv-dub Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1839B6A12A5E71D100066D47 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1839B6792A5E71D000066D47 /* luv-dub Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1839B6522A5E71CE00066D47 /* luv-dub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "luv-dub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1839B6552A5E71CE00066D47 /* luv_dubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubApp.swift; sourceTree = "<group>"; };
+		1839B6572A5E71CE00066D47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1839B6592A5E71D000066D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1839B65C2A5E71D000066D47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1839B6622A5E71D000066D47 /* luv-dubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "luv-dubTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1839B6662A5E71D000066D47 /* luv_dubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubTests.swift; sourceTree = "<group>"; };
+		1839B66C2A5E71D000066D47 /* luv-dubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "luv-dubUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1839B6702A5E71D000066D47 /* luv_dubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubUITests.swift; sourceTree = "<group>"; };
+		1839B6722A5E71D000066D47 /* luv_dubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1839B6782A5E71D000066D47 /* luv-dub Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "luv-dub Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1839B67D2A5E71D000066D47 /* luv_dubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubApp.swift; sourceTree = "<group>"; };
+		1839B67F2A5E71D000066D47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1839B6812A5E71D100066D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1839B6842A5E71D100066D47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1839B68A2A5E71D100066D47 /* luv-dub Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "luv-dub Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1839B68E2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dub_Watch_AppTests.swift; sourceTree = "<group>"; };
+		1839B6942A5E71D100066D47 /* luv-dub Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "luv-dub Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1839B6982A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dub_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dub_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1839B64F2A5E71CE00066D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B65F2A5E71D000066D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6692A5E71D000066D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6752A5E71D000066D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6872A5E71D100066D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6912A5E71D100066D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1839B6492A5E71CD00066D47 = {
+			isa = PBXGroup;
+			children = (
+				1839B6542A5E71CE00066D47 /* luv-dub */,
+				1839B6652A5E71D000066D47 /* luv-dubTests */,
+				1839B66F2A5E71D000066D47 /* luv-dubUITests */,
+				1839B67C2A5E71D000066D47 /* luv-dub Watch App */,
+				1839B68D2A5E71D100066D47 /* luv-dub Watch AppTests */,
+				1839B6972A5E71D100066D47 /* luv-dub Watch AppUITests */,
+				1839B6532A5E71CE00066D47 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1839B6532A5E71CE00066D47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1839B6522A5E71CE00066D47 /* luv-dub.app */,
+				1839B6622A5E71D000066D47 /* luv-dubTests.xctest */,
+				1839B66C2A5E71D000066D47 /* luv-dubUITests.xctest */,
+				1839B6782A5E71D000066D47 /* luv-dub Watch App.app */,
+				1839B68A2A5E71D100066D47 /* luv-dub Watch AppTests.xctest */,
+				1839B6942A5E71D100066D47 /* luv-dub Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1839B6542A5E71CE00066D47 /* luv-dub */ = {
+			isa = PBXGroup;
+			children = (
+				1839B6552A5E71CE00066D47 /* luv_dubApp.swift */,
+				1839B6572A5E71CE00066D47 /* ContentView.swift */,
+				1839B6592A5E71D000066D47 /* Assets.xcassets */,
+				1839B65B2A5E71D000066D47 /* Preview Content */,
+			);
+			path = "luv-dub";
+			sourceTree = "<group>";
+		};
+		1839B65B2A5E71D000066D47 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1839B65C2A5E71D000066D47 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1839B6652A5E71D000066D47 /* luv-dubTests */ = {
+			isa = PBXGroup;
+			children = (
+				1839B6662A5E71D000066D47 /* luv_dubTests.swift */,
+			);
+			path = "luv-dubTests";
+			sourceTree = "<group>";
+		};
+		1839B66F2A5E71D000066D47 /* luv-dubUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1839B6702A5E71D000066D47 /* luv_dubUITests.swift */,
+				1839B6722A5E71D000066D47 /* luv_dubUITestsLaunchTests.swift */,
+			);
+			path = "luv-dubUITests";
+			sourceTree = "<group>";
+		};
+		1839B67C2A5E71D000066D47 /* luv-dub Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1839B67D2A5E71D000066D47 /* luv_dubApp.swift */,
+				1839B67F2A5E71D000066D47 /* ContentView.swift */,
+				1839B6812A5E71D100066D47 /* Assets.xcassets */,
+				1839B6832A5E71D100066D47 /* Preview Content */,
+			);
+			path = "luv-dub Watch App";
+			sourceTree = "<group>";
+		};
+		1839B6832A5E71D100066D47 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1839B6842A5E71D100066D47 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1839B68D2A5E71D100066D47 /* luv-dub Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1839B68E2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift */,
+			);
+			path = "luv-dub Watch AppTests";
+			sourceTree = "<group>";
+		};
+		1839B6972A5E71D100066D47 /* luv-dub Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1839B6982A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift */,
+				1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "luv-dub Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1839B6512A5E71CE00066D47 /* luv-dub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1839B6A22A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dub" */;
+			buildPhases = (
+				1839B64E2A5E71CE00066D47 /* Sources */,
+				1839B64F2A5E71CE00066D47 /* Frameworks */,
+				1839B6502A5E71CE00066D47 /* Resources */,
+				1839B6A12A5E71D100066D47 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1839B67B2A5E71D000066D47 /* PBXTargetDependency */,
+			);
+			name = "luv-dub";
+			productName = "luv-dub";
+			productReference = 1839B6522A5E71CE00066D47 /* luv-dub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1839B6612A5E71D000066D47 /* luv-dubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1839B6A52A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dubTests" */;
+			buildPhases = (
+				1839B65E2A5E71D000066D47 /* Sources */,
+				1839B65F2A5E71D000066D47 /* Frameworks */,
+				1839B6602A5E71D000066D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1839B6642A5E71D000066D47 /* PBXTargetDependency */,
+			);
+			name = "luv-dubTests";
+			productName = "luv-dubTests";
+			productReference = 1839B6622A5E71D000066D47 /* luv-dubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1839B66B2A5E71D000066D47 /* luv-dubUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1839B6A82A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dubUITests" */;
+			buildPhases = (
+				1839B6682A5E71D000066D47 /* Sources */,
+				1839B6692A5E71D000066D47 /* Frameworks */,
+				1839B66A2A5E71D000066D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1839B66E2A5E71D000066D47 /* PBXTargetDependency */,
+			);
+			name = "luv-dubUITests";
+			productName = "luv-dubUITests";
+			productReference = 1839B66C2A5E71D000066D47 /* luv-dubUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		1839B6772A5E71D000066D47 /* luv-dub Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1839B69E2A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dub Watch App" */;
+			buildPhases = (
+				1839B6742A5E71D000066D47 /* Sources */,
+				1839B6752A5E71D000066D47 /* Frameworks */,
+				1839B6762A5E71D000066D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "luv-dub Watch App";
+			productName = "luv-dub Watch App";
+			productReference = 1839B6782A5E71D000066D47 /* luv-dub Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1839B6892A5E71D100066D47 /* luv-dub Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1839B6AB2A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dub Watch AppTests" */;
+			buildPhases = (
+				1839B6862A5E71D100066D47 /* Sources */,
+				1839B6872A5E71D100066D47 /* Frameworks */,
+				1839B6882A5E71D100066D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1839B68C2A5E71D100066D47 /* PBXTargetDependency */,
+			);
+			name = "luv-dub Watch AppTests";
+			productName = "luv-dub Watch AppTests";
+			productReference = 1839B68A2A5E71D100066D47 /* luv-dub Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1839B6932A5E71D100066D47 /* luv-dub Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1839B6AE2A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dub Watch AppUITests" */;
+			buildPhases = (
+				1839B6902A5E71D100066D47 /* Sources */,
+				1839B6912A5E71D100066D47 /* Frameworks */,
+				1839B6922A5E71D100066D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1839B6962A5E71D100066D47 /* PBXTargetDependency */,
+			);
+			name = "luv-dub Watch AppUITests";
+			productName = "luv-dub Watch AppUITests";
+			productReference = 1839B6942A5E71D100066D47 /* luv-dub Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1839B64A2A5E71CD00066D47 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1839B6512A5E71CE00066D47 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					1839B6612A5E71D000066D47 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 1839B6512A5E71CE00066D47;
+					};
+					1839B66B2A5E71D000066D47 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 1839B6512A5E71CE00066D47;
+					};
+					1839B6772A5E71D000066D47 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					1839B6892A5E71D100066D47 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 1839B6772A5E71D000066D47;
+					};
+					1839B6932A5E71D100066D47 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 1839B6772A5E71D000066D47;
+					};
+				};
+			};
+			buildConfigurationList = 1839B64D2A5E71CD00066D47 /* Build configuration list for PBXProject "luv-dub" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1839B6492A5E71CD00066D47;
+			productRefGroup = 1839B6532A5E71CE00066D47 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1839B6512A5E71CE00066D47 /* luv-dub */,
+				1839B6612A5E71D000066D47 /* luv-dubTests */,
+				1839B66B2A5E71D000066D47 /* luv-dubUITests */,
+				1839B6772A5E71D000066D47 /* luv-dub Watch App */,
+				1839B6892A5E71D100066D47 /* luv-dub Watch AppTests */,
+				1839B6932A5E71D100066D47 /* luv-dub Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1839B6502A5E71CE00066D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839B65D2A5E71D000066D47 /* Preview Assets.xcassets in Resources */,
+				1839B65A2A5E71D000066D47 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6602A5E71D000066D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B66A2A5E71D000066D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6762A5E71D000066D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839B6852A5E71D100066D47 /* Preview Assets.xcassets in Resources */,
+				1839B6822A5E71D100066D47 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6882A5E71D100066D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6922A5E71D100066D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1839B64E2A5E71CE00066D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */,
+				1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B65E2A5E71D000066D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839B6672A5E71D000066D47 /* luv_dubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6682A5E71D000066D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839B6732A5E71D000066D47 /* luv_dubUITestsLaunchTests.swift in Sources */,
+				1839B6712A5E71D000066D47 /* luv_dubUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6742A5E71D000066D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839B6802A5E71D000066D47 /* ContentView.swift in Sources */,
+				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6862A5E71D100066D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839B68F2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1839B6902A5E71D100066D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1839B69B2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift in Sources */,
+				1839B6992A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1839B6642A5E71D000066D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1839B6512A5E71CE00066D47 /* luv-dub */;
+			targetProxy = 1839B6632A5E71D000066D47 /* PBXContainerItemProxy */;
+		};
+		1839B66E2A5E71D000066D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1839B6512A5E71CE00066D47 /* luv-dub */;
+			targetProxy = 1839B66D2A5E71D000066D47 /* PBXContainerItemProxy */;
+		};
+		1839B67B2A5E71D000066D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1839B6772A5E71D000066D47 /* luv-dub Watch App */;
+			targetProxy = 1839B67A2A5E71D000066D47 /* PBXContainerItemProxy */;
+		};
+		1839B68C2A5E71D100066D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1839B6772A5E71D000066D47 /* luv-dub Watch App */;
+			targetProxy = 1839B68B2A5E71D100066D47 /* PBXContainerItemProxy */;
+		};
+		1839B6962A5E71D100066D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1839B6772A5E71D000066D47 /* luv-dub Watch App */;
+			targetProxy = 1839B6952A5E71D100066D47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1839B69C2A5E71D100066D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1839B69D2A5E71D100066D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1839B69F2A5E71D100066D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"luv-dub Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "luv-dub";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.na3ver.luv-dub";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		1839B6A02A5E71D100066D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"luv-dub Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "luv-dub";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.na3ver.luv-dub";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		1839B6A32A5E71D100066D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"luv-dub/Preview Content\"";
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "luv-dub";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1839B6A42A5E71D100066D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"luv-dub/Preview Content\"";
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "luv-dub";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1839B6A62A5E71D100066D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/luv-dub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/luv-dub";
+			};
+			name = Debug;
+		};
+		1839B6A72A5E71D100066D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/luv-dub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/luv-dub";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1839B6A92A5E71D100066D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dubUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "luv-dub";
+			};
+			name = Debug;
+		};
+		1839B6AA2A5E71D100066D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dubUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "luv-dub";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1839B6AC2A5E71D100066D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/luv-dub Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/luv-dub Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		1839B6AD2A5E71D100066D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/luv-dub Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/luv-dub Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		1839B6AF2A5E71D100066D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "luv-dub Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		1839B6B02A5E71D100066D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "luv-dub Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1839B64D2A5E71CD00066D47 /* Build configuration list for PBXProject "luv-dub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1839B69C2A5E71D100066D47 /* Debug */,
+				1839B69D2A5E71D100066D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1839B69E2A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dub Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1839B69F2A5E71D100066D47 /* Debug */,
+				1839B6A02A5E71D100066D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1839B6A22A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1839B6A32A5E71D100066D47 /* Debug */,
+				1839B6A42A5E71D100066D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1839B6A52A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1839B6A62A5E71D100066D47 /* Debug */,
+				1839B6A72A5E71D100066D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1839B6A82A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dubUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1839B6A92A5E71D100066D47 /* Debug */,
+				1839B6AA2A5E71D100066D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1839B6AB2A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dub Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1839B6AC2A5E71D100066D47 /* Debug */,
+				1839B6AD2A5E71D100066D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1839B6AE2A5E71D100066D47 /* Build configuration list for PBXNativeTarget "luv-dub Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1839B6AF2A5E71D100066D47 /* Debug */,
+				1839B6B02A5E71D100066D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1839B64A2A5E71CD00066D47 /* Project object */;
+}
