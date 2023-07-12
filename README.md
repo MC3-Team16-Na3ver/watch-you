@@ -1,6 +1,6 @@
-# watchOS-pippi
+# watch-you
 
-## watchOS-pippi 서버 구조도
+## watch-you 서버 구조도
 ![IMG_90B1654C1E15-1](https://github.com/MC3-Team16-Na3ver/watchOS-pippi/assets/59304977/3664c473-8133-468f-8e71-b9e35661c0a9)
 
 
