@@ -22,6 +22,21 @@
 		1839B68F2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B68E2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift */; };
 		1839B6992A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6982A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift */; };
 		1839B69B2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */; };
+		30AA828A2A5E77AF0047B0B6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82892A5E77AF0047B0B6 /* FirebaseAnalytics */; };
+		30AA828C2A5E77AF0047B0B6 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA828B2A5E77AF0047B0B6 /* FirebaseAnalyticsSwift */; };
+		30AA828E2A5E77AF0047B0B6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA828D2A5E77AF0047B0B6 /* FirebaseAuth */; };
+		30AA82902A5E77AF0047B0B6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA828F2A5E77AF0047B0B6 /* FirebaseDatabase */; };
+		30AA82922A5E77AF0047B0B6 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82912A5E77AF0047B0B6 /* FirebaseDatabaseSwift */; };
+		30AA82942A5E77AF0047B0B6 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82932A5E77AF0047B0B6 /* FirebaseDynamicLinks */; };
+		30AA82962A5E77AF0047B0B6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82952A5E77AF0047B0B6 /* FirebaseFirestore */; };
+		30AA82982A5E77AF0047B0B6 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82972A5E77AF0047B0B6 /* FirebaseFirestoreSwift */; };
+		30AA829A2A5E77AF0047B0B6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82992A5E77AF0047B0B6 /* FirebaseMessaging */; };
+		30AA829D2A5E77F90047B0B6 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA829C2A5E77F90047B0B6 /* KakaoSDK */; };
+		30AA829F2A5E77F90047B0B6 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA829E2A5E77F90047B0B6 /* KakaoSDKAuth */; };
+		30AA82A12A5E77F90047B0B6 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82A02A5E77F90047B0B6 /* KakaoSDKCommon */; };
+		30AA82A32A5E77F90047B0B6 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82A22A5E77F90047B0B6 /* KakaoSDKUser */; };
+		30AA82A62A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */; };
+		30AA82A72A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +112,9 @@
 		1839B6942A5E71D100066D47 /* luv-dub Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "luv-dub Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1839B6982A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dub_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dub_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		30AA82A42A5E780B0047B0B6 /* luv-dub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "luv-dub.entitlements"; sourceTree = "<group>"; };
+		30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		30AA82A82A5E7B7F0047B0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +122,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30AA829A2A5E77AF0047B0B6 /* FirebaseMessaging in Frameworks */,
+				30AA829D2A5E77F90047B0B6 /* KakaoSDK in Frameworks */,
+				30AA82922A5E77AF0047B0B6 /* FirebaseDatabaseSwift in Frameworks */,
+				30AA828C2A5E77AF0047B0B6 /* FirebaseAnalyticsSwift in Frameworks */,
+				30AA82A12A5E77F90047B0B6 /* KakaoSDKCommon in Frameworks */,
+				30AA828E2A5E77AF0047B0B6 /* FirebaseAuth in Frameworks */,
+				30AA82902A5E77AF0047B0B6 /* FirebaseDatabase in Frameworks */,
+				30AA829F2A5E77F90047B0B6 /* KakaoSDKAuth in Frameworks */,
+				30AA82A32A5E77F90047B0B6 /* KakaoSDKUser in Frameworks */,
+				30AA828A2A5E77AF0047B0B6 /* FirebaseAnalytics in Frameworks */,
+				30AA82942A5E77AF0047B0B6 /* FirebaseDynamicLinks in Frameworks */,
+				30AA82962A5E77AF0047B0B6 /* FirebaseFirestore in Frameworks */,
+				30AA82982A5E77AF0047B0B6 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +205,8 @@
 		1839B6542A5E71CE00066D47 /* luv-dub */ = {
 			isa = PBXGroup;
 			children = (
+				30AA82A82A5E7B7F0047B0B6 /* Info.plist */,
+				30AA82A42A5E780B0047B0B6 /* luv-dub.entitlements */,
 				1839B6552A5E71CE00066D47 /* luv_dubApp.swift */,
 				1839B6572A5E71CE00066D47 /* ContentView.swift */,
 				1839B6592A5E71D000066D47 /* Assets.xcassets */,
@@ -213,6 +246,7 @@
 				1839B67D2A5E71D000066D47 /* luv_dubApp.swift */,
 				1839B67F2A5E71D000066D47 /* ContentView.swift */,
 				1839B6812A5E71D100066D47 /* Assets.xcassets */,
+				30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */,
 				1839B6832A5E71D100066D47 /* Preview Content */,
 			);
 			path = "luv-dub Watch App";
@@ -261,6 +295,21 @@
 				1839B67B2A5E71D000066D47 /* PBXTargetDependency */,
 			);
 			name = "luv-dub";
+			packageProductDependencies = (
+				30AA82892A5E77AF0047B0B6 /* FirebaseAnalytics */,
+				30AA828B2A5E77AF0047B0B6 /* FirebaseAnalyticsSwift */,
+				30AA828D2A5E77AF0047B0B6 /* FirebaseAuth */,
+				30AA828F2A5E77AF0047B0B6 /* FirebaseDatabase */,
+				30AA82912A5E77AF0047B0B6 /* FirebaseDatabaseSwift */,
+				30AA82932A5E77AF0047B0B6 /* FirebaseDynamicLinks */,
+				30AA82952A5E77AF0047B0B6 /* FirebaseFirestore */,
+				30AA82972A5E77AF0047B0B6 /* FirebaseFirestoreSwift */,
+				30AA82992A5E77AF0047B0B6 /* FirebaseMessaging */,
+				30AA829C2A5E77F90047B0B6 /* KakaoSDK */,
+				30AA829E2A5E77F90047B0B6 /* KakaoSDKAuth */,
+				30AA82A02A5E77F90047B0B6 /* KakaoSDKCommon */,
+				30AA82A22A5E77F90047B0B6 /* KakaoSDKUser */,
+			);
 			productName = "luv-dub";
 			productReference = 1839B6522A5E71CE00066D47 /* luv-dub.app */;
 			productType = "com.apple.product-type.application";
@@ -397,6 +446,10 @@
 				Base,
 			);
 			mainGroup = 1839B6492A5E71CD00066D47;
+			packageReferences = (
+				30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				30AA829B2A5E77F90047B0B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = 1839B6532A5E71CE00066D47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -416,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30AA82A62A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */,
 				1839B65D2A5E71D000066D47 /* Preview Assets.xcassets in Resources */,
 				1839B65A2A5E71D000066D47 /* Assets.xcassets in Resources */,
 			);
@@ -439,6 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30AA82A72A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */,
 				1839B6852A5E71D100066D47 /* Preview Assets.xcassets in Resources */,
 				1839B6822A5E71D100066D47 /* Assets.xcassets in Resources */,
 			);
@@ -661,7 +716,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"luv-dub Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				DEVELOPMENT_TEAM = VGKCD7Q8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "luv-dub";
@@ -672,7 +727,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.na3ver.luvdub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -691,7 +746,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"luv-dub Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				DEVELOPMENT_TEAM = VGKCD7Q8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "luv-dub";
@@ -702,7 +757,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.na3ver.luvdub.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -720,25 +775,27 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "luv-dub/luv-dub.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"luv-dub/Preview Content\"";
-				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				DEVELOPMENT_TEAM = VGKCD7Q8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "luv-dub/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "luv-dub";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nasver.luvdub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -753,25 +810,27 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "luv-dub/luv-dub.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"luv-dub/Preview Content\"";
-				DEVELOPMENT_TEAM = DR54KKAU8Z;
+				DEVELOPMENT_TEAM = VGKCD7Q8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "luv-dub/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "luv-dub";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.na3ver.luv-dub";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nasver.luvdub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1016,6 +1075,93 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.12.0;
+			};
+		};
+		30AA829B2A5E77F90047B0B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 2.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		30AA82892A5E77AF0047B0B6 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		30AA828B2A5E77AF0047B0B6 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		30AA828D2A5E77AF0047B0B6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		30AA828F2A5E77AF0047B0B6 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		30AA82912A5E77AF0047B0B6 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		30AA82932A5E77AF0047B0B6 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		30AA82952A5E77AF0047B0B6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		30AA82972A5E77AF0047B0B6 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		30AA82992A5E77AF0047B0B6 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		30AA829C2A5E77F90047B0B6 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA829B2A5E77F90047B0B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		30AA829E2A5E77F90047B0B6 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA829B2A5E77F90047B0B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		30AA82A02A5E77F90047B0B6 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA829B2A5E77F90047B0B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		30AA82A22A5E77F90047B0B6 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30AA829B2A5E77F90047B0B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1839B64A2A5E71CD00066D47 /* Project object */;
 }
