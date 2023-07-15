@@ -20,8 +20,21 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+    }
+    override func didAppear() {
+        super.didAppear()
+        triggerHapticFeedback(.stop, repetition: 5, duration: 1.0)
     }
 
+    private func triggerHapticFeedback(_ hapticType: WKHapticType, repetition: Int, duration: TimeInterval) {
+        let hapticInterface = WKInterfaceDevice.current()
+        
+        for _ in 0..<repetition {
+            hapticInterface.play(hapticType)
+            Thread.sleep(forTimeInterval: duration)
+        }
+    }
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
