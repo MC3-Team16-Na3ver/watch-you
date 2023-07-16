@@ -19,13 +19,10 @@ struct NotificationView: View {
     var body: some View {
         Text("{아이디}가 내 생각하는중")
             .onAppear{
-                
-                let haptic = hapticTypes[3]
-                let hapticType = haptic.0
-                let repetition = haptic.1
-                let duration = haptic.2
-                
-                triggerHapticFeedback(hapticType, repetition: repetition, duration: duration)
+                let queue = DispatchQueue(label: "com.knowstack.queue1")
+                queue.async{
+                    self.triggerHapticFeedback(.stop, repetition: 5, duration: 1.0)
+                }
             }
 
     }
