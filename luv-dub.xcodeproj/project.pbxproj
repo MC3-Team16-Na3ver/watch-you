@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18191BC32A63BD1200E9719B /* RoundAnimation.swift */; };
 		1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6552A5E71CE00066D47 /* luv_dubApp.swift */; };
 		1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6572A5E71CE00066D47 /* ContentView.swift */; };
 		1839B65A2A5E71D000066D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1839B6592A5E71D000066D47 /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18191BC32A63BD1200E9719B /* RoundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundAnimation.swift; sourceTree = "<group>"; };
 		1839B6522A5E71CE00066D47 /* luv-dub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "luv-dub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1839B6552A5E71CE00066D47 /* luv_dubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubApp.swift; sourceTree = "<group>"; };
 		1839B6572A5E71CE00066D47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			children = (
 				1839B67D2A5E71D000066D47 /* luv_dubApp.swift */,
 				1839B67F2A5E71D000066D47 /* ContentView.swift */,
+				18191BC32A63BD1200E9719B /* RoundAnimation.swift */,
 				1839B6812A5E71D100066D47 /* Assets.xcassets */,
 				30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */,
 				1839B6832A5E71D100066D47 /* Preview Content */,
@@ -548,6 +551,7 @@
 			files = (
 				1839B6802A5E71D000066D47 /* ContentView.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
+				18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
