@@ -11,6 +11,7 @@ struct ContentView: View {
     @State var tapStatus = ""
     @State var longPressDetected = false
     @State var isClicked = false
+    
     var body: some View {
         Button(action: {
             if self.longPressDetected {
@@ -23,11 +24,26 @@ struct ContentView: View {
                 print(tapStatus)
             }
             
-        }){
+        }) {
             ZStack {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            stops: [
+                                Gradient.Stop(color: Color(red: 1, green: 0.3, blue: 0.48), location: 0.00),
+                                Gradient.Stop(color: Color(red: 0.98, green: 0.07, blue: 0.31), location: 1.00),
+                            ],
+                            startPoint: UnitPoint(x: 0.92, y: 0.1),
+                            endPoint: UnitPoint(x: 0.15, y: 0.87)
+                        )
+                    )
+                    .frame(width: 116, height: 116)
+                    .shadow(color: .black.opacity(0.8), radius: 2, x: 0, y: 0)
+                    .mask(Circle())
+                
                 if isClicked { RoundAnimation(animate: $longPressDetected) }
                 
-                VStack{
+                VStack {
                     Text("SEND")
                         .font(
                             Font.custom("Apple SD Gothic Neo", size: 17)
@@ -37,19 +53,6 @@ struct ContentView: View {
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                 }
-                .frame(width: 116, height: 116)
-                .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 0)
-                .background(
-                    LinearGradient(
-                        stops: [
-                            Gradient.Stop(color: Color(red: 1, green: 0.3, blue: 0.48), location: 0.00),
-                            Gradient.Stop(color: Color(red: 0.98, green: 0.07, blue: 0.31), location: 1.00),
-                        ],
-                        startPoint: UnitPoint(x: 0.92, y: 0.1),
-                        endPoint: UnitPoint(x: 0.15, y: 0.87)
-                    )
-                )
-            .mask(Circle())
             }
         }
         .buttonStyle(PlainButtonStyle())
@@ -62,11 +65,12 @@ struct ContentView: View {
             })
         )
     }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
 
