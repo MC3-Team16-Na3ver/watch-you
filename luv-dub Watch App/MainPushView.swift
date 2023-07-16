@@ -25,15 +25,12 @@ struct MainPushView: View {
             Button("Schedule Notification")
             {
                 let content = UNMutableNotificationContent()
-                content.title = "Drink some milk!"
-                content.subtitle = "you have 5 sec"
-                content.sound = .default
+                content.title = "Alarm Title"
+                content.subtitle = "Alarm Description"
+                content.sound = .none
                 content.categoryIdentifier = "myCategory"
                 
-                let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
-                UNUserNotificationCenter.current().setNotificationCategories([category])
-                
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
                 let request = UNNotificationRequest(identifier: "milk", content: content, trigger: trigger)
                 
                 UNUserNotificationCenter.current().add(request) { (error) in
