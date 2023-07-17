@@ -11,7 +11,7 @@ struct ContentView: View {
     @State var tapStatus = ""
     @State var longPressDetected = false
     @State var isClicked = false
-    
+
     var body: some View {
         Button(action: {
             if self.longPressDetected {
@@ -23,7 +23,6 @@ struct ContentView: View {
                 tapStatus = "Please Press and hold"
                 print(tapStatus)
             }
-            
         }) {
             ZStack {
                 Circle()
@@ -40,9 +39,11 @@ struct ContentView: View {
                     .frame(width: 116, height: 116)
                     .shadow(color: .black.opacity(0.8), radius: 2, x: 0, y: 0)
                     .mask(Circle())
-                
-                if isClicked { RoundAnimation(animate: $longPressDetected) }
-                
+
+                if isClicked {
+                    RoundAnimation(animate: $longPressDetected)
+                }
+
                 VStack {
                     Text("SEND")
                         .font(
@@ -57,7 +58,7 @@ struct ContentView: View {
         }
         .buttonStyle(PlainButtonStyle())
         .simultaneousGesture(
-            LongPressGesture(minimumDuration: 0.1).onEnded({ _ in
+            LongPressGesture(minimumDuration: 0.3).onEnded({ _ in
                 self.tapStatus = "Tap Currently Holded"
                 print(tapStatus)
                 self.isClicked = true
@@ -66,7 +67,6 @@ struct ContentView: View {
         )
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
