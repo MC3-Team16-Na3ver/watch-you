@@ -12,6 +12,9 @@ struct NotificationView: View {
     var body: some View {
         Text("{아이디}가 내 생각하는중")
             .onAppear{
+                DispatchQueue.global().async {
+                    triggerHapticFeedback(.stop, repetition: 5, duration: 1)
+                }
             }
 
     }
