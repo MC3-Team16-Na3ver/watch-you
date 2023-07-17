@@ -11,12 +11,7 @@ import SwiftUI
 struct luv_dub_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            MainPushView()
-            // NotificationView()
+            ContentView()
         }
-        
-        #if os(watchOS)
-        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
-        #endif
     }
 }
