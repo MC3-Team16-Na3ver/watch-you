@@ -41,6 +41,7 @@ struct MainPushView: View {
                         print(error.localizedDescription)
                     }else{
                         print("scheduled successfully")
+                        print("fdsa")
                     }
                 }
             }
