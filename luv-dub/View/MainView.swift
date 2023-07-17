@@ -10,34 +10,49 @@ import WatchConnectivity
 
 struct MainView: View {
     @StateObject var mainViewModel = MainViewModel()
-    var vieModelPhone = ViewModelPhone()
-    
+    var viewModelPhone = ViewModelPhone()
+    @State private var syncNotice = ""
     var body: some View {
-        HStack {
-            VStack {
-                Text(mainViewModel.myData.nickname)
-                    .font(.callout)
-                Text(mainViewModel.myData.userID)
-
-            }
+        VStack {
+            Text(syncNotice)
             
             Button {
-                self.vieModelPhone.session.sendMessage(["token": mainViewModel.loverData.deviceToken], replyHandler: nil) { error in
+                self.viewModelPhone.session.sendMessage(["token": mainViewModel.loverData.deviceToken], replyHandler: nil) { error in
                     print(error.localizedDescription)
                 }
+                connectedwithWatch()
             } label: {
                 Text("UPDATE")
             }
-
-            VStack {
-                Text(mainViewModel.loverData.nickname)
-                    .font(.callout)
-                Text(mainViewModel.loverData.userID)
+            
+            HStack {
+                VStack {
+                    Text(mainViewModel.myData.nickname)
+                        .font(.callout)
+                    Text(mainViewModel.myData.userID)
+                    
+                }
+                
+                
+                
+                VStack {
+                    Text(mainViewModel.loverData.nickname)
+                        .font(.callout)
+                    Text(mainViewModel.loverData.userID)
+                }
+            }
+            .onAppear {
+                mainViewModel.fetchDatas()
+                
             }
         }
-        .onAppear {
-            mainViewModel.fetchDatas()
-
+    }
+    
+    private func connectedwithWatch() {
+        if viewModelPhone.session.isReachable {
+            self.syncNotice = "워치와 연동되는 중\nupdate 버튼을 눌러주세요"
+        } else {
+            self.syncNotice = "워치와 연동되고 있지 않아요. 워치 화면을 켜주시고 update 버튼 눌러주세여"
         }
     }
 }
