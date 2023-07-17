@@ -30,9 +30,6 @@ struct MainPushView: View {
                 content.sound = .default
                 content.categoryIdentifier = "myCategory"
                 
-                let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
-                UNUserNotificationCenter.current().setNotificationCategories([category])
-                
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
                 let request = UNNotificationRequest(identifier: "milk", content: content, trigger: trigger)
                 

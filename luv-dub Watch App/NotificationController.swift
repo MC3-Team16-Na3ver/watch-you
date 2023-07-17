@@ -10,9 +10,6 @@ import SwiftUI
 import UserNotifications
 
 class NotificationController: WKUserNotificationHostingController<NotificationView> {
-    var title: String?
-    var message: String?
-
     override var body: NotificationView {
         return NotificationView()
     }
@@ -36,9 +33,5 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
         
         let aps = notificationData?["aps"] as? [String: Any]
         let alert = aps?["alert"] as? [String: Any]
-        
-        title = alert?["title"] as? String
-        message = alert?["message"] as? String
-        
     }
 }
