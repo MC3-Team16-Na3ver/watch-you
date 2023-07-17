@@ -5,18 +5,21 @@
 //  Created by 김예림 on 2023/07/12.
 //
 
+
 import FirebaseMessaging
 import SwiftUI
 import UserNotifications
 import WatchConnectivity
 
 struct MainPushView: View {
- 
+    @StateObject var viewModelWatch = ViewModelWatch()
     
     var body: some View {
         VStack {
+            
             Button {
                 pushNotification()
+                print(viewModelWatch.token)
             } label: {
                 Circle()
                     .fill(.red)
@@ -25,22 +28,21 @@ struct MainPushView: View {
                     }
             }
         }
-
     }
     
     private func pushNotification() {
         let token = Messaging.messaging().fcmToken
         print(token)
-        
+
         let url = URL(string: "https://fcm.googleapis.com/v1/projects/loveduk-539e3/messages:send")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer ya29.a0AbVbY6N7OAvM8H7aGHfqO-6EqQ5SsaAElFHJ5Z29_G5FbO-BvtwpotTLY12UUGDumZ4rWMw4hCn6mttXzB7A3qWqA6rDNZlYHX12DfHBz_eDrxu-HQ97gfdzitTQzAjR1zlZiZi6OCtW0cMdsP8xZLDiXWXTaCgYKAXYSARASFQFWKvPlRZE3MOtnAx8QFtMAr_egkQ0163", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer ya29.a0AbVbY6Nr5zLuy-zPfPlXOLYTnV7KOEOX4fl1MWUTw0qcuLxuG0agY68WTBoyB8-vfsVU-QThMqDXiLj1Mxo9mhLKm39sPBTMur7NDZw45lWn6YVuTxFdGNOvU3abJatjjqthm2_jMx3nj3IhWQx8TL4VUzmhaCgYKAUUSARASFQFWKvPl3jdSYcgMJsSP6AJVA0YWuQ0163", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         
         let notificationData: [String: Any] = [
             "message": [
-                "token": mainViewModel.token,
+                "token": viewModelWatch.token,
                "notification": [
                  "body": "This is an FCM notification message!",
                  "title": "FCM Message"

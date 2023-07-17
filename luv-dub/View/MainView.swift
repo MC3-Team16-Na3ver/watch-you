@@ -10,6 +10,7 @@ import WatchConnectivity
 
 struct MainView: View {
     @StateObject var mainViewModel = MainViewModel()
+    var vieModelPhone = ViewModelPhone()
     
     var body: some View {
         HStack {
@@ -18,6 +19,14 @@ struct MainView: View {
                     .font(.callout)
                 Text(mainViewModel.myData.userID)
 
+            }
+            
+            Button {
+                self.vieModelPhone.session.sendMessage(["token": mainViewModel.loverData.deviceToken], replyHandler: nil) { error in
+                    print(error.localizedDescription)
+                }
+            } label: {
+                Text("UPDATE")
             }
 
             VStack {
@@ -28,9 +37,7 @@ struct MainView: View {
         }
         .onAppear {
             mainViewModel.fetchDatas()
-            mainViewModel.session = WCSession.default
-            mainViewModel.session?.activate()
-            mainViewModel.sendDictionaryToWatch()
+
         }
     }
 }
