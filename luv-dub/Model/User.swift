@@ -1,19 +1,32 @@
 //
 //  User.swift
-//  luv-dub
+//  LoveDuk
 //
-//  Created by Song Jihyuk on 2023/07/12.
+//  Created by Song Jihyuk on 2023/07/11.
 //
 
+import FirebaseFirestoreSwift
 import SwiftUI
 
-struct User: Codable, Identifiable, Hashable {
+struct User: Identifiable, Codable {
+    @DocumentID var id: String?
     let name: String
-    var nickName: String
+    var nickname: String
     let dDay: String
     var userID: String
     let email: String
-    var id: String {
-        userID
+    var deviceToken: String
+    var connectedID: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case nickname
+        case dDay
+        case userID
+        case email
+        case deviceToken
+        case connectedID
     }
+    
 }

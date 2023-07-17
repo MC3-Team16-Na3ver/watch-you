@@ -5,6 +5,7 @@
 //  Created by moon on 2023/07/12.
 //
 
+import Firebase
 import WatchKit
 import SwiftUI
 import UserNotifications
@@ -13,6 +14,7 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
     var title: String?
     var message: String?
 
+    
     override var body: NotificationView {
         return NotificationView()
     }
@@ -33,7 +35,6 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
         // Populate your dynamic notification interface as quickly as possible.
         
         let notificationData = notification.request.content.userInfo as? [String: Any]
-        
         let aps = notificationData?["aps"] as? [String: Any]
         let alert = aps?["alert"] as? [String: Any]
         
