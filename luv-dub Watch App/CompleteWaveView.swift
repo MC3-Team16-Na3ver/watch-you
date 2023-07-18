@@ -12,6 +12,9 @@ public struct P23_Waves: View {
     
     let color = Color(hex: 0xFA114F) // , Color(hex: 0x1D427B), Color(hex: 0x1D427B), Color(hex: 0x1D427B), Color(hex: 0x1D427B)] //, Color(hex: 0x285D99), Color(hex: 0x3476BA), Color(hex: 0x4091DA), Color(hex: 0x54A7E2), Color(hex: 0x71BDEB), Color(hex: 0x91D3F3), Color(hex: 0xB5E8FC)]
     
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var time: Double = 3600 - 1
+    
     public init() {}
     public var body: some View {
         GeometryReader { proxy in
@@ -30,6 +33,16 @@ public struct P23_Waves: View {
                     .background(Color.red.opacity(0.5))
                     Spacer()
                 }
+                Text(String(Int(time) / 60) + ":" + String(Int(time) % 60))
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.1)
+                    .onReceive(timer) { _ in
+                        self.time = self.time - 1
+                    }
+                Slider(value: $time, in: 0...3600 - 1)
             }
         }
         .edgesIgnoringSafeArea(.all)
