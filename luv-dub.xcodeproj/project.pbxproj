@@ -39,6 +39,9 @@
 		30AA82A32A5E77F90047B0B6 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82A22A5E77F90047B0B6 /* KakaoSDKUser */; };
 		30AA82A62A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */; };
 		30AA82A72A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */; };
+		7343935C2A66813E00AB3555 /* GeometryProxy+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343935A2A66813E00AB3555 /* GeometryProxy+Extensions.swift */; };
+		7343935D2A66813E00AB3555 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343935B2A66813E00AB3555 /* Color+Extensions.swift */; };
+		7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343935E2A66814500AB3555 /* CompleteWaveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,9 @@
 		30AA82A42A5E780B0047B0B6 /* luv-dub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "luv-dub.entitlements"; sourceTree = "<group>"; };
 		30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30AA82A82A5E7B7F0047B0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7343935A2A66813E00AB3555 /* GeometryProxy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeometryProxy+Extensions.swift"; sourceTree = "<group>"; };
+		7343935B2A66813E00AB3555 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		7343935E2A66814500AB3555 /* CompleteWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteWaveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,8 +253,10 @@
 		1839B67C2A5E71D000066D47 /* luv-dub Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				734393592A66813E00AB3555 /* Extension */,
 				1839B67D2A5E71D000066D47 /* luv_dubApp.swift */,
 				1839B67F2A5E71D000066D47 /* ContentView.swift */,
+				7343935E2A66814500AB3555 /* CompleteWaveView.swift */,
 				18191BC62A63C1EA00E9719B /* CompleteView.swift */,
 				18191BC32A63BD1200E9719B /* RoundAnimation.swift */,
 				1839B6812A5E71D100066D47 /* Assets.xcassets */,
@@ -281,6 +289,15 @@
 				1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */,
 			);
 			path = "luv-dub Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		734393592A66813E00AB3555 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7343935A2A66813E00AB3555 /* GeometryProxy+Extensions.swift */,
+				7343935B2A66813E00AB3555 /* Color+Extensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,7 +572,10 @@
 				1839B6802A5E71D000066D47 /* ContentView.swift in Sources */,
 				18191BC72A63C1EA00E9719B /* CompleteView.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
+				7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */,
 				18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */,
+				7343935C2A66813E00AB3555 /* GeometryProxy+Extensions.swift in Sources */,
+				7343935D2A66813E00AB3555 /* Color+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

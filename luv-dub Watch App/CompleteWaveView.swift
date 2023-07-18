@@ -15,33 +15,10 @@ public struct P23_Waves: View {
     public init() {}
     public var body: some View {
         GeometryReader { proxy in
-            ZStack {
-                Color.clear
-                ZStack {
-                    // ForEach(Array(colors.enumerated()), id: \.offset) { index, color in
-                    Color(hex: 0x727272)
-                    WaveView(waveColor: color,
-                             waveHeight: Double(5) * Double.random(in: 0.007...0.008),
-                             progress: Double(5) * 10)
-                    Text("Send")
-                        .foregroundColor(Color.white)
-
-                    // }
                 }
-                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
-                .frame(width: proxy.minSize * 0.8, height: proxy.minSize  * 0.8)
-                .overlay(
-                    Circle()
-                        .stroke(Color(hex: 0x17356B), lineWidth: 20)
-                        .frame(width: proxy.minSize * 0.8 + 20, height: proxy.minSize * 0.8 + 20)
-                        .shadow(color: Color.black.opacity(0.5), radius: proxy.minSize * 0.025, x: proxy.minSize * 0.005, y: proxy.minSize * 0.005)
-                )
-                .mask(
-                    Circle()
-                )
             }
-            .edgesIgnoringSafeArea(.all)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -50,7 +27,7 @@ struct WaveShape: Shape {
     
     var offset: Angle
     var waveHeight: Double = 0.025
-    var percent: Double
+    var percent: Double = 0.5
     
     var animatableData: Double {
         get { offset.degrees }
@@ -85,13 +62,12 @@ struct WaveView: View {
     
     var waveColor: Color
     var waveHeight: Double = 0.025
-    var progress: Double
     
     @State private var waveOffset = Angle(degrees: 0)
     
     var body: some View {
         ZStack {
-            WaveShape(offset: waveOffset, waveHeight: waveHeight, percent: Double(progress)/100)
+            WaveShape(offset: waveOffset, waveHeight: waveHeight)// , percent: Double(progress)/100)
                 .fill(waveColor)
         }
         .onAppear {
