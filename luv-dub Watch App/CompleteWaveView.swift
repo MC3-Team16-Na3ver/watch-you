@@ -15,6 +15,20 @@ public struct P23_Waves: View {
     public init() {}
     public var body: some View {
         GeometryReader { proxy in
+            VStack{
+                HStack(alignment: .center){
+                    Spacer()
+                    ZStack {
+                        Color(hex: 0x727272)
+                        WaveView(waveColor: color, waveHeight: 4 * 0.007)
+                        Text("Send")
+                            .foregroundColor(Color.white)
+                    }
+                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
+                    .frame(width: proxy.minSize * 0.8, height: proxy.minSize  * 0.8)
+                    .mask( Circle() )
+                    .background(Color.red.opacity(0.5))
+                    Spacer()
                 }
             }
         }
