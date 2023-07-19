@@ -67,7 +67,7 @@ struct SendButton: View {
         }
         .buttonStyle(PlainButtonStyle())
         .simultaneousGesture(
-            LongPressGesture(minimumDuration: 0.3).onEnded({ _ in
+            LongPressGesture(minimumDuration: 1.0).onEnded({ _ in
                 self.tapStatus = "Tap Currently Holded"
                 print(tapStatus)
                 self.isClicked = true
