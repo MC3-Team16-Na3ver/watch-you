@@ -15,7 +15,7 @@ struct ProfileView: View {
                 RoundedRectangle(cornerRadius: 13)
                     .foregroundColor(Color(red: 29 / 255, green: 29 / 255, blue: 29 / 255))
                     .frame(height: 44)
-                .padding(.horizontal, 7)
+                    .padding(.horizontal, 7)
                 Toggle("알림 설정", isOn: $switchNotification)
                     .toggleStyle(SwitchToggleStyle(tint: Color.pink))
                     .padding(.horizontal, 17)
@@ -31,10 +31,17 @@ struct ProfileView: View {
                     .padding(.trailing, 8)
             }
             .overlay {
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.pink)
+                LinearGradient(
+                stops: [
+                Gradient.Stop(color: Color(red: 1, green: 0.3, blue: 0.48), location: 0.00),
+                Gradient.Stop(color: Color(red: 0.98, green: 0.07, blue: 0.31), location: 1.00),
+                ],
+                startPoint: UnitPoint(x: 0.92, y: 0.1),
+                endPoint: UnitPoint(x: 0.15, y: 0.87)
+                )
+                .mask(Image(systemName: "heart.fill")
                     .font(.system(size: 20))
-                    .padding(.top, 35)
+                    .padding(.top, 35))
             }
         }
     }
@@ -45,8 +52,8 @@ struct NicknameView: View {
     var body: some View {
         VStack {
             RoundedRectangle(cornerRadius: 15)
-                .strokeBorder(Color.pink)
-                .foregroundColor(isMe ? .pink : .black)
+                .strokeBorder(Color.pink, lineWidth: 1)
+                .background(RoundedRectangle(cornerRadius: 15).foregroundColor(isMe ? Color.pink : Color.black))
                 .frame(width: isMe ? 28 : 47, height: 17, alignment: .center)
                 .overlay {
                     Text(isMe ? "ME" : "LOVER")
@@ -56,13 +63,15 @@ struct NicknameView: View {
                 .padding(.bottom, 5)
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                //                .foregroundColor(.black)
                     .stroke(isMe ? Color.pink : Color.gray)
                 VStack(spacing: 0) {
-                        LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
+                        .opacity(0.25)
                         .cornerRadius(11, corners: [.topLeft, .topRight])
                     LinearGradient(gradient: Gradient(colors: [.gray, .black]), startPoint: .top, endPoint: .bottom)
                         .cornerRadius(11, corners: [.bottomLeft, .bottomRight])
+                        .opacity(0.25)
+                    
                 }
                 VStack{
                     Text(isMe ? "혜리미" : "일동이")
@@ -92,10 +101,10 @@ extension View {
 
 //CornerRadius를 특정 모서리에만 줄 수 있도록 하는 struct
 struct RoundedCorner: Shape {
-
+    
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
-
+    
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
