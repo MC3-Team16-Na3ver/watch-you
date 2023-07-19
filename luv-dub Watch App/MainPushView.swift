@@ -27,6 +27,7 @@ struct MainPushView: View {
                         Text("SEND")
                     }
             }
+
         }
     }
     

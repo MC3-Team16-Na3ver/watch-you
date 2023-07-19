@@ -9,23 +9,12 @@ import SwiftUI
 import WatchKit
 
 struct NotificationView: View {
-    let hapticTypes: [(WKHapticType, Int, TimeInterval)] = [
-        (.notification, 2, 0.2),
-        (.directionUp, 3, 0.3),
-        (.directionDown,4, 0.4),
-        (.stop, 5, 1.0)
-    ]
-    
     var body: some View {
         Text("{아이디}가 내 생각하는중")
             .onAppear{
-                
-                let haptic = hapticTypes[3]
-                let hapticType = haptic.0
-                let repetition = haptic.1
-                let duration = haptic.2
-                
-                triggerHapticFeedback(hapticType, repetition: repetition, duration: duration)
+                DispatchQueue.global().async {
+                    triggerHapticFeedback(.stop, repetition: 5, duration: 1)
+                }
             }
 
     }
@@ -36,41 +25,6 @@ struct NotificationView: View {
         for _ in 0..<repetition {
             hapticInterface.play(hapticType)
             Thread.sleep(forTimeInterval: duration)
-        }
-    }
-    
-    private func displayName(for hapticType: WKHapticType) -> String {
-        switch hapticType {
-        case .notification:
-            return "Notification"
-        case .directionUp:
-            return "Direction Up"
-        case .directionDown:
-            return "Direction Down"
-        case .success:
-            return "Success"
-        case .failure:
-            return "Failure"
-        case .retry:
-            return "Retry"
-        case .start:
-            return "Start"
-        case .stop:
-            return "Stop"
-        case .click:
-            return "Click"
-        case .navigationGenericManeuver:
-            return "Generic Maneuver"
-        case .navigationLeftTurn:
-            return "Left Turn"
-        case .navigationRightTurn:
-            return "Right Turn"
-        case .underwaterDepthPrompt:
-            return "Underwater Depth Prompt"
-        case .underwaterDepthCriticalPrompt:
-            return "Underwater Depth Critical Prompt"
-        @unknown default:
-            fatalError()
         }
     }
 }
