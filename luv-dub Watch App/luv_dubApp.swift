@@ -17,7 +17,10 @@ struct luv_dub_Watch_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainPushView()
+            TabView{
+                MainPushView()
+                ProfileView()
+            }
         }
         
         #if os(watchOS)
