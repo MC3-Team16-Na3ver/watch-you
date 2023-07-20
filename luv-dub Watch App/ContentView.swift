@@ -20,11 +20,10 @@ struct ContentView: View {
             if isComplete {
                 CompleteView()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) {
                             self.isComplete = false
                         }
                     }
-                
             } else {
                 SendButton(tapStatus: $tapStatus,
                            longPressDetected: $longPressDetected,

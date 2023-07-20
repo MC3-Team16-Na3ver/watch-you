@@ -13,6 +13,8 @@ struct ProgressBar: View {
     @State private var isPulsing = false
     @State private var progress: CGFloat = 0.0
     
+    var completion: (() -> Void)?
+    
     var body: some View {
         ZStack {
             Circle()
@@ -44,16 +46,12 @@ struct ProgressBar: View {
             
         }
         .onAppear {
-                    if animate {
-                        withAnimation(Animation.linear(duration: 3.5)) {
-                            self.progress = 1.0
-                        }
-                    }
+            if animate {
+                withAnimation(Animation.linear(duration: 2.0)) {
+                    self.progress = 1.0
                 }
-        .onChange(of: isComplete) { newValue in
-            if newValue {
-                Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { _ in
-                    self.isComplete = false
+                Timer.scheduledTimer(withTimeInterval: 3.5, repeats: false) { _ in
+                    self.isComplete = true
                 }
             }
         }

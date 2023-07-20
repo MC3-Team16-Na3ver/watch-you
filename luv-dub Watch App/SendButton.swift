@@ -14,21 +14,15 @@ struct SendButton: View {
     @Binding var isLoading: Bool
     @Binding var isComplete: Bool
     @State private var dotAnimationStart = false
-    
+
     
     var body: some View {
         ZStack {
             if isClicked {
                 ProgressBar(animate: $longPressDetected, isComplete: $isComplete)
                     .onReceive(NotificationCenter.default.publisher(for: .progressCompleted)) { _ in
-                        
-                        if self.isComplete {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
-                                self.isComplete = false
-                            }
-                        }
+                        self.isComplete = true
                     }
-                
             }
             
             Button(action: {
