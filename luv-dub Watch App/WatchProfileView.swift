@@ -74,14 +74,13 @@ struct NicknameView: View {
                     
                 }
                 VStack{
-                    Text(isMe ? "혜리미" : "일동이")
+                    Text(isMe ? "Rimee" : "Jay")
                         .font(.system(size: 25))
                         .fontWeight(.bold)
-                    Text(isMe ? "이혜림" : "조일동")
+                    Text(isMe ? "Hyelim Lee" : "Ildong Jo")
                         .font(.system(size: 13))
                 }
             }
-            
         }
     }
 }
