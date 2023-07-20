@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18191BC32A63BD1200E9719B /* RoundAnimation.swift */; };
+		18191BC72A63C1EA00E9719B /* CompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18191BC62A63C1EA00E9719B /* CompleteView.swift */; };
 		1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6552A5E71CE00066D47 /* luv_dubApp.swift */; };
 		1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6572A5E71CE00066D47 /* ContentView.swift */; };
 		1839B65A2A5E71D000066D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1839B6592A5E71D000066D47 /* Assets.xcassets */; };
@@ -52,6 +54,9 @@
 		30AA82A32A5E77F90047B0B6 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82A22A5E77F90047B0B6 /* KakaoSDKUser */; };
 		30AA82A62A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */; };
 		30AA82A72A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */; };
+		7343935C2A66813E00AB3555 /* GeometryProxy+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343935A2A66813E00AB3555 /* GeometryProxy+Extensions.swift */; };
+		7343935D2A66813E00AB3555 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343935B2A66813E00AB3555 /* Color+Extensions.swift */; };
+		7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343935E2A66814500AB3555 /* CompleteWaveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +130,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18191BC32A63BD1200E9719B /* RoundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundAnimation.swift; sourceTree = "<group>"; };
+		18191BC62A63C1EA00E9719B /* CompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteView.swift; sourceTree = "<group>"; };
 		1839B6522A5E71CE00066D47 /* luv-dub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "luv-dub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1839B6552A5E71CE00066D47 /* luv_dubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubApp.swift; sourceTree = "<group>"; };
 		1839B6572A5E71CE00066D47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -162,6 +169,9 @@
 		30AA82A42A5E780B0047B0B6 /* luv-dub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "luv-dub.entitlements"; sourceTree = "<group>"; };
 		30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30AA82A82A5E7B7F0047B0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7343935A2A66813E00AB3555 /* GeometryProxy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeometryProxy+Extensions.swift"; sourceTree = "<group>"; };
+		7343935B2A66813E00AB3555 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		7343935E2A66814500AB3555 /* CompleteWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteWaveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,10 +315,12 @@
 		1839B67C2A5E71D000066D47 /* luv-dub Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				734393592A66813E00AB3555 /* Extension */,
 				1839B67D2A5E71D000066D47 /* luv_dubApp.swift */,
-				306F800A2A5F13030088A57F /* NotificationView.swift */,
-				306F80082A5F12FD0088A57F /* NotificationController.swift */,
-				306F80062A5F12E10088A57F /* MainPushView.swift */,
+				1839B67F2A5E71D000066D47 /* ContentView.swift */,
+				7343935E2A66814500AB3555 /* CompleteWaveView.swift */,
+				18191BC62A63C1EA00E9719B /* CompleteView.swift */,
+				18191BC32A63BD1200E9719B /* RoundAnimation.swift */,
 				1839B6812A5E71D100066D47 /* Assets.xcassets */,
 				30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */,
 				1839B6832A5E71D100066D47 /* Preview Content */,
@@ -707,10 +719,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				306F80092A5F12FD0088A57F /* NotificationController.swift in Sources */,
-				306F80072A5F12E10088A57F /* MainPushView.swift in Sources */,
+				1839B6802A5E71D000066D47 /* ContentView.swift in Sources */,
+				18191BC72A63C1EA00E9719B /* CompleteView.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
-				306F800B2A5F13030088A57F /* NotificationView.swift in Sources */,
+				7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */,
+				18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */,
+				7343935C2A66813E00AB3555 /* GeometryProxy+Extensions.swift in Sources */,
+				7343935D2A66813E00AB3555 /* Color+Extensions.swift in Sources */,
+				306F80092A5F12FD0088A57F /* NotificationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
