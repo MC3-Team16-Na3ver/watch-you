@@ -50,7 +50,7 @@ struct SendButton: View {
                     .mask(Circle())
                 
                 if isClicked {
-                    RoundAnimation(animate: $longPressDetected)
+                    ProgressBar(animate: $longPressDetected)
                 }
                 
                 VStack {

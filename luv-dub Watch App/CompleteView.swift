@@ -10,12 +10,15 @@ import SwiftUI
 struct CompleteView: View {
     var body: some View {
         VStack {
-            Image(systemName: "checkmark.circle.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 32, height: 32)
-                .foregroundColor(Color(red: 0.98, green: 0.07, blue: 0.31))
-                .padding(10)
+            Circle()
+                .fill(Color(red: 1, green: 0.22, blue: 0.37).opacity(0.2))
+                .frame(width: 30, height: 30)
+                .overlay(
+                    Image(systemName: "checkmark")
+                        .font(Font.system(size: 13, weight: .bold))
+                        .foregroundColor(Color(red: 1, green: 0.22, blue: 0.37))
+                )
+                .padding()
             
             Text("전송완료")
                 .font(
