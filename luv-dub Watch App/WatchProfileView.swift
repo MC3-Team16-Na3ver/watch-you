@@ -16,7 +16,7 @@ struct ProfileView: View {
                     .foregroundColor(Color(red: 29 / 255, green: 29 / 255, blue: 29 / 255))
                     .frame(height: 44)
                     .padding(.horizontal, 7)
-                Toggle("알림 설정", isOn: $switchNotification)
+                Toggle("Notification", isOn: $switchNotification)
                     .toggleStyle(SwitchToggleStyle(tint: Color.pink))
                     .padding(.horizontal, 17)
             }
@@ -74,14 +74,13 @@ struct NicknameView: View {
                     
                 }
                 VStack{
-                    Text(isMe ? "혜리미" : "일동이")
+                    Text(isMe ? "Rimee" : "Jay")
                         .font(.system(size: 25))
                         .fontWeight(.bold)
-                    Text(isMe ? "이혜림" : "조일동")
+                    Text(isMe ? "Hyelim Lee" : "Ildong Jo")
                         .font(.system(size: 13))
                 }
             }
-            
         }
     }
 }
