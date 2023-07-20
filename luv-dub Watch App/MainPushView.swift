@@ -37,20 +37,39 @@ struct MainPushView: View {
         let url = URL(string: "https://fcm.googleapis.com/v1/projects/loveduk-539e3/messages:send")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer ya29.a0AbVbY6Nr5zLuy-zPfPlXOLYTnV7KOEOX4fl1MWUTw0qcuLxuG0agY68WTBoyB8-vfsVU-QThMqDXiLj1Mxo9mhLKm39sPBTMur7NDZw45lWn6YVuTxFdGNOvU3abJatjjqthm2_jMx3nj3IhWQx8TL4VUzmhaCgYKAUUSARASFQFWKvPl3jdSYcgMJsSP6AJVA0YWuQ0163", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer ya29.a0AbVbY6PgFc3WSGjrWNcCNZg5ckEHKX3XCSNuVUMGVGPg-D96Pm-Tmnfl-yzoAAd-W1BG7ltHXzjlYDSvGwCUT_kx7BnbpgRE7lVd6gDQjUwsm4WDhTY1R71GfmXTyNkzTEDoxfKjP7zhwWDmPcNVY9NH0UJ2aCgYKAbISARASFQFWKvPlL56EZ1QZQIgJK6DmpWWlTA0163", forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
+        
+//        let notificationData: [String: Any] = [
+//            "message": [
+//                "token": viewModelWatch.token,
+//               "notification": [
+//                 "body": "This is an FCM notification message!",
+//                 "title": "FCM Message",
+//                 "click_action"
+//               ]
+//            ]
+//        ]
         
         let notificationData: [String: Any] = [
             "message": [
                 "token": viewModelWatch.token,
-               "notification": [
-                 "body": "This is an FCM notification message!",
-                 "title": "FCM Message"
+               "apns": [
+                "payload": [
+                    "aps": [
+                         "alert" : [
+                            "title" : "Game Request",
+                            "subtitle" : "Five Card Draw",
+                            "body" : "Bob wants to play poker"
+                         ],
+                         "category" : "hello"
+                      ],
+                ]
                ]
             ]
         ]
-        let a = try! JSONSerialization.data(withJSONObject: notificationData, options: [])
         
+        let a = try! JSONSerialization.data(withJSONObject: notificationData, options: [])
         request.httpBody = a // notificationData.description.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
