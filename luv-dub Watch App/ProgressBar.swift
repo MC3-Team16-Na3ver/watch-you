@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ProgressBar: View {
     @Binding var animate: Bool
+    @Binding var isComplete: Bool
     @State private var isPulsing = false
+    @State private var progress: CGFloat = 0.0
+    
     var body: some View {
         ZStack {
             Circle()
@@ -30,7 +33,7 @@ struct ProgressBar: View {
                 .shadow(color: Color.black, radius: 1.5, x: 0, y: 1.5)
             
             Circle()
-                .trim(from: 0, to: 0.35)
+                .trim(from: 0, to: isComplete ? 1.0 : progress)
                 .stroke(
                     Color(red: 0.98, green: 0.07, blue: 0.31),
                     style: StrokeStyle(lineWidth: 8.2,
@@ -40,10 +43,17 @@ struct ProgressBar: View {
                 .rotationEffect(.degrees(-90))
             
         }
-        .onAppear{
-            withAnimation(Animation.easeInOut(duration: 0.8).repeatForever()) {
-                if animate {
-                    isPulsing.toggle()
+        .onAppear {
+                    if animate {
+                        withAnimation(Animation.linear(duration: 3.5)) {
+                            self.progress = 1.0
+                        }
+                    }
+                }
+        .onChange(of: isComplete) { newValue in
+            if newValue {
+                Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { _ in
+                    self.isComplete = false
                 }
             }
         }
@@ -52,7 +62,10 @@ struct ProgressBar: View {
 
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBar(animate: .constant(true))
+        ProgressBar(animate: .constant(true), isComplete: .constant(false))
     }
 }
 
+extension Notification.Name {
+    static let progressCompleted = Notification.Name("progressCompleted")
+}

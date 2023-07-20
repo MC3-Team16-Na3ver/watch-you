@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18191BC32A63BD1200E9719B /* RoundAnimation.swift */; };
-		18191BC72A63C1EA00E9719B /* CircleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18191BC62A63C1EA00E9719B /* CircleLoadingView.swift */; };
 		1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6552A5E71CE00066D47 /* luv_dubApp.swift */; };
 		1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6572A5E71CE00066D47 /* ContentView.swift */; };
 		1839B65A2A5E71D000066D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1839B6592A5E71D000066D47 /* Assets.xcassets */; };
@@ -100,7 +99,6 @@
 
 /* Begin PBXFileReference section */
 		18191BC32A63BD1200E9719B /* RoundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundAnimation.swift; sourceTree = "<group>"; };
-		18191BC62A63C1EA00E9719B /* CircleLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLoadingView.swift; sourceTree = "<group>"; };
 		1839B6522A5E71CE00066D47 /* luv-dub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "luv-dub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1839B6552A5E71CE00066D47 /* luv_dubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubApp.swift; sourceTree = "<group>"; };
 		1839B6572A5E71CE00066D47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 				1839B67F2A5E71D000066D47 /* ContentView.swift */,
 				18191BC32A63BD1200E9719B /* RoundAnimation.swift */,
 				185B89F12A6596FE00E05A50 /* SendButton.swift */,
-				18191BC62A63C1EA00E9719B /* CircleLoadingView.swift */,
 				185B89F72A68F84300E05A50 /* ProgressBar.swift */,
 				185B89EF2A6587D100E05A50 /* CompleteView.swift */,
 				185B89F32A67CA3900E05A50 /* HeartBeatView.swift */,
@@ -568,7 +565,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1839B6802A5E71D000066D47 /* ContentView.swift in Sources */,
-				18191BC72A63C1EA00E9719B /* CircleLoadingView.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
 				185B89F22A6596FE00E05A50 /* SendButton.swift in Sources */,
 				185B89F82A68F84300E05A50 /* ProgressBar.swift in Sources */,
