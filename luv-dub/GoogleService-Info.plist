@@ -14,22 +14,20 @@
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.nasver.luvdub</string>
-	<key>CFBundleIdentifier</key>
-	<string></string>
 	<key>PROJECT_ID</key>
 	<string>loveduk-539e3</string>
 	<key>STORAGE_BUCKET</key>
 	<string>loveduk-539e3.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:757153338890:ios:7f17bac72235f9213731f3</string>
 </dict>

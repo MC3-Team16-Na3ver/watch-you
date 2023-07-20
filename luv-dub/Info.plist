@@ -13,12 +13,26 @@
 			</array>
 		</dict>
 	</array>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>KAKAO_NATIVE_APP_KEY</key>
 	<string>d9c1f4f4efcad42d66731df965af9e60</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
+	</array>
+	<key>NSExtensionAttributes</key>
+	<dict>
+		<key>UNNotificationExtensionCategory</key>
+		<array>
+			<string>hello</string>
+		</array>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
 	</array>
 </dict>
 </plist>
