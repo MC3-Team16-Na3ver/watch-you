@@ -23,14 +23,13 @@ public struct P23_Waves: View {
                     Spacer()
                     ZStack {
                         Color(hex: 0x727272)
-                        WaveView(waveColor: color, waveHeight: 4 * 0.007)
+                        WaveView(waveColor: color, waveHeight: 4 * 0.007, progress: 1 - time / 3600)
                         Text("Send")
                             .foregroundColor(Color.white)
                     }
                     .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 0)
                     .frame(width: proxy.minSize * 0.8, height: proxy.minSize  * 0.8)
                     .mask( Circle() )
-                    .background(Color.red.opacity(0.5))
                     Spacer()
                 }
                 Text(String(Int(time) / 60) + ":" + String(Int(time) % 60))
@@ -41,6 +40,7 @@ public struct P23_Waves: View {
                     .minimumScaleFactor(0.1)
                     .onReceive(timer) { _ in
                         self.time = self.time - 1
+                        if(self.time <= 0) { self.time = 0 }
                     }
                 Slider(value: $time, in: 0...3600 - 1)
             }
@@ -65,7 +65,7 @@ struct WaveShape: Shape {
         var p = Path()
         
         let waveHeight = waveHeight * rect.height
-        let yoffset = CGFloat(1.0 - percent) * (rect.height - 8 * waveHeight)
+        let yoffset = CGFloat(1.0 - percent) * (rect.height - 6 * waveHeight)
         let startAngle = offset
         let endAngle = offset + Angle(degrees: 361)
         
@@ -89,12 +89,13 @@ struct WaveView: View {
     
     var waveColor: Color
     var waveHeight: Double = 0.025
+    var progress: Double
     
     @State private var waveOffset = Angle(degrees: 0)
     
     var body: some View {
         ZStack {
-            WaveShape(offset: waveOffset, waveHeight: waveHeight)// , percent: Double(progress)/100)
+            WaveShape(offset: waveOffset, waveHeight: waveHeight, percent: progress)
                 .fill(waveColor)
         }
         .onAppear {
