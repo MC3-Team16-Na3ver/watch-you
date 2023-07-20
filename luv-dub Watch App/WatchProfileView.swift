@@ -16,7 +16,7 @@ struct ProfileView: View {
                     .foregroundColor(Color(red: 29 / 255, green: 29 / 255, blue: 29 / 255))
                     .frame(height: 44)
                     .padding(.horizontal, 7)
-                Toggle("알림 설정", isOn: $switchNotification)
+                Toggle("Notification", isOn: $switchNotification)
                     .toggleStyle(SwitchToggleStyle(tint: Color.pink))
                     .padding(.horizontal, 17)
             }
