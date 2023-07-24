@@ -10,7 +10,7 @@ import SwiftUI
 struct SuccessView: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var users: FetchedResults<Users>
+    @FetchRequest(sortDescriptors: []) var userInfo: FetchedResults<UserInfo>
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct SuccessView: View {
             Spacer()
             
             Button {
-                let user = Users(context: moc)
+                let user = UserInfo(context: moc)
                 user.id = loginViewModel.user.id
                 user.uid = loginViewModel.user.userID
                 user.nickname = loginViewModel.user.nickname

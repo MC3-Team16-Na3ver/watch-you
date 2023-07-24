@@ -60,7 +60,7 @@ struct MainView: View {
             .onAppear {
                 DispatchQueue.global(qos: .userInteractive).async {
                     mainViewModel.fetchDatas()
-                    let user = Users(context: moc)
+                    let user = UserInfo(context: moc)
                     user.id = mainViewModel.myData.id
                     user.nickname = mainViewModel.myData.nickname
                     user.uid = mainViewModel.myData.userID

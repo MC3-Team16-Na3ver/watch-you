@@ -14,7 +14,7 @@ struct ContentView: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var users: FetchedResults<Users>
+    @FetchRequest(sortDescriptors: []) var users: FetchedResults<UserInfo>
     
     var body: some View {
         VStack {

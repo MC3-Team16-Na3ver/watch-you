@@ -28,8 +28,8 @@
 		306376982A64B218002B2A77 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306376972A64B218002B2A77 /* MainViewModel.swift */; };
 		3063769A2A64BCCA002B2A77 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306376992A64BCCA002B2A77 /* SuccessView.swift */; };
 		307F270C2A6E5C6900DB4DD1 /* MainPushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F270B2A6E5C6900DB4DD1 /* MainPushViewModel.swift */; };
-		307F270F2A6E603B00DB4DD1 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 307F270D2A6E603B00DB4DD1 /* UserModel.xcdatamodeld */; };
-		307F27102A6E603B00DB4DD1 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 307F270D2A6E603B00DB4DD1 /* UserModel.xcdatamodeld */; };
+		307F270F2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 307F270D2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld */; };
+		307F27102A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 307F270D2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld */; };
 		309AA8D32A612F0600039E5C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309AA8D22A612F0600039E5C /* NotificationService.swift */; };
 		309AA8D72A612F0600039E5C /* Notification.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 309AA8D02A612F0600039E5C /* Notification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		309AA8E02A644F7900039E5C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309AA8DF2A644F7900039E5C /* LoginView.swift */; };
@@ -289,7 +289,7 @@
 		1839B6542A5E71CE00066D47 /* luv-dub */ = {
 			isa = PBXGroup;
 			children = (
-				307F270D2A6E603B00DB4DD1 /* UserModel.xcdatamodeld */,
+				307F270D2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld */,
 				309AA8DE2A644F2300039E5C /* Model */,
 				309AA8DD2A644F1A00039E5C /* ViewModel */,
 				309AA8DC2A644F1400039E5C /* View */,
@@ -737,7 +737,7 @@
 				309AA8E62A644FBD00039E5C /* NicknameSetView.swift in Sources */,
 				739B97382A698B3300986A2D /* ViewModelPhone.swift in Sources */,
 				309AA8E42A644FA500039E5C /* User.swift in Sources */,
-				307F270F2A6E603B00DB4DD1 /* UserModel.xcdatamodeld in Sources */,
+				307F270F2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */,
 				1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -765,7 +765,7 @@
 			files = (
 				739B97362A698A8800986A2D /* NotificationController.swift in Sources */,
 				739B97282A6988EA00986A2D /* WatchProfileView.swift in Sources */,
-				307F27102A6E603B00DB4DD1 /* UserModel.xcdatamodeld in Sources */,
+				307F27102A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */,
 				307F270C2A6E5C6900DB4DD1 /* MainPushViewModel.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
 				739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */,
@@ -1480,13 +1480,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		307F270D2A6E603B00DB4DD1 /* UserModel.xcdatamodeld */ = {
+		307F270D2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				307F270E2A6E603B00DB4DD1 /* UserModel.xcdatamodel */,
 			);
 			currentVersion = 307F270E2A6E603B00DB4DD1 /* UserModel.xcdatamodel */;
-			path = UserModel.xcdatamodeld;
+			path = UserInfo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
