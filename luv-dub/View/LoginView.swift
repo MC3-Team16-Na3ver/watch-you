@@ -9,7 +9,6 @@ import AuthenticationServices
 import FirebaseAuth
 import SwiftUI
 
-
 enum ViewType {
     case nicknameView
     case coupleCodeView
@@ -22,7 +21,7 @@ enum ViewType {
 struct LoginView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var loginViewModel: LoginViewModel
-    
+
     var body: some View {
         if #available(iOS 16.0, *) {
             NavigationStack(path: $loginViewModel.path) {
