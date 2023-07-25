@@ -11,23 +11,30 @@ struct SendButton: View {
     @StateObject private var viewModel = ButtonViewModel()
     
     var body: some View {
-        Button(action: {
-            viewModel.handleLongPressedDetected()
-            viewModel.printStatus()
-        }) {
-            Text("SEND")
-                .modifier(ButtonTextStyle())
+        ZStack {
+            if viewModel.showProgressBar {
+                ProgressBar(viewModel: viewModel)
+            }
+            Button(action: {
+                viewModel.handleLongPressedDetected()
+
+                viewModel.printStatus()
+            }) {
+                Text("SEND")
+                    .modifier(ButtonTextStyle())
+            }
+            .buttonStyle(SendButtonStyle())
+            .simultaneousGesture(
+                LongPressGesture(minimumDuration: 0.15)
+                    .onEnded { _ in
+                        viewModel.handleLongPressEnded()
+                        viewModel.printStatus()
+                    }
+            )
         }
-        .buttonStyle(SendButtonStyle())
-        .simultaneousGesture(
-            LongPressGesture(minimumDuration: 0.3)
-                .onEnded { _ in
-                    viewModel.handleLongPressEnded()
-                    viewModel.printStatus()
-                }
-        )
     }
 }
+
 
 // Button Style
 fileprivate struct SendButtonStyle: ButtonStyle {
@@ -48,7 +55,10 @@ fileprivate struct SendButtonStyle: ButtonStyle {
                         .shadow(color: .black.opacity(configuration.isPressed ? 0.6 : 0.8), radius: 2, x: 0, y: 0)
                         .mask(Circle())
                     if configuration.isPressed {
-                        Color.black.opacity(0.3)
+                        Circle().fill(
+                            Color.black.opacity(0.3)
+                        )
+                        
                     }
                 }
             )
