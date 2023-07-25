@@ -18,7 +18,8 @@ struct luv_dub_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
-                MainPushView()
+//                MainPushView()
+                SendButton()
                 ProfileView()
             }
         }
