@@ -11,6 +11,7 @@ import SwiftUI
 struct NicknameSetView: View {
     @State private var nickname: String = ""
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @Environment(\.managedObjectContext) var moc
     
     var body: some View {
             nicknameSetView
@@ -29,8 +30,9 @@ struct NicknameSetView: View {
             Spacer()
             
             Button {
-                loginViewModel.user.nickname = self.nickname
+                loginViewModel.setUserNickname(nickname: self.nickname)
                 loginViewModel.addUserToDatabase()
+                updateUserInfo()
             } label: {
                 RoundedRectangle(cornerRadius: 16)
                     .overlay(
@@ -39,6 +41,16 @@ struct NicknameSetView: View {
                 
             }
         }
+    }
+    
+    private func updateUserInfo() {
+        let user = UserInfo(context: moc)
+        user.id = loginViewModel.user.id
+        user.uid = loginViewModel.user.userID
+        user.nickname = loginViewModel.user.nickname
+        
+        try? moc.save()
+
     }
 }
 

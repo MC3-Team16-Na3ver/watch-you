@@ -38,20 +38,27 @@ struct CoupleCodeView: View {
             }
         }
         .onAppear {
-            if let myUid = Auth.auth().currentUser?.uid {
-                Firestore.firestore().collection("User").document(myUid).addSnapshotListener { document, error in
-                    if let error = error {
-                        return
-                    }
+            listeningLoversResponse()
+        }
+    }
+    
+    private func listeningLoversResponse() {
+        guard let myUid = Auth.auth().currentUser?.uid else { return }
+            Firestore.firestore().collection("User").document(myUid).addSnapshotListener { documentSnapshot, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                guard let document = documentSnapshot else { return }
+                
+                if document.exists {
+                    guard let connectedID = document.data()?["connectedID"] as? String else { return }
                     
-                    if let change = document?.exists {
+                    if !connectedID.isEmpty {
                         loginViewModel.path.append(.successView)
-                        
                     }
                 }
             }
-        }
-        
     }
 }
 
