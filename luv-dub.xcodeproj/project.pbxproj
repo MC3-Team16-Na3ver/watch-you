@@ -28,6 +28,8 @@
 		184E98392A7029F000335BE9 /* ViewModelWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E98382A7029EF00335BE9 /* ViewModelWatch.swift */; };
 		18AE9C312A702B4500D543DB /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE9C302A702B4500D543DB /* ProgressBar.swift */; };
 		18AE9C332A7037F500D543DB /* ProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE9C322A7037F500D543DB /* ProgressViewModel.swift */; };
+		18AE9C352A70E2CC00D543DB /* CompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE9C342A70E2CC00D543DB /* CompleteView.swift */; };
+		18AE9C372A710DB400D543DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE9C362A710DB400D543DB /* ContentView.swift */; };
 		303CFE9D2A5F2D31003931F3 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 303CFE9C2A5F2D31003931F3 /* FirebaseMessaging */; };
 		303CFE9F2A5F2D3C003931F3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 303CFE9E2A5F2D3C003931F3 /* FirebaseAnalytics */; };
 		306376962A64B0AB002B2A77 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306376952A64B0AB002B2A77 /* MainView.swift */; };
@@ -163,6 +165,8 @@
 		184E98382A7029EF00335BE9 /* ViewModelWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelWatch.swift; sourceTree = "<group>"; };
 		18AE9C302A702B4500D543DB /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		18AE9C322A7037F500D543DB /* ProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewModel.swift; sourceTree = "<group>"; };
+		18AE9C342A70E2CC00D543DB /* CompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteView.swift; sourceTree = "<group>"; };
+		18AE9C362A710DB400D543DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		306376952A64B0AB002B2A77 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		306376972A64B218002B2A77 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		306376992A64BCCA002B2A77 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
@@ -389,8 +393,10 @@
 		18AE9C2F2A702B0C00D543DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18AE9C362A710DB400D543DB /* ContentView.swift */,
 				184E98302A70185F00335BE9 /* SendButton.swift */,
 				18AE9C302A702B4500D543DB /* ProgressBar.swift */,
+				18AE9C342A70E2CC00D543DB /* CompleteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -783,11 +789,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				184E98312A70185F00335BE9 /* SendButton.swift in Sources */,
+				18AE9C352A70E2CC00D543DB /* CompleteView.swift in Sources */,
 				739B97362A698A8800986A2D /* NotificationController.swift in Sources */,
 				739B97282A6988EA00986A2D /* WatchProfileView.swift in Sources */,
 				184E98332A701EBA00335BE9 /* MainPushViewModel.swift in Sources */,
 				18AE9C332A7037F500D543DB /* ProgressViewModel.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
+				18AE9C372A710DB400D543DB /* ContentView.swift in Sources */,
 				739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */,
 				18AE9C312A702B4500D543DB /* ProgressBar.swift in Sources */,
 				739B97352A698A8800986A2D /* MainPushView.swift in Sources */,

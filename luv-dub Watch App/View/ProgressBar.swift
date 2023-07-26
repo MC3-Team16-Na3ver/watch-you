@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProgressBar: View {
-    @ObservedObject var viewModel: ButtonViewModel
+    @EnvironmentObject private var viewModel: ButtonViewModel
     
     var body: some View {
         ZStack {
@@ -35,14 +35,11 @@ struct ProgressBar: View {
                 .frame(width: 132.5, height: 132.5)
                 .rotationEffect(.degrees(-90))
         }
-        .onAppear {
-//            viewModel.startProgressAnimation()
-        }
     }
 }
 
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBar(viewModel: ButtonViewModel())
+        ProgressBar()
     }
 }

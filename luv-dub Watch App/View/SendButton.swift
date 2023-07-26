@@ -8,30 +8,32 @@
 import SwiftUI
 
 struct SendButton: View {
-    @StateObject private var viewModel = ButtonViewModel()
+    @EnvironmentObject private var viewModel: ButtonViewModel
     
     var body: some View {
-        ZStack {
-            if viewModel.showProgressBar {
-                ProgressBar(viewModel: viewModel)
-            }
-            Button(action: {
-                viewModel.handleLongPressedDetected()
-
-                viewModel.printStatus()
-            }) {
-                Text("SEND")
-                    .modifier(ButtonTextStyle())
-            }
-            .buttonStyle(SendButtonStyle())
-            .simultaneousGesture(
-                LongPressGesture(minimumDuration: 0.15)
-                    .onEnded { _ in
-                        viewModel.handleLongPressEnded()
-                        viewModel.printStatus()
+            ZStack {
+                if viewModel.showProgressBar {
+                    ProgressBar()
+                }
+                
+                if viewModel.isProgressComplete {
+                    CompleteView()
+                } else {
+                    Button(action: {
+                        viewModel.handleLongPressedDetected()
+                    }) {
+                        Text("SEND")
+                            .modifier(ButtonTextStyle())
                     }
-            )
-        }
+                    .buttonStyle(SendButtonStyle())
+                    .simultaneousGesture(
+                        LongPressGesture(minimumDuration: 0.15)
+                            .onEnded { _ in
+                                viewModel.handleLongPressEnded()
+                            }
+                    )
+                }
+            }
     }
 }
 

@@ -15,11 +15,13 @@ import WatchKit
 struct luv_dub_Watch_AppApp: App {
     @WKApplicationDelegateAdaptor(ExtensionDelegate.self) var appDelegate: ExtensionDelegate
     
+    @StateObject private var viewModel = ButtonViewModel()
     var body: some Scene {
         WindowGroup {
             TabView{
 //                MainPushView()
-                SendButton()
+                ContentView()
+                    .environmentObject(viewModel)
                 ProfileView()
             }
         }

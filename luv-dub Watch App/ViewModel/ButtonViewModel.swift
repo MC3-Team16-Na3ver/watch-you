@@ -15,6 +15,7 @@ class ButtonViewModel: ObservableObject {
     
     @Published var showProgressBar = false
     @Published var progress: Double = 0.0
+    @Published var isProgressComplete = false
     
     /// Button의 longPress가 감지됐을 때 처리하는 함수
     /// 값을 원상태로 돌린다.
@@ -43,10 +44,11 @@ class ButtonViewModel: ObservableObject {
     
     /// 상태값 확인을 위한 출력 함수
     func printStatus() {
-        print("tapStatus: \(tapStatus)")
-        print("isClicked: \(isClicked)")
-        print("longPressDetected: \(longPressDetected)")
-        print("isLoading: \(isLoading)")
+//        print("tapStatus: \(tapStatus)")
+//        print("isClicked: \(isClicked)")
+//        print("longPressDetected: \(longPressDetected)")
+//        print("isLoading: \(isLoading)")
+        print("isComplete: \(isProgressComplete)")
     }
     
     /// progressBar 진행
@@ -67,6 +69,7 @@ class ButtonViewModel: ObservableObject {
             if currentStep >= totalSteps {
                 timer.invalidate()
                 self.handleLongPressedDetected()
+                self.isProgressComplete = true
                 return
             }
             
@@ -76,4 +79,12 @@ class ButtonViewModel: ObservableObject {
             }
         }
     }
+    
+    /// ProgressBar reset 함수
+    func resetProgress() {
+        isProgressComplete = false
+        showProgressBar = false
+        progress = 0.0
+    }
+
 }
