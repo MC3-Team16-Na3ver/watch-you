@@ -1,5 +1,5 @@
 //
-//  SendButton.swift
+//  SendButtonView.swift
 //  luv-dub Watch App
 //
 //  Created by 김예림 on 2023/07/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SendButton: View {
+struct SendButtonView: View {
     @EnvironmentObject private var viewModel: ButtonViewModel
     
     var body: some View {
@@ -15,9 +15,11 @@ struct SendButton: View {
                 if viewModel.showProgressBar {
                     ProgressBar()
                 }
-                
                 if viewModel.isProgressComplete {
-                    CompleteView()
+                    StatusView()
+                        .onAppear {
+                            viewModel.sendPeerToNotification()
+                        }
                 } else {
                     Button(action: {
                         viewModel.handleLongPressedDetected()
@@ -74,7 +76,7 @@ fileprivate struct ButtonTextStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(
-                Font.custom("Apple SD Gothic Neo", size: 17)
+                Font.custom("Apple SD Gothic Neo", size: 14)
                     .weight(.bold)
             )
             .kerning(0.1)
@@ -86,8 +88,9 @@ fileprivate struct ButtonTextStyle: ViewModifier {
 
 
 
-struct SendButton_Previews: PreviewProvider {
+struct SendButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        SendButton()
+        SendButtonView()
+            .environmentObject(ButtonViewModel())
     }
 }

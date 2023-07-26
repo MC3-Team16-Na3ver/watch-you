@@ -47,7 +47,7 @@ class ButtonViewModel: ObservableObject {
 //        print("tapStatus: \(tapStatus)")
 //        print("isClicked: \(isClicked)")
 //        print("longPressDetected: \(longPressDetected)")
-//        print("isLoading: \(isLoading)")
+        print("isLoading: \(isLoading)")
         print("isComplete: \(isProgressComplete)")
     }
     
@@ -86,5 +86,15 @@ class ButtonViewModel: ObservableObject {
         showProgressBar = false
         progress = 0.0
     }
-
+    
+    /// 로딩중일 때 - Notification 전송 시도
+    func sendPeerToNotification() {
+        isLoading = true
+        // 서버에 알림 보내는 로직 추가하면 됩니다.
+    }
+    
+    /// Notification 전송 시도가 완료됐을 때 호출하는 함수
+    func stopLoading() {
+        isLoading = false
+    }
 }
