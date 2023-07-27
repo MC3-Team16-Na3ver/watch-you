@@ -31,7 +31,7 @@ struct NicknameSetView: View {
             
             Button {
                 loginViewModel.setUserNickname(nickname: self.nickname)
-                loginViewModel.addUserToDatabase()
+                loginViewModel.addUserToFirestore()
                 updateUserInfo()
             } label: {
                 RoundedRectangle(cornerRadius: 16)

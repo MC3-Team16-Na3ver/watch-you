@@ -110,7 +110,9 @@ class LoginViewModel: ObservableObject {
         self.updateUserModel(user: User(name: givenName, nickname: "", dDay: "", userID: "", email: credential.email ?? "", deviceToken: "", connectedID: ""))
     }
     
-    func addUserToDatabase() {
+
+    
+    func addUserToFirestore() {
         guard let currentUser = Auth.auth().currentUser else { return }
         
         setUserId(uid: currentUser.uid)
@@ -161,7 +163,7 @@ class LoginViewModel: ObservableObject {
                 return
             }
             
-            let currentUserData = db.collection("User").document(currentUserUid)
+            let currentUserData = db.collection("User").document(currentUserUid)    
             let _ = currentUserData.updateData(["connectedID": loverUid])
             
             let loverUserData = db.collection("User").document(loverUid)
