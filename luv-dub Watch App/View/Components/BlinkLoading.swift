@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-//struct BlinkLoading: View {
-//    @State private var isAnimating = false
-//    var body: some View {
-//        VStack {
-//            Blinking(isAnimating: $isAnimating, count: 8, size:10)
-//                .frame(width: 55, height: 55)
-//        }
-//        .onAppear {
-//            isAnimating = true
-//        }
-//        .onDisappear {
-//            isAnimating = false
-//        }
-//    }
-//}
-
 struct BlinkingLoading: View {
     @Binding var isAnimating: Bool
     public let count: Int

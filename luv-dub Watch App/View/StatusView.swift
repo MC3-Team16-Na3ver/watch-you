@@ -46,21 +46,6 @@ struct StatusView: View {
     }
 }
 
-// 폰트 설정
-struct TextStyle: ViewModifier {
-    var textSize: CGFloat
-    var textWeight: Font.Weight
-    var textKerning: CGFloat
-    
-    func body(content: Content) -> some View {
-        content
-            .font(.custom("Apple SD Gothic Neo", size: textSize).weight(textWeight))
-            .kerning(textKerning)
-            .multilineTextAlignment(.center)
-            .foregroundColor(.white)
-    }
-}
-
 // 완료 원 배경
 struct CircleCheckmarkStyle: ViewModifier {
     func body(content: Content) -> some View {

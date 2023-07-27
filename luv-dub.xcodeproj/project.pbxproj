@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18191BC32A63BD1200E9719B /* RoundAnimation.swift */; };
 		182E2CC42A71846900E7255D /* HeartNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E2CC32A71846900E7255D /* HeartNumbersView.swift */; };
+		182E2CC62A724D5700E7255D /* HeartTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E2CC52A724D5700E7255D /* HeartTimerView.swift */; };
+		182E2CC82A724E3900E7255D /* HeartStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E2CC72A724E3900E7255D /* HeartStatus.swift */; };
+		182E2CCA2A7250DB00E7255D /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E2CC92A7250DB00E7255D /* TextStyle.swift */; };
 		1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6552A5E71CE00066D47 /* luv_dubApp.swift */; };
 		1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6572A5E71CE00066D47 /* ContentView.swift */; };
 		1839B65A2A5E71D000066D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1839B6592A5E71D000066D47 /* Assets.xcassets */; };
@@ -25,7 +28,6 @@
 		1839B69B2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */; };
 		1844A3452A713FB30083A04E /* TransmissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844A3442A713FB30083A04E /* TransmissionStatus.swift */; };
 		1844A3482A7147EB0083A04E /* BlinkLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844A3472A7147EB0083A04E /* BlinkLoading.swift */; };
-		1844A34A2A7152B70083A04E /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844A3492A7152B70083A04E /* CheckMark.swift */; };
 		184E98312A70185F00335BE9 /* SendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E98302A70185F00335BE9 /* SendButtonView.swift */; };
 		184E98332A701EBA00335BE9 /* MainPushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E98322A701EBA00335BE9 /* MainPushViewModel.swift */; };
 		184E98372A70220200335BE9 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E98362A70220200335BE9 /* ButtonViewModel.swift */; };
@@ -145,6 +147,9 @@
 /* Begin PBXFileReference section */
 		18191BC32A63BD1200E9719B /* RoundAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundAnimation.swift; sourceTree = "<group>"; };
 		182E2CC32A71846900E7255D /* HeartNumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartNumbersView.swift; sourceTree = "<group>"; };
+		182E2CC52A724D5700E7255D /* HeartTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartTimerView.swift; sourceTree = "<group>"; };
+		182E2CC72A724E3900E7255D /* HeartStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartStatus.swift; sourceTree = "<group>"; };
+		182E2CC92A7250DB00E7255D /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		1839B6522A5E71CE00066D47 /* luv-dub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "luv-dub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1839B6552A5E71CE00066D47 /* luv_dubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dubApp.swift; sourceTree = "<group>"; };
 		1839B6572A5E71CE00066D47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -166,7 +171,6 @@
 		1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dub_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1844A3442A713FB30083A04E /* TransmissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionStatus.swift; sourceTree = "<group>"; };
 		1844A3472A7147EB0083A04E /* BlinkLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkLoading.swift; sourceTree = "<group>"; };
-		1844A3492A7152B70083A04E /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
 		184E98302A70185F00335BE9 /* SendButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonView.swift; sourceTree = "<group>"; };
 		184E98322A701EBA00335BE9 /* MainPushViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPushViewModel.swift; sourceTree = "<group>"; };
 		184E98362A70220200335BE9 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
@@ -392,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				1844A3442A713FB30083A04E /* TransmissionStatus.swift */,
+				182E2CC72A724E3900E7255D /* HeartStatus.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -401,8 +406,7 @@
 			children = (
 				18AE9C302A702B4500D543DB /* ProgressBar.swift */,
 				1844A3472A7147EB0083A04E /* BlinkLoading.swift */,
-				1844A3492A7152B70083A04E /* CheckMark.swift */,
-				182E2CC32A71846900E7255D /* HeartNumbersView.swift */,
+				182E2CC92A7250DB00E7255D /* TextStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -424,6 +428,8 @@
 				1844A3462A7147A00083A04E /* Components */,
 				18AE9C362A710DB400D543DB /* ContentView.swift */,
 				184E98302A70185F00335BE9 /* SendButtonView.swift */,
+				182E2CC32A71846900E7255D /* HeartNumbersView.swift */,
+				182E2CC52A724D5700E7255D /* HeartTimerView.swift */,
 				18AE9C342A70E2CC00D543DB /* StatusView.swift */,
 			);
 			path = View;
@@ -820,6 +826,7 @@
 				1844A3452A713FB30083A04E /* TransmissionStatus.swift in Sources */,
 				18AE9C352A70E2CC00D543DB /* StatusView.swift in Sources */,
 				739B97362A698A8800986A2D /* NotificationController.swift in Sources */,
+				182E2CCA2A7250DB00E7255D /* TextStyle.swift in Sources */,
 				739B97282A6988EA00986A2D /* WatchProfileView.swift in Sources */,
 				182E2CC42A71846900E7255D /* HeartNumbersView.swift in Sources */,
 				1844A3482A7147EB0083A04E /* BlinkLoading.swift in Sources */,
@@ -830,13 +837,14 @@
 				739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */,
 				18AE9C312A702B4500D543DB /* ProgressBar.swift in Sources */,
 				739B97352A698A8800986A2D /* MainPushView.swift in Sources */,
+				182E2CC62A724D5700E7255D /* HeartTimerView.swift in Sources */,
 				184E98372A70220200335BE9 /* ButtonViewModel.swift in Sources */,
 				739B97322A698A6300986A2D /* Color+Extensions.swift in Sources */,
 				739B97312A698A6300986A2D /* GeometryProxy+Extensions.swift in Sources */,
+				182E2CC82A724E3900E7255D /* HeartStatus.swift in Sources */,
 				184E98392A7029F000335BE9 /* ViewModelWatch.swift in Sources */,
 				7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */,
 				18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */,
-				1844A34A2A7152B70083A04E /* CheckMark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

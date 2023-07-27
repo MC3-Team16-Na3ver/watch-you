@@ -9,7 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        SendButtonView()
+        VStack {
+            HeartTimerView()
+                .padding(.top, 30)
+            Spacer()
+            SendButtonView()
+            Spacer()
+            HeartNumbersView()
+                .padding(.bottom,10)
+        }
+        .ignoresSafeArea()
     }
 }
 
