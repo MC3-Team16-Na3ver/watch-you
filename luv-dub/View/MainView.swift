@@ -13,25 +13,11 @@ struct MainView: View {
     var viewModelPhone = ViewModelPhone()
     @State private var syncNotice = ""
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var users: FetchedResults<UserInfo>
-    
+    @FetchRequest(sortDescriptors: []) var userInfo: FetchedResults<UserInfo>
+
     var body: some View {
-        NavigationView {
         VStack {
-            HStack {
-                NavigationLink {
-                    CoupleCodeView()
-                } label: {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(.pink)
-                        .overlay(Text("연동하기").foregroundColor(.accentColor))
-                }
-                
-                Spacer()
-            }
-            
-            Spacer()
-            
+
             Text(syncNotice)
             
             Button {
@@ -58,19 +44,25 @@ struct MainView: View {
                 }
             }
             .onAppear {
-                DispatchQueue.global(qos: .userInteractive).async {
-                    mainViewModel.fetchDatas()
-                    let user = UserInfo(context: moc)
+                let user = UserInfo(context: moc)
+                self.mainViewModel.getRefreshToken { refreshToken in
+                    self.viewModelPhone.session.transferUserInfo(["token": mainViewModel.loverData.deviceToken, "refreshToken": refreshToken])
+                }
+                
+                    mainViewModel.fetchDatas() {
+                        mainViewModel.addUserIdToRealtimeDatabase(deviceToken: mainViewModel.myData.deviceToken, loverUid: mainViewModel.loverData.userID, loversDeviceToken: mainViewModel.loverData.deviceToken)
+                    }
+
+                
                     user.id = mainViewModel.myData.id
                     user.nickname = mainViewModel.myData.nickname
                     user.uid = mainViewModel.myData.userID
                     user.connectedID = mainViewModel.myData.connectedID
                     
                     try? moc.save()
-                }
+                
             }
         }
-    }
     }
     
     private func connectedwithWatch() {

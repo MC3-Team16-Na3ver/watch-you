@@ -5,10 +5,9 @@
 //  Created by 김예림 on 2023/07/12.
 //
 
-import FirebaseMessaging
+import Firebase
 import SwiftUI
 import UserNotifications
-import WatchConnectivity
 import WatchKit
 
 @main
@@ -18,6 +17,7 @@ struct luv_dub_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
+//                TestView()
                 MainPushView()
                 ProfileView()
             }
@@ -31,10 +31,8 @@ struct luv_dub_Watch_AppApp: App {
 
 class ExtensionDelegate: NSObject, WKApplicationDelegate, UNUserNotificationCenterDelegate {
     
-    let session = WCSession.default
-    
     func applicationDidFinishLaunching() {
- 
+        
     }
     
     func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (WKBackgroundFetchResult) -> Void) {

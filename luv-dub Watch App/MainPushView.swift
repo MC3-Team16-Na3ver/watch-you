@@ -12,12 +12,11 @@ import UserNotifications
 import WatchConnectivity
 
 struct MainPushView: View {
-    @StateObject var viewModelWatch = ViewModelWatch()
     @StateObject var mainPushViewModel = MainPushViewModel()
-    
+    @FetchRequest(sortDescriptors: []) var users: FetchedResults<UserInfo>
     private var notificationData: [String: Any] { [
         "message": [
-            "token": viewModelWatch.token,
+            "token": mainPushViewModel.token,
             "apns": [
                 "payload": [
                     "aps": [
@@ -36,11 +35,11 @@ struct MainPushView: View {
     
     var body: some View {
         VStack {
-            
             Button {
                 mainPushViewModel.pushNotification(notificationData: notificationData)
-                print(viewModelWatch.token)
-            } label: {
+                print(mainPushViewModel.token)
+            }
+            label: {
                 Circle()
                     .fill(.red)
                     .overlay {
@@ -48,6 +47,9 @@ struct MainPushView: View {
                     }
             }
 
+        }
+        .onAppear {
+            mainPushViewModel.refreshAccessToken(refreshToken: mainPushViewModel.refreshToken)
         }
     }
 }
