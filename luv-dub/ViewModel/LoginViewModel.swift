@@ -122,11 +122,7 @@ class LoginViewModel: ObservableObject {
     
     func fetchUserDataFromApple(credential: ASAuthorizationAppleIDCredential) {
         guard let givenName = credential.fullName?.givenName else { return }
-        if let email = credential.email {
-            self.updateUserModel(user: User(name: givenName, nickname: "", dDay: "", userID: "", email: email, deviceToken: "", connectedID: ""))
-        } else {
-            self.updateUserModel(user: User(name: givenName, nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: ""))
-        }
+        self.updateUserModel(user: User(name: givenName, nickname: "", dDay: "", userID: "", email: credential.email ?? "", deviceToken: "", connectedID: ""))
     }
     
     // MARK: Read
