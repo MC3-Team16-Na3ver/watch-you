@@ -39,14 +39,14 @@ struct ContentView: View {
     }
     
     private func isUserHasNickname() -> Bool {
-        if let _ = users.first!.nickname {
+        if let _ = users.last!.nickname {
             return true
         }
         return false
     }
     
     private func isUserHasLover() -> Bool {
-        if let _ = users.first!.connectedID {
+        if let _ = users.last!.connectedID {
             return true
         }
         return false

@@ -51,6 +51,7 @@ struct CoupleCodeView: View {
                 }
                 guard let document = documentSnapshot else { return }
                 
+                
                 if document.exists {
                     guard let connectedID = document.data()?["connectedID"] as? String else { return }
                     
@@ -59,11 +60,5 @@ struct CoupleCodeView: View {
                     }
                 }
             }
-    }
-}
-
-struct CoupleCodeView_Previews: PreviewProvider {
-    static var previews: some View {
-        CoupleCodeView()
     }
 }
