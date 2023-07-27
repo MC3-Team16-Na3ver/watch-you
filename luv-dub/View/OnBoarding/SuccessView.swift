@@ -16,8 +16,8 @@ struct SuccessView: View {
             
             Spacer()
             
-            Button {
-                loginViewModel.path.append(.mainView)
+            NavigationLink {
+                MainView()
             } label: {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(.pink)
