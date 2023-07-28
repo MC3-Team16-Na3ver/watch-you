@@ -12,20 +12,23 @@ struct HeartTimerView: View {
     
     var body: some View {
         HStack() {
-            Image("heart_active")
-            if viewModel.remainingHearts == viewModel.maxHearts {
-                Text(HeartStatus.isFull.status)
-                    .modifier(TextStyle(textSize: 12, textWeight: .bold, textKerning: 0.012))
-            } else {
-                Text(viewModel.timerText)
-                    .modifier(TextStyle(textSize: 12, textWeight: .bold, textKerning: 0.012))
-                    .onAppear {
-                        if viewModel.remainingHearts < 5 {
-                            viewModel.startTimer()
+            if viewModel.isMainScreen {
+                Image(viewModel.remainingHearts > 0 ? "heart_active" : "heart_inactive")
+                if viewModel.remainingHearts == viewModel.maxHearts {
+                    Text(HeartStatus.isFull.status)
+                        .modifier(TextStyle(textSize: 12, textWeight: .bold, textKerning: 0.012))
+                } else {
+                    Text(viewModel.timerText)
+                        .modifier(TextStyle(textSize: 12, textWeight: .bold, textKerning: 0.012))
+                        .onAppear {
+                            if viewModel.remainingHearts < 5 {
+                                viewModel.startTimer()
+                            }
                         }
-                    }
+                }
+                Spacer().frame(width: 115)
             }
-            Spacer().frame(width: 115)
+            
         }
     }
 }

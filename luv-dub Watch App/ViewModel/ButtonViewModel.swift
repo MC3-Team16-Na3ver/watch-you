@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 class ButtonViewModel: ObservableObject {
+    @Published var isMainScreen = true  // 메인 버튼 누르기 스크린 여부 확인
+    
     @Published var tapStatus = ""       // 버튼 누르기 상태 출력
     @Published var isClicked = false    // 버튼 클릭 여부(짧게 누르기)
     @Published var longPressDetected = false    // 오래 누른 상태 확인

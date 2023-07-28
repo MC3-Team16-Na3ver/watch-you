@@ -22,25 +22,31 @@ struct StatusView: View {
                     .onDisappear {
                         isAnimating = false
                     }
-                    
+                
             } else {
                 Circle()
                     .fill(Color(red: 1, green: 0.22, blue: 0.37).opacity(0.2))
                     .frame(width: 30, height: 30)
-                    .modifier(CircleCheckmarkStyle())
+                    .modifier(CircleCheckmarkStyle(isSuccess: viewModel.isSendComplete))
             }
             
+            
             Text(viewModel.isLoading ? TransmissionStatus.inProgress.status :
-                    TransmissionStatus.sendComplete.status)
+                    (viewModel.isSendComplete ? TransmissionStatus.sendComplete.status :
+                        TransmissionStatus.sendFail.status))
             .modifier(TextStyle(textSize: 15, textWeight: .semibold, textKerning: 0.015))
             .padding(5)
             
-            Text(viewModel.isLoading ? TransmissionStatus.inProgress.description : TransmissionStatus.sendComplete.description)
-                .modifier(TextStyle(textSize: 10, textWeight: .regular, textKerning: 0.01))
+            
+            Text(viewModel.isLoading ? TransmissionStatus.inProgress.description :
+                    (viewModel.isSendComplete ? TransmissionStatus.sendComplete.description :
+                            TransmissionStatus.sendFail.description ))
+            .modifier(TextStyle(textSize: 10, textWeight: .regular, textKerning: 0.01))
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 viewModel.isProgressComplete = false
+                viewModel.isMainScreen = true
             }
         }
     }
@@ -48,10 +54,12 @@ struct StatusView: View {
 
 // 완료 원 배경
 struct CircleCheckmarkStyle: ViewModifier {
+    let isSuccess: Bool
+    
     func body(content: Content) -> some View {
         content
             .overlay(
-                Image(systemName: "checkmark")
+                Image(systemName: isSuccess ? "checkmark" : "xmark")
                     .font(Font.system(size: 13, weight: .bold))
                     .foregroundColor(Color(red: 1, green: 0.22, blue: 0.37))
             )
