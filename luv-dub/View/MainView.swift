@@ -13,7 +13,7 @@ struct MainView: View {
     var viewModelPhone = ViewModelPhone()
     @State private var syncNotice = ""
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var users: FetchedResults<Users>
+    // @FetchRequest(sortDescriptors: []) var users: FetchedResults<Users>
     
     var body: some View {
         NavigationView {
