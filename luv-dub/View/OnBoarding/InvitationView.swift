@@ -14,7 +14,7 @@ import SwiftUI
 struct InvitationView: View {
     @State private var invitationCode = ""
     @EnvironmentObject var loginViewModel: LoginViewModel
-    
+
     var body: some View {
         VStack {
             Text("연인의 커플 코드를 입력해 주세요.")

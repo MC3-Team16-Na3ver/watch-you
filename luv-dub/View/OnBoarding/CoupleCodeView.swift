@@ -14,32 +14,32 @@ struct CoupleCodeView: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
     
     var body: some View {
-            VStack {
-                Text("나의 코드 복사")
-                
-                Button {
-                    UIPasteboard.general.string = Auth.auth().currentUser?.uid ?? ""
-                } label: {
-                    Text("\(Auth.auth().currentUser?.uid ?? "")")
-                        .underline()
-                }
-                
-                Spacer()
-                
-                Button {
-                    self.loginViewModel.path.append(.invitationView)
-                    
-                } label: {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(.pink)
-                        .overlay(
-                            Text("상대방 코드로 연결하기")
-                                .foregroundColor(.white)
-                        )
-                }
+        VStack {
+            Text("나의 코드 복사")
+            
+            Button {
+                UIPasteboard.general.string = Auth.auth().currentUser?.uid ?? ""
+            } label: {
+                Text("\(Auth.auth().currentUser?.uid ?? "")")
+                    .underline()
             }
-            .onAppear {
-                Firestore.firestore().collection("User").document(Auth.auth().currentUser!.uid).addSnapshotListener { document, error in
+            
+            Spacer()
+            
+            NavigationLink {
+                InvitationView()
+            } label: {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(.pink)
+                    .overlay(
+                        Text("상대방 코드로 연결하기")
+                            .foregroundColor(.white)
+                    )
+            }
+        }
+        .onAppear {
+            if let myUid = Auth.auth().currentUser?.uid {
+                Firestore.firestore().collection("User").document(myUid).addSnapshotListener { document, error in
                     if let error = error {
                         return
                     }
@@ -50,6 +50,7 @@ struct CoupleCodeView: View {
                     }
                 }
             }
+        }
         
     }
 }

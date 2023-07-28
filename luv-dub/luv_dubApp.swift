@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import FirebaseAuth
 import FirebaseMessaging
 import KakaoSDKAuth
 import KakaoSDKCommon
@@ -16,15 +17,18 @@ import WatchConnectivity
 @main
 struct luv_dubApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject private var dataController = DataController()
     
     init() {
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
+
     }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(LoginViewModel())
                 .onOpenURL { url in
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
@@ -40,9 +44,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let aps = "aps"
     let data1Key = "DATA1"
     let data2Key = "DATA2"
+
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
+        
         Messaging.messaging().delegate = self
         
         UNUserNotificationCenter.current().delegate = self

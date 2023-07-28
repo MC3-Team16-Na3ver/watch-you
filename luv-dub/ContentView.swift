@@ -5,17 +5,28 @@
 //  Created by 김예림 on 2023/07/12.
 //
 
+import CoreData
 import Firebase
-import FirebaseMessaging
+import FirebaseAuth
 import SwiftUI
-import WatchConnectivity
 
 struct ContentView: View {
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var users: FetchedResults<UserInfo>
+    
     var body: some View {
         VStack {
-            LoginView()
+            if users.isEmpty {
+                LoginView()
+            } else {
+                LoginView()
+                    .onAppear {
+                        loginViewModel.path.append(.mainView)
+                    }
+            }
         }
         .padding()
     }
 }
-
