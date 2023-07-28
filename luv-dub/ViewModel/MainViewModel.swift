@@ -14,16 +14,20 @@ import SwiftUI
 class MainViewModel: ObservableObject {
     @Published var myData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
     @Published var loverData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
-    
+    @Published var path: [ViewType] = []
     
     func fetchDatas() {
         let db = Firestore.firestore().collection("User")
-        let currentUserUid = Auth.auth().currentUser!.uid
+        guard let currentUserUid = Auth.auth().currentUser?.uid else { return }
         db.document(currentUserUid).getDocument(as: User.self) { result in
             switch result {
             case .success(let user):
                 self.myData = user
-                print(self.myData.connectedID.description)
+                if self.myData.connectedID.isEmpty {
+                    self.loverData.nickname = "연인과 연동해보세요"
+                    return
+                }
+                
                 db.document(self.myData.connectedID).getDocument(as: User.self) { data in
                     switch data {
                     case .success(let lover):
@@ -37,5 +41,4 @@ class MainViewModel: ObservableObject {
             }
         }
     }
-
 }

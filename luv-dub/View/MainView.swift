@@ -12,8 +12,26 @@ struct MainView: View {
     @StateObject var mainViewModel = MainViewModel()
     var viewModelPhone = ViewModelPhone()
     @State private var syncNotice = ""
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var users: FetchedResults<Users>
+    
     var body: some View {
+        NavigationView {
         VStack {
+            HStack {
+                NavigationLink {
+                    CoupleCodeView()
+                } label: {
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.pink)
+                        .overlay(Text("연동하기").foregroundColor(.accentColor))
+                }
+                
+                Spacer()
+            }
+            
+            Spacer()
+            
             Text(syncNotice)
             
             Button {
@@ -33,8 +51,6 @@ struct MainView: View {
                     
                 }
                 
-                
-                
                 VStack {
                     Text(mainViewModel.loverData.nickname)
                         .font(.callout)
@@ -42,10 +58,19 @@ struct MainView: View {
                 }
             }
             .onAppear {
-                mainViewModel.fetchDatas()
-                
+                DispatchQueue.global(qos: .userInteractive).async {
+                    mainViewModel.fetchDatas()
+                    let user = UserInfo(context: moc)
+                    user.id = mainViewModel.myData.id
+                    user.nickname = mainViewModel.myData.nickname
+                    user.uid = mainViewModel.myData.userID
+                    user.connectedID = mainViewModel.myData.connectedID
+                    
+                    try? moc.save()
+                }
             }
         }
+    }
     }
     
     private func connectedwithWatch() {

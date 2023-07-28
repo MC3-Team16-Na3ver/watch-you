@@ -31,7 +31,6 @@ struct NicknameSetView: View {
             Button {
                 loginViewModel.user.nickname = self.nickname
                 loginViewModel.addUserToDatabase()
-                loginViewModel.path.append(.coupleCodeView)
             } label: {
                 RoundedRectangle(cornerRadius: 16)
                     .overlay(
