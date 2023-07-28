@@ -30,6 +30,7 @@ struct luv_dubApp: App {
             ContentView()
                 // .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(LoginViewModel())
+                .environmentObject(AppDelegate())
                 .onOpenURL { url in
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
@@ -46,14 +47,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let data2Key = "DATA2"
 
 
+    @Published var isAlertOn: Bool = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         
         Messaging.messaging().delegate = self
         
-        UNUserNotificationCenter.current().delegate = self
-        
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        checkNotificationPermission()
         
         application.registerForRemoteNotifications()
         return true
