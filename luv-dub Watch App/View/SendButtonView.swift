@@ -27,9 +27,12 @@ struct SendButtonView: View {
                 }
                 .buttonStyle(SendButtonStyle(isPossibleToSend: viewModel.remainingHearts > 0))
                 .simultaneousGesture(
-                    LongPressGesture(minimumDuration: 0.15)
-                        .onEnded { _ in
-                            viewModel.handleLongPressEnded()
+                    DragGesture(minimumDistance: 0.0)
+                        .onChanged{ _ in
+                            viewModel.startProgressAnimation()
+                        }
+                        .onEnded{ _ in
+                            viewModel.longPressDetected = false
                         }
                 )
                 .disabled(viewModel.remainingHearts == 0)
