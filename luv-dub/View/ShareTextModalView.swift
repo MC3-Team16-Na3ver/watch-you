@@ -14,4 +14,13 @@ struct ShareTextModalView: UIViewControllerRepresentable {
 struct ShareText: Identifiable {
     let id = UUID()
     let text: String
+    let invitationCode: String
+    
+    
+    func kakaoTalkMessage() -> String{
+        return """
+               상대방과 연동하세요
+               상대방의 초대코드 : \(self.invitationCode)
+               """
+    }
 }
