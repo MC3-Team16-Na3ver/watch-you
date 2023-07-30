@@ -9,12 +9,26 @@ import SwiftUI
 
 struct ProgressBar: View {
     @EnvironmentObject private var viewModel: ButtonViewModel
+    @State private var scale: CGFloat = 1.2
     
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color(red: 0.98, green: 0.07, blue: 0.31).opacity(0.225))
-                .frame(width: 173, height: 173)
+                .fill(
+                    RadialGradient(
+                        gradient: Gradient(
+                            colors: [
+                                Color(red: 0.98, green: 0.07, blue: 0.31).opacity(0.36),
+                                Color(red: 0.98, green: 0.07, blue: 0.31).opacity(0)
+                            ]
+                        ),
+                        center: UnitPoint(x: 0.5, y: 0.5),
+                        startRadius: 55 * scale,
+                        endRadius: 75 * scale
+                    )
+                )
+                .frame(width: 147, height: 147)
+                .scaleEffect(viewModel.longPressDetected ? 1.15 : 0.8)
             Circle()
                 .fill(Color(red: 0.98, green: 0.11, blue: 0.34).opacity(0.255))
                 .overlay(
@@ -34,6 +48,13 @@ struct ProgressBar: View {
                 )
                 .frame(width: 132.5, height: 132.5)
                 .rotationEffect(.degrees(-90))
+        }
+        .onAppear {
+            withAnimation(Animation.easeInOut(duration: 0.7).repeatForever(autoreverses: true)) {
+                if viewModel.longPressDetected {
+                    self.scale = 1.0
+                }
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ struct StatusView: View {
                 Circle()
                     .fill(Color(red: 1, green: 0.22, blue: 0.37).opacity(0.2))
                     .frame(width: 30, height: 30)
+                    .padding(15)
                     .modifier(CircleCheckmarkStyle(isSuccess: viewModel.isSendComplete))
             }
             
