@@ -13,12 +13,17 @@ struct MainView: View {
     var viewModelPhone = ViewModelPhone()
     @State private var syncNotice = ""
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var userInfo: FetchedResults<UserInfo>
 
     var body: some View {
         VStack {
-
             Text(syncNotice)
+            
+            NavigationLink {
+                CoupleCodeView()
+            } label: {
+                Text("커플 연동하기")
+            }
+
             
             Button {
                 self.viewModelPhone.session.sendMessage(["token": mainViewModel.loverData.deviceToken], replyHandler: nil) { error in
@@ -45,15 +50,15 @@ struct MainView: View {
             }
             .onAppear {
                 let user = UserInfo(context: moc)
-                self.mainViewModel.getRefreshToken { refreshToken in
-                    self.viewModelPhone.session.transferUserInfo(["token": mainViewModel.loverData.deviceToken, "refreshToken": refreshToken])
-                }
-                
+
                     mainViewModel.fetchDatas() {
-                        mainViewModel.addUserIdToRealtimeDatabase(deviceToken: mainViewModel.myData.deviceToken, loverUid: mainViewModel.loverData.userID, loversDeviceToken: mainViewModel.loverData.deviceToken)
+                        mainViewModel.getRefreshToken { refreshToken in
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.viewModelPhone.session.transferUserInfo(["token": mainViewModel.loverData.deviceToken, "refreshToken": refreshToken])
+                            }
+                        }
                     }
 
-                
                     user.id = mainViewModel.myData.id
                     user.nickname = mainViewModel.myData.nickname
                     user.uid = mainViewModel.myData.userID

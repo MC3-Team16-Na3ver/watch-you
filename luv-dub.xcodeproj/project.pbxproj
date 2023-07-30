@@ -22,16 +22,20 @@
 		1839B68F2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B68E2A5E71D100066D47 /* luv_dub_Watch_AppTests.swift */; };
 		1839B6992A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B6982A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift */; };
 		1839B69B2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */; };
+		3028397B2A768985004504DB /* GoogleService-Info-Watch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3028397A2A768985004504DB /* GoogleService-Info-Watch.plist */; };
 		303CFE9D2A5F2D31003931F3 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 303CFE9C2A5F2D31003931F3 /* FirebaseMessaging */; };
 		303CFE9F2A5F2D3C003931F3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 303CFE9E2A5F2D3C003931F3 /* FirebaseAnalytics */; };
+		304341432A765F5700934BFA /* WatchInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 304341402A765F2C00934BFA /* WatchInfo.xcdatamodeld */; };
+		304341452A76600600934BFA /* WatchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304341442A76600600934BFA /* WatchDataController.swift */; };
+		305018F82A767138006D1228 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307DE7032A731A15007E9F88 /* GoogleService-Info.plist */; };
+		305018F92A767139006D1228 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307DE7032A731A15007E9F88 /* GoogleService-Info.plist */; };
 		3057E2062A7042D1005A3858 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057E2052A7042D1005A3858 /* DataController.swift */; };
 		306376962A64B0AB002B2A77 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306376952A64B0AB002B2A77 /* MainView.swift */; };
 		306376982A64B218002B2A77 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306376972A64B218002B2A77 /* MainViewModel.swift */; };
 		3063769A2A64BCCA002B2A77 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306376992A64BCCA002B2A77 /* SuccessView.swift */; };
-		307DE7042A731A15007E9F88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307DE7032A731A15007E9F88 /* GoogleService-Info.plist */; };
 		307F270C2A6E5C6900DB4DD1 /* MainPushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F270B2A6E5C6900DB4DD1 /* MainPushViewModel.swift */; };
-		307F270F2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 307F270D2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld */; };
-		307F27102A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 307F270D2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld */; };
+		307F270F2A6E603B00DB4DD1 /* UserProgress.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 307F270D2A6E603B00DB4DD1 /* UserProgress.xcdatamodeld */; };
+		308DF1D42A76270C00C1C0D2 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = 308DF1D32A76270C00C1C0D2 /* SwiftJWT */; };
 		309AA8D32A612F0600039E5C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309AA8D22A612F0600039E5C /* NotificationService.swift */; };
 		309AA8D72A612F0600039E5C /* Notification.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 309AA8D02A612F0600039E5C /* Notification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		309AA8E02A644F7900039E5C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309AA8DF2A644F7900039E5C /* LoginView.swift */; };
@@ -158,6 +162,9 @@
 		1839B6942A5E71D100066D47 /* luv-dub Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "luv-dub Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1839B6982A5E71D100066D47 /* luv_dub_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dub_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		1839B69A2A5E71D100066D47 /* luv_dub_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luv_dub_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3028397A2A768985004504DB /* GoogleService-Info-Watch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Watch.plist"; sourceTree = "<group>"; };
+		304341412A765F2C00934BFA /* WatchInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchInfo.xcdatamodel; sourceTree = "<group>"; };
+		304341442A76600600934BFA /* WatchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDataController.swift; sourceTree = "<group>"; };
 		304E26B52A7305C700526CA0 /* luv-dub Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "luv-dub Watch App.entitlements"; sourceTree = "<group>"; };
 		3057E2052A7042D1005A3858 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		306376952A64B0AB002B2A77 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -209,6 +216,7 @@
 				30AA828A2A5E77AF0047B0B6 /* FirebaseAnalytics in Frameworks */,
 				30AA82942A5E77AF0047B0B6 /* FirebaseDynamicLinks in Frameworks */,
 				30AA82962A5E77AF0047B0B6 /* FirebaseFirestore in Frameworks */,
+				308DF1D42A76270C00C1C0D2 /* SwiftJWT in Frameworks */,
 				30AA82982A5E77AF0047B0B6 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +305,7 @@
 		1839B6542A5E71CE00066D47 /* luv-dub */ = {
 			isa = PBXGroup;
 			children = (
-				307F270D2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld */,
+				307F270D2A6E603B00DB4DD1 /* UserProgress.xcdatamodeld */,
 				309AA8DE2A644F2300039E5C /* Model */,
 				309AA8DD2A644F1A00039E5C /* ViewModel */,
 				309AA8DC2A644F1400039E5C /* View */,
@@ -339,6 +347,7 @@
 		1839B67C2A5E71D000066D47 /* luv-dub Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				304341402A765F2C00934BFA /* WatchInfo.xcdatamodeld */,
 				304E26B52A7305C700526CA0 /* luv-dub Watch App.entitlements */,
 				30FE86372A719E930050DA1D /* luv-dub-Watch-App-Info.plist */,
 				739B972E2A698A6300986A2D /* Extension */,
@@ -353,6 +362,7 @@
 				1839B6812A5E71D100066D47 /* Assets.xcassets */,
 				1839B6832A5E71D100066D47 /* Preview Content */,
 				30A1C6B32A72E7F300D425C8 /* TestView.swift */,
+				304341442A76600600934BFA /* WatchDataController.swift */,
 			);
 			path = "luv-dub Watch App";
 			sourceTree = "<group>";
@@ -449,6 +459,7 @@
 		30A1C6AF2A72DF8900D425C8 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				3028397A2A768985004504DB /* GoogleService-Info-Watch.plist */,
 				307DE7032A731A15007E9F88 /* GoogleService-Info.plist */,
 			);
 			path = Firebase;
@@ -507,6 +518,7 @@
 				30AA829E2A5E77F90047B0B6 /* KakaoSDKAuth */,
 				30AA82A02A5E77F90047B0B6 /* KakaoSDKCommon */,
 				30AA82A22A5E77F90047B0B6 /* KakaoSDKUser */,
+				308DF1D32A76270C00C1C0D2 /* SwiftJWT */,
 			);
 			productName = "luv-dub";
 			productReference = 1839B6522A5E71CE00066D47 /* luv-dub.app */;
@@ -674,6 +686,7 @@
 			packageReferences = (
 				30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				30AA829B2A5E77F90047B0B6 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				308DF1D22A76270C00C1C0D2 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
 			);
 			productRefGroup = 1839B6532A5E71CE00066D47 /* Products */;
 			projectDirPath = "";
@@ -696,8 +709,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1839B65D2A5E71D000066D47 /* Preview Assets.xcassets in Resources */,
+				305018F82A767138006D1228 /* GoogleService-Info.plist in Resources */,
 				1839B65A2A5E71D000066D47 /* Assets.xcassets in Resources */,
-				307DE7042A731A15007E9F88 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,8 +732,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3028397B2A768985004504DB /* GoogleService-Info-Watch.plist in Resources */,
 				1839B6852A5E71D100066D47 /* Preview Assets.xcassets in Resources */,
 				1839B6822A5E71D100066D47 /* Assets.xcassets in Resources */,
+				305018F92A767139006D1228 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,7 +779,7 @@
 				309AA8E62A644FBD00039E5C /* NicknameSetView.swift in Sources */,
 				739B97382A698B3300986A2D /* ViewModelPhone.swift in Sources */,
 				309AA8E42A644FA500039E5C /* User.swift in Sources */,
-				307F270F2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */,
+				307F270F2A6E603B00DB4DD1 /* UserProgress.xcdatamodeld in Sources */,
 				1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,13 +807,14 @@
 			files = (
 				739B97362A698A8800986A2D /* NotificationController.swift in Sources */,
 				739B97282A6988EA00986A2D /* WatchProfileView.swift in Sources */,
-				307F27102A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */,
 				307F270C2A6E5C6900DB4DD1 /* MainPushViewModel.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
 				739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */,
 				739B97352A698A8800986A2D /* MainPushView.swift in Sources */,
 				739B97322A698A6300986A2D /* Color+Extensions.swift in Sources */,
+				304341452A76600600934BFA /* WatchDataController.swift in Sources */,
 				739B97312A698A6300986A2D /* GeometryProxy+Extensions.swift in Sources */,
+				304341432A765F5700934BFA /* WatchInfo.xcdatamodeld in Sources */,
 				7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */,
 				30A1C6B42A72E7F300D425C8 /* TestView.swift in Sources */,
 				18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */,
@@ -1414,6 +1430,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		308DF1D22A76270C00C1C0D2 /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-JWT.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.1;
+			};
+		};
 		30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1442,6 +1466,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 30AA82882A5E77AF0047B0B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		308DF1D32A76270C00C1C0D2 /* SwiftJWT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 308DF1D22A76270C00C1C0D2 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
+			productName = SwiftJWT;
 		};
 		30A1C6B52A72ED0400D425C8 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1526,13 +1555,23 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		307F270D2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld */ = {
+		304341402A765F2C00934BFA /* WatchInfo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				304341412A765F2C00934BFA /* WatchInfo.xcdatamodel */,
+			);
+			currentVersion = 304341412A765F2C00934BFA /* WatchInfo.xcdatamodel */;
+			path = WatchInfo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		307F270D2A6E603B00DB4DD1 /* UserProgress.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				307F270E2A6E603B00DB4DD1 /* UserModel.xcdatamodel */,
 			);
 			currentVersion = 307F270E2A6E603B00DB4DD1 /* UserModel.xcdatamodel */;
-			path = UserInfo.xcdatamodeld;
+			path = UserProgress.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

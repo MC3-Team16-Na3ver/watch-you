@@ -12,6 +12,7 @@ struct NicknameSetView: View {
     @State private var nickname: String = ""
     @EnvironmentObject var loginViewModel: LoginViewModel
     @Environment(\.managedObjectContext) var moc
+    let coreDataController: DataController
     
     var body: some View {
             nicknameSetView

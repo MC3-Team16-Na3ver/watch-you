@@ -15,29 +15,31 @@ import FirebaseFirestoreSwift
 import SwiftUI
 
 class MainViewModel: ObservableObject {
-    @Published var myData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
-    @Published var loverData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
+    @Published var myData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
+    @Published var loverData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
     @Published var path: [ViewType] = []
     @Published var users: [UserInfo] = []
     
     func getRefreshToken(completion: @escaping (String) -> Void) {
-        Database.database().reference().child("notification/refresh_token").getData { error, snapShot in
-            if let error = error {
-                print(error.localizedDescription)
-                completion("")
-                return
+        let db = Firestore.firestore().collection("Token").document("refresh_token")
+            .getDocument { snapshot, error in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                if let data = snapshot?.data(), let refreshToken = data["token"] as? String {
+                    completion(refreshToken)
+                    print("호출됏나--- \(refreshToken)")
+                }
             }
-            
-            if let refreshToken = snapShot?.value as? String {
-                completion(refreshToken)
-            }
-          }
     }
     
     func addUserIdToRealtimeDatabase(deviceToken: String, loverUid: String, loversDeviceToken: String) {
         guard let currentUser = Auth.auth().currentUser else { return }
-        
-        Database.database().reference().child("User").child(currentUser.uid).setValue([
+        let ref = Database.database().reference().child("User").child(currentUser.uid)
+        ref.keepSynced(true)
+        ref.setValue([
             "deviceToken": deviceToken,
             "loverUid": loverUid,
             "loversDeviceToken": loversDeviceToken,

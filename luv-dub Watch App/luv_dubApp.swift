@@ -13,6 +13,7 @@ import WatchKit
 @main
 struct luv_dub_Watch_AppApp: App {
     @WKApplicationDelegateAdaptor(ExtensionDelegate.self) var appDelegate: ExtensionDelegate
+    var watchDataController = WatchDataController.shared
     
     var body: some Scene {
         WindowGroup {
@@ -21,6 +22,7 @@ struct luv_dub_Watch_AppApp: App {
                 MainPushView()
                 ProfileView()
             }
+            .environment(\.managedObjectContext, watchDataController.container.viewContext)
         }
         
         #if os(watchOS)
@@ -32,7 +34,7 @@ struct luv_dub_Watch_AppApp: App {
 class ExtensionDelegate: NSObject, WKApplicationDelegate, UNUserNotificationCenterDelegate {
     
     func applicationDidFinishLaunching() {
-        
+        FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: Bundle.main.path(forResource: "GoogleService-Info-Watch", ofType: "plist")!)!)
     }
     
     func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (WKBackgroundFetchResult) -> Void) {

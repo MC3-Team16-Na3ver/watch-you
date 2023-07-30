@@ -8,8 +8,9 @@
 import CoreData
 import SwiftUI
 
-class DataController {
-    let container = NSPersistentContainer(name: "UserProgress")
+class WatchDataController {
+    static let shared = WatchDataController()
+    let container = NSPersistentContainer(name: "WatchInfo")
     
     init() {
         container.loadPersistentStores { description, error in
@@ -19,7 +20,7 @@ class DataController {
         }
     }
     
-    func updateUserInfo() {
+    func updateToken() {
         do {
             try container.viewContext.save()
         } catch {
@@ -27,7 +28,7 @@ class DataController {
         }
     }
     
-    func deleteUserInfo(userInfo: UserInfo) {
+    func deleteToken(userInfo: WatchToken) {
         container.viewContext.delete(userInfo)
         
         do {
@@ -37,24 +38,13 @@ class DataController {
         }
     }
     
-    func getAllUserInfo() -> [UserInfo] {
-        let fetchRequest: NSFetchRequest<UserInfo> = UserInfo.fetchRequest()
+    func getAllWatchInfo() -> [WatchToken] {
+        let fetchRequest: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
         
         do {
             return try container.viewContext.fetch(fetchRequest)
         } catch {
             return []
-        }
-    }
-    
-    func save(nickname: String) {
-        let userInfo = UserInfo(context: container.viewContext)
-        userInfo.nickname  = nickname
-        
-        do {
-           try container.viewContext.save()
-        } catch {
-            print("Failed to save")
         }
     }
 }

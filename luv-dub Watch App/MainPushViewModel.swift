@@ -5,6 +5,7 @@
 //  Created by Song Jihyuk on 2023/07/21.
 //
 
+import CoreData
 import Firebase
 import FirebaseDatabase
 import FirebaseDatabaseSwift
@@ -26,7 +27,7 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
     @Published var accessToken = ""
     @Published var token = ""
     @Published var refreshToken = ""
-    
+    let watchDataController = WatchDataController.shared
     var session: WCSession
     
     init(session: WCSession = .default) {
@@ -44,6 +45,21 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         self.token = userInfo["token"] as? String ?? "UNKNOWN"
         self.refreshToken = userInfo["refreshToken"] as? String ?? "UNKNOWN"
+        
+        var viewContext: NSManagedObjectContext {
+            watchDataController.container.viewContext
+        }
+        
+        let user = WatchToken(context: viewContext)
+        user.loverDeviceToken = userInfo["token"] as? String ?? "UNKNOWN"
+        user.refreshToken = userInfo["refreshToken"] as? String ?? "UNKNOWN"
+        print("왓다")
+        do {
+            try viewContext.save()
+            print("저장됨")
+        } catch {
+            viewContext.rollback()
+        }
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
@@ -81,52 +97,10 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
                 }
                 
                 guard isRefreshed else { return }
-                self.pushNotification(notificationData: notificationData)
             }
             
             task.resume()
         }
-    }
-    
-    
-    func updateDeviceToken() {
-        Database.database().reference().child("User")
-    }
-    
-    func listenToRealtimeDatabase() {
-        let databashPath = Database.database().reference().child("notification")
-        
-        databashPath
-            .observe(.value) {[weak self] snapShot, _  in
-                guard let json = snapShot.value as? [String:Any] else { return }
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: json)
-                    let token = try JSONDecoder().decode(RefreshToken.self, from: data)
-                    guard let accessToken = token.accessToken else { return }
-                    guard let refreshToken = token.refreshToken else { return }
-                    self?.accessToken = accessToken
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-    }
-    
-    func stopListening() {
-        Database.database().reference().removeAllObservers()
-    }
-    
-    func getRefreshToken(completion: @escaping (String) -> Void) {
-        Database.database().reference().child("notification/refresh_token").getData { error, snapShot in
-            if let error = error {
-                print(error.localizedDescription)
-                completion("")
-                return
-            }
-            
-            if let refreshToken = snapShot?.value as? String {
-                completion(refreshToken)
-            }
-          }
     }
     
     func refreshAccessToken(refreshToken: String) {
@@ -137,8 +111,8 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
         }
         
         let clientID = "757153338890-7mk8qhu88bkjfgcvsctrrachpbudaad9.apps.googleusercontent.com"
-        let clientSecret = "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&refresh_token=\(refreshToken)"
-        let data = "client_id=\(clientID)&client_secret=\(clientSecret)&grant_type=refresh_token".data(using: .utf8)!
+        let clientSecret = "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"
+        let data = "client_id=\(clientID)&client_secret=\(clientSecret)&refresh_token=\(refreshToken)&grant_type=refresh_token".data(using: .utf8)!
         
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -151,7 +125,7 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {     
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("refresh AccessToken: statusCode should be 200, but is \(httpStatus.statusCode)")
             }
             
             do {
@@ -159,6 +133,7 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
                 let jsonData = try decoder.decode(RefreshToken.self, from: data)
                 if let accessToken = jsonData.accessToken {
                     self.accessToken = accessToken
+                    print(accessToken)
                 }
                 
             } catch {

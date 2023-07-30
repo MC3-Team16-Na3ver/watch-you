@@ -12,9 +12,13 @@
 				<string>kakaod9c1f4f4efcad42d66731df965af9e60</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array/>
+		</dict>
 	</array>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
 	<key>KAKAO_NATIVE_APP_KEY</key>
 	<string>d9c1f4f4efcad42d66731df965af9e60</string>
 	<key>LSApplicationQueriesSchemes</key>
