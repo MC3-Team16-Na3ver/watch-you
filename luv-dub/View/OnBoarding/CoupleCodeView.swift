@@ -10,17 +10,23 @@ import FirebaseAuth
 import FirebaseFirestore
 import SwiftUI
 
+enum InvitationCode {
+    case nonexist
+    case exist
+}
 struct CoupleCodeView: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @State private var invitationCode: String = ""
+    @State private var codeExistence: InvitationCode?
     
     var body: some View {
         VStack {
             Text("나의 코드 복사")
             
             Button {
-                UIPasteboard.general.string = Auth.auth().currentUser?.uid ?? ""
+                UIPasteboard.general.string = invitationCode
             } label: {
-                Text("\(Auth.auth().currentUser?.uid ?? "")")
+                Text(invitationCode)
                     .underline()
             }
             
@@ -39,7 +45,62 @@ struct CoupleCodeView: View {
         }
         .onAppear {
             listeningLoversResponse()
+            loadInvitationCode()
         }
+    }
+
+    private func loadInvitationCode() {
+        guard let userUid = Auth.auth().currentUser?.uid else {
+            return
+        }
+
+        Firestore.firestore().collection("User").document(userUid).getDocument { querySnapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+
+            if let data = querySnapshot?.data(), let code = data["invitationCode"] as? String, !code.isEmpty {
+                self.invitationCode = code
+                
+            } else {
+                self.invitationCode = createInvitationCode()
+                checkInvitationCodeDuplication(invitationCode: self.invitationCode) { result in
+                    switch result {
+                    case .exist:
+                        loadInvitationCode()
+                    case .nonexist:
+                        Firestore.firestore().collection("User").document(userUid)
+                            .updateData(["invitationCode" : invitationCode])
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    private func checkInvitationCodeDuplication(invitationCode: String, completion: @escaping (InvitationCode) -> Void) {
+        let query = Firestore.firestore().collection("User")
+            .whereField("invitationCode", isEqualTo: invitationCode)
+        
+        query.getDocuments { querySnapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            if let documents = querySnapshot?.documents, !documents.isEmpty {
+                completion(.exist)
+            } else {
+                completion(.nonexist)
+            }
+        }
+    }
+    
+    private func createInvitationCode() -> String {
+        let element = "0123456789"
+        let invitationCode = element.createRandomString(length: 6)
+        
+        return invitationCode
     }
     
     private func listeningLoversResponse() {
@@ -60,5 +121,12 @@ struct CoupleCodeView: View {
                     }
                 }
             }
+    }
+}
+
+extension String {
+    func createRandomString(length: Int) -> String {
+        let str    = (0..<length).map { _ in self.randomElement()! }
+        return String(str)
     }
 }

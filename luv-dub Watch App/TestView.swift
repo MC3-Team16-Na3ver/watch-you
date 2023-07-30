@@ -68,14 +68,14 @@ struct TestView: View {
         }
     }
         
-    private func addUserIdToRealtimeDatabase(deviceToken: String , loverUid: String, loversDeviceToken: String) {
-        
-        Database.database().reference().child("User").child("테스트임").setValue([
-            "deviceToken": "안녕",
-            "loverUid": "하이",
-            "loversDeviceToken": "하ㅣ이하이",
-        ])
-    }
+//    private func addUserIdToRealtimeDatabase(deviceToken: String , loverUid: String, loversDeviceToken: String) {
+//
+//        Database.database().reference().child("User").child("테스트임").setValue([
+//            "deviceToken": "안녕",
+//            "loverUid": "하이",
+//            "loversDeviceToken": "하ㅣ이하이",
+//        ])
+//    }
     
     var body: some View {
         
@@ -83,16 +83,16 @@ struct TestView: View {
                 pushNotification(notificationData: notificationData)
             }
             
-            Button("리얼타임 데이터베이스에서 리프레시 토큰을 가져와요") {
-                mainPushViewModel.getRefreshToken { hello in
-                    print("안녀엉")
-                }
-            }
+//            Button("리얼타임 데이터베이스에서 리프레시 토큰을 가져와요") {
+//                mainPushViewModel.getRefreshToken { hello in
+//                    print("안녀엉")
+//                }
+//            }
             
-            Button("리얼타임 데이터베이스에 업데이트 해요") {
-                addUserIdToRealtimeDatabase(deviceToken: "", loverUid: "", loversDeviceToken: "")
-                print("testtest")
-            }
+//            Button("리얼타임 데이터베이스에 업데이트 해요") {
+//                addUserIdToRealtimeDatabase(deviceToken: "", loverUid: "", loversDeviceToken: "")
+//                print("testtest")
+//            }
     }
 }
 

@@ -17,6 +17,7 @@ struct User: Identifiable, Codable {
     let email: String
     var deviceToken: String
     var connectedID: String
+    var invitationCode: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -27,6 +28,7 @@ struct User: Identifiable, Codable {
         case email
         case deviceToken
         case connectedID
+        case invitationCode
     }
     
 }

@@ -10,21 +10,21 @@ import CoreData
 import CryptoKit
 import Firebase
 import FirebaseAuth
-import KakaoSDKAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import KakaoSDKAuth
 import KakaoSDKUser
 import SwiftUI
 
+
 class LoginViewModel: ObservableObject {
     @Published var nonce = ""
-    @Published var user = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
+    @Published var user = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
     @Published var path: [ViewType] = []
-
     
     //MARK: KAKAO
     func signInWithKakao() {
-        self.user = .init(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
+        self.user = .init(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
         
         if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { oauthToken, error in
@@ -48,6 +48,7 @@ class LoginViewModel: ObservableObject {
             if let error = error {
                 print("\(error)")
                 return
+                
             }
             guard let name = user?.kakaoAccount?.profile?.nickname else { return }
             guard let email = user?.kakaoAccount?.email else { return }
@@ -60,16 +61,16 @@ class LoginViewModel: ObservableObject {
                     self.path.append(.mainView)
                 } else {
                    self.createUserInAuth(email: email, userName: name, password: id, profileImage: profileImage)
-                   self.updateUserModel(user: User(name: name, nickname: "", dDay: "", userID: "", email: email, deviceToken: "", connectedID: ""))
+                    self.updateUserModel(user: User(name: name, nickname: "", dDay: "", userID: "", email: email, deviceToken: "", connectedID: "", invitationCode: ""))
                    self.path.append(.nicknameView)
                }
             }
         }
     }
-    
+
     //MARK: APPLE
     func signInWithApple(credential: ASAuthorizationAppleIDCredential) {
-        self.user = .init(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
+        self.user = .init(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
         
         guard let token = credential.identityToken else { return }
         guard let tokenString = String(data: token, encoding: .utf8) else { return }
@@ -94,7 +95,7 @@ class LoginViewModel: ObservableObject {
                     self.fetchUserDataFromApple(credential: credential)
                     self.path.append(.nicknameView)
                     do {
-                        let userInfo = User(name: "", nickname: "", dDay: "", userID: user.uid, email: user.email ?? "", deviceToken: "", connectedID: "")
+                        let userInfo = User(name: "", nickname: "", dDay: "", userID: user.uid, email: user.email ?? "", deviceToken: "", connectedID: "", invitationCode: "")
                         try Firestore.firestore().collection("User").document(user.uid).setData(from: userInfo)
                     } catch {
                         print(error)
@@ -107,14 +108,18 @@ class LoginViewModel: ObservableObject {
     
     func fetchUserDataFromApple(credential: ASAuthorizationAppleIDCredential) {
         guard let givenName = credential.fullName?.givenName else { return }
-        self.updateUserModel(user: User(name: givenName, nickname: "", dDay: "", userID: "", email: credential.email ?? "", deviceToken: "", connectedID: ""))
+        self.updateUserModel(user: User(name: givenName, nickname: "", dDay: "", userID: "", email: credential.email ?? "", deviceToken: "", connectedID: "", invitationCode: ""))
     }
     
-
+    func setUserInvitationCode(uid: String, invitationCode: String) {
+        Firestore.firestore().collection("User").document(uid)
+            .setData(["invitationCode" : invitationCode])
+    }
     
     func addUserToFirestore() {
         guard let currentUser = Auth.auth().currentUser else { return }
         
+        setUserInvitationCode(uid: currentUser.uid, invitationCode: createInvitationCode())
         setUserId(uid: currentUser.uid)
         setUserDeviceToken(deviceToken: Messaging.messaging().fcmToken!)
         
@@ -127,6 +132,13 @@ class LoginViewModel: ObservableObject {
         } catch {
             print(error)
         }
+    }
+    
+    private func createInvitationCode() -> String {
+        let element = "0123456789"
+        let invitationCode = element.createRandomString(length: 6)
+        
+        return invitationCode
     }
     
     func setUserNickname(nickname: String) {
@@ -153,31 +165,46 @@ class LoginViewModel: ObservableObject {
         }
     }
 
-    func connectUsertoUser(to loverUid: String) {
+    func connectUsertoUser(to loverCode: String) {
         let db = Firestore.firestore()
         guard let currentUserUid = Auth.auth().currentUser?.uid else { return }
+        let query = db.collection("User").whereField("invitationCode", isEqualTo: loverCode)
         
-        db.collection("User").document(loverUid).getDocument { document, error in
+        query.getDocuments { querySnapShot, error in
             if let error = error {
-                print(error)
-                return
+                print(error.localizedDescription)
             }
             
-            let currentUserData = db.collection("User").document(currentUserUid)    
-            let _ = currentUserData.updateData(["connectedID": loverUid])
-            
-            let loverUserData = db.collection("User").document(loverUid)
-            let _ = currentUserData.addSnapshotListener { snapshot, error in
-                if let _ = error {
-                    return
-                }
-                if let _ = snapshot?.exists {
-                    let _ = loverUserData.updateData(["connectedID": currentUserUid])
+            guard let documents = querySnapShot?.documents else { return }
+            for document in documents {
+                let loverUid = document.documentID
+                
+                db.collection("User").document(loverUid).getDocument { document, error in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+                    
+                    let currentUserData = db.collection("User").document(currentUserUid)
+                    let _ = currentUserData.updateData(["connectedID": loverUid])
+                    
+                    let loverUserData = db.collection("User").document(loverUid)
+                    let _ = currentUserData.addSnapshotListener { snapshot, error in
+                        if let _ = error {
+                            return
+                        }
+                        if let _ = snapshot?.exists {
+                            let _ = loverUserData.updateData(["connectedID": currentUserUid])
+                        }
+                        
+                        self.path.append(.successView)
+                    }
                 }
                 
-                self.path.append(.successView)
             }
+                
         }
+        
     }
     
     private func login(email: String, password: String) {
@@ -208,6 +235,8 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
+    
+    
     
     // 로그인했는데, 닉네임 안정하고 껐을 때
     func checkIfUserSetNickname(email: String, completion: @escaping (Bool) -> Void) {
@@ -260,6 +289,4 @@ class LoginViewModel: ObservableObject {
 
       return String(nonce)
     }
-    
-    
 }
