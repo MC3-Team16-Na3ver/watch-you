@@ -7,6 +7,7 @@
 
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 import FirebaseMessaging
 import KakaoSDKAuth
 import KakaoSDKCommon
@@ -45,10 +46,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let data1Key = "DATA1"
     let data2Key = "DATA2"
 
-
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
         FirebaseApp.configure()
+    
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -116,6 +117,12 @@ extension AppDelegate: MessagingDelegate {
         
         let deviceToken: [String:String] = ["token": fcmToken ?? ""]
         print("Device token: ", deviceToken)
+        
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        Firestore.firestore().collection("User").document(userUid)
+            .updateData(["deviceToken": fcmToken ?? ""])
+        
+        print("deviceToken updated")
 
     }
 }
