@@ -11,12 +11,9 @@ import Combine
 class ButtonViewModel: ObservableObject {
     @Published var isMainScreen = true  // 메인 버튼 누르기 스크린 여부 확인
     
-    @Published var tapStatus = ""       // 버튼 누르기 상태 출력
-    @Published var isClicked = false    // 버튼 클릭 여부(짧게 누르기)
     @Published var longPressDetected = false    // 오래 누른 상태 확인
     @Published var isLoading = false        // 전송 로딩
     
-    @Published var showProgressBar = false      // 프로그래스 바 보여주기 여부
     @Published var progress: Double = 0.0       // 프로그래스 바 값
     @Published var isProgressComplete = false   // 프로그래스 바 채워졌는지 여부
     @Published var isSendComplete = false       // 알림 전송 성공 여부
@@ -36,39 +33,6 @@ class ButtonViewModel: ObservableObject {
     private var timer: Timer?
     private var cancellables = Set<AnyCancellable>()
     
-    /// Button의 longPress가 감지됐을 때 처리하는 함수
-    /// 값을 원상태로 돌린다.
-    func handleLongPressedDetected() {
-        if longPressDetected {
-            tapStatus = "Tap Done"
-            isClicked = false
-            longPressDetected = false
-            showProgressBar = false // 프로그래스 바 초기화
-            progress = 0.0
-        } else {
-            tapStatus = "Please Press and hold"
-        }
-    }
-    
-    /// Button의 longPressGesture가 trigger 됐을 때 처리하는 함수
-    func handleLongPressEnded() {
-        if !isClicked {
-            tapStatus = "Tap Currently Holded"
-            isClicked = true
-            longPressDetected = true
-            showProgressBar = true // 프로그래스 바 보이기
-            startProgressAnimation()
-        }
-    }
-    
-    /// 상태값 확인을 위한 출력 함수
-    func printStatus() {
-//        print("tapStatus: \(tapStatus)")
-//        print("isClicked: \(isClicked)")
-//        print("longPressDetected: \(longPressDetected)")
-        print("isLoading: \(isLoading)")
-        print("isComplete: \(isProgressComplete)")
-    }
     
     /// progressBar 진행
     private func startProgressAnimation() {
@@ -92,20 +56,9 @@ class ButtonViewModel: ObservableObject {
                 return
             }
             
-            // UI 업데이트를 메인 스레드에서 수행
-            DispatchQueue.main.async {
-                self.progress = currentStep / totalSteps
-            }
+            self.progress = currentStep / totalSteps
         }
     }
-    
-    /// ProgressBar reset 함수
-    func resetProgress() {
-        isProgressComplete = false
-        showProgressBar = false
-        progress = 0.0
-    }
-    
     /// 로딩중일 때 - Notification 전송 시도
     func sendPeerToNotification() {
         isLoading = true

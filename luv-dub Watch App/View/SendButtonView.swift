@@ -12,7 +12,7 @@ struct SendButtonView: View {
     
     var body: some View {
         ZStack {
-            if viewModel.showProgressBar {
+            if viewModel.longPressDetected {
                 ProgressBar()
             }
             if viewModel.isProgressComplete {
@@ -21,9 +21,7 @@ struct SendButtonView: View {
                         viewModel.sendPeerToNotification()
                     }
             } else {
-                Button(action: {
-                    viewModel.handleLongPressedDetected()
-                }) {
+                Button(action: { }) {
                     Text("SEND")
                         .modifier(ButtonTextStyle())
                 }
@@ -35,9 +33,6 @@ struct SendButtonView: View {
                         }
                 )
                 .disabled(viewModel.remainingHearts == 0)
-                .onChange(of: [viewModel.isClicked, viewModel.isLoading, viewModel.isProgressComplete, viewModel.isSendComplete]) { _ in
-                    viewModel.isMainScreen = false
-                }
 
             }
         }

@@ -27,7 +27,7 @@ struct ProgressBar: View {
                 .frame(width: 118, height: 118)
                 .shadow(color: Color.black, radius: 1.5, x: 0, y: 1.5)
             Circle()
-                .trim(from: 0, to: viewModel.showProgressBar ? viewModel.progress : 0)
+                .trim(from: 0, to: viewModel.longPressDetected ? viewModel.progress : 0)
                 .stroke(
                     Color(red: 0.98, green: 0.07, blue: 0.31),
                     style: StrokeStyle(lineWidth: 8.2, lineCap: .round)
