@@ -34,7 +34,9 @@ class LoginViewModel: ObservableObject {
         self.path.append(.coupleCodeView)
         
         do {
-            let _ = try Firestore.firestore().collection("User").document(user.userID)
+            try Firestore.firestore()
+                .collection("User")
+                .document(auth.subStrUid())
                 .setData(from: self.user)
             	
         } catch {
@@ -134,7 +136,7 @@ class LoginViewModel: ObservableObject {
     // MARK: Update
     func connectUsertoUser(to loverUid: String) {
         let db = Firestore.firestore()
-        guard let currentUserUid = Auth.auth().currentUser?.uid else { return }
+        let shortUid = Auth.auth().subStrUid()
         
         if loverUid.isEmpty {
             self.path.append(.coupleCodeView)
@@ -147,7 +149,7 @@ class LoginViewModel: ObservableObject {
                 return
             }
             
-            let currentUserData = db.collection("User").document(currentUserUid)
+            let currentUserData = db.collection("User").document(shortUid)
             let _ = currentUserData.updateData(["connectedID": loverUid])
             
             let loverUserData = db.collection("User").document(loverUid)
@@ -156,7 +158,7 @@ class LoginViewModel: ObservableObject {
                     return
                 }
                 if let change = snapshot?.exists {
-                    let _ = loverUserData.updateData(["connectedID": currentUserUid])
+                    let _ = loverUserData.updateData(["connectedID": shortUid])
                     self.path.append(.successView)
                 }
             }

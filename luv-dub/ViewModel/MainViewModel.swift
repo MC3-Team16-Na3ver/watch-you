@@ -19,8 +19,8 @@ class MainViewModel: ObservableObject {
     
     func fetchDatas() {
         let db = Firestore.firestore().collection("User")
-        guard let currentUserUid = Auth.auth().currentUser?.uid else { return }
-        db.document(currentUserUid).getDocument(as: User.self) { result in
+        let shortUid = auth.subStrUid()
+        db.document(shortUid).getDocument(as: User.self) { result in
             switch result {
             case .success(let user):
                 self.myData = user

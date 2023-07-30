@@ -18,9 +18,9 @@ struct CoupleCodeView: View {
             Text("나의 코드 복사")
             
             Button {
-                UIPasteboard.general.string = Auth.auth().currentUser?.uid ?? ""
+                UIPasteboard.general.string = loginViewModel.auth.subStrUid() // Auth.auth().currentUser?.uid ?? ""
             } label: {
-                Text("\(Auth.auth().currentUser?.uid ?? "")")
+                Text(loginViewModel.auth.subStrUid())
                     .underline()
             }
             
@@ -38,16 +38,15 @@ struct CoupleCodeView: View {
             }
         }
         .onAppear {
-            if let myUid = Auth.auth().currentUser?.uid {
-                Firestore.firestore().collection("User").document(myUid).addSnapshotListener { document, error in
-                    if let error = error {
-                        return
-                    }
+            let shortUid = Auth.auth().subStrUid()
+            Firestore.firestore().collection("User").document(shortUid).addSnapshotListener { document, error in
+                if let error = error {
+                    return
+                }
+                
+                if let change = document?.exists {
+                    loginViewModel.path.append(.successView)
                     
-                    if let change = document?.exists {
-                        loginViewModel.path.append(.successView)
-                        
-                    }
                 }
             }
         }
