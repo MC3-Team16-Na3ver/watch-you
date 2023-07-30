@@ -35,7 +35,11 @@ class ButtonViewModel: ObservableObject {
     
     
     /// progressBar 진행
-    private func startProgressAnimation() {
+    func startProgressAnimation() {
+        if longPressDetected == true { return }
+        
+        longPressDetected = true
+        
         let incrementValue: Double = 0.01
         let totalTime: Double = 2  // 임시 설정 값 (예시 2초동안 누르고 있어야 함)
         let totalSteps = totalTime / incrementValue
@@ -47,12 +51,17 @@ class ButtonViewModel: ObservableObject {
                 return
             }
             
+            if longPressDetected == false {
+                timer.invalidate()
+                return
+            }
+            
             currentStep += 1
             
             if currentStep >= totalSteps {
                 timer.invalidate()
-                self.handleLongPressedDetected()
                 self.isProgressComplete = true
+                self.longPressDetected = false
                 return
             }
             
