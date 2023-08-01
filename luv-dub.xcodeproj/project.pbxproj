@@ -74,6 +74,8 @@
 		739B97352A698A8800986A2D /* MainPushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B97332A698A8800986A2D /* MainPushView.swift */; };
 		739B97362A698A8800986A2D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B97342A698A8800986A2D /* NotificationController.swift */; };
 		739B97382A698B3300986A2D /* ViewModelPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B97372A698B3300986A2D /* ViewModelPhone.swift */; };
+		73E18FDB2A769782005141BD /* AppDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */; };
+		73E18FE02A769816005141BD /* ShareTextModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDF2A769816005141BD /* ShareTextModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +210,8 @@
 		739B97332A698A8800986A2D /* MainPushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPushView.swift; sourceTree = "<group>"; };
 		739B97342A698A8800986A2D /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		739B97372A698B3300986A2D /* ViewModelPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelPhone.swift; sourceTree = "<group>"; };
+		73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateViewModel.swift; sourceTree = "<group>"; };
+		73E18FDF2A769816005141BD /* ShareTextModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTextModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +473,7 @@
 		309AA8DC2A644F1400039E5C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73E18FE22A769829005141BD /* System */,
 				306376942A649579002B2A77 /* OnBoarding */,
 				309AA8DF2A644F7900039E5C /* LoginView.swift */,
 				306376952A64B0AB002B2A77 /* MainView.swift */,
@@ -479,6 +484,7 @@
 		309AA8DD2A644F1A00039E5C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */,
 				309AA8E12A644F9600039E5C /* LoginViewModel.swift */,
 				739B97372A698B3300986A2D /* ViewModelPhone.swift */,
 				306376972A64B218002B2A77 /* MainViewModel.swift */,
@@ -512,6 +518,15 @@
 			);
 			path = Extension;
 			sourceTree = "<group>";
+		};
+		73E18FE22A769829005141BD /* System */ = {
+			isa = PBXGroup;
+			children = (
+				73E18FDF2A769816005141BD /* ShareTextModalView.swift */,
+			);
+			name = System;
+			path = "luv-dub/View/System";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -794,6 +809,7 @@
 				306376962A64B0AB002B2A77 /* MainView.swift in Sources */,
 				309AA8EA2A646CEF00039E5C /* InvitationView.swift in Sources */,
 				309AA8E02A644F7900039E5C /* LoginView.swift in Sources */,
+				73E18FE02A769816005141BD /* ShareTextModalView.swift in Sources */,
 				1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */,
 				306376982A64B218002B2A77 /* MainViewModel.swift in Sources */,
 				309AA8E82A64655600039E5C /* CoupleCodeView.swift in Sources */,
@@ -803,6 +819,7 @@
 				309AA8E42A644FA500039E5C /* User.swift in Sources */,
 				307F270F2A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */,
 				1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */,
+				73E18FDB2A769782005141BD /* AppDelegateViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
