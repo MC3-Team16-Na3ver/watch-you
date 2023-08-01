@@ -15,6 +15,7 @@ class MainViewModel: ObservableObject {
     @Published var myData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
     @Published var loverData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
     @Published var path: [ViewType] = []
+    let auth = Auth.auth()
     
     func fetchDatas() {
         let db = Firestore.firestore().collection("User")

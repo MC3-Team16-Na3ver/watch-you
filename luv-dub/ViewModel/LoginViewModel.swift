@@ -17,13 +17,17 @@ import KakaoSDKUser
 import SwiftUI
 
 class LoginViewModel: ObservableObject {
-    @Published var nonce = ""
+    var nonce = "" // @Published 필요없지 않나요?
     @Published var user = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
+    let auth = Auth.auth()
     @Published var path: [ViewType] = []
 
     // MARK: Create
     func addUserToDatabase() {
-        guard let currentUser = Auth.auth().currentUser else { return }
+        guard let currentUser = Auth.auth().currentUser else {
+            print("Auth.auth().currentUser is null")
+            return
+        }
         
         self.user.userID = currentUser.uid
         self.user.deviceToken = Messaging.messaging().fcmToken!
