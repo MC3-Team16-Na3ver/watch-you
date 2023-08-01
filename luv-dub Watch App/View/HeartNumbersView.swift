@@ -11,11 +11,16 @@ struct HeartNumbersView: View {
     @EnvironmentObject private var viewModel: ButtonViewModel
     
     var body: some View {
-        HStack(spacing: 16){
-            ForEach(0..<viewModel.maxHearts, id:\.self) { index in
-                Image(index < viewModel.remainingHearts ? "heart_active" : "heart_inactive")
+        if viewModel.isMainScreen {
+            HStack(spacing: 16){
+                ForEach(0..<viewModel.maxHearts, id:\.self) { index in
+                    Image(index < viewModel.remainingHearts ? "heart_active" : "heart_inactive")
+                }
             }
+        } else {
+            
         }
+        
     }
 }
 

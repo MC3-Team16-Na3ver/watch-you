@@ -17,7 +17,7 @@ import WatchConnectivity
 @main
 struct luv_dubApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    // @StateObject private var dataController = DataController()
+//    @StateObject private var dataController = DataController()
     
     init() {
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
