@@ -27,12 +27,12 @@ struct HeartTimerView: View {
                         }
                 }
                 Spacer().frame(width: 115)
+            } else {
             }
             
         }
     }
 }
-
 struct HeartTimerView_Previews: PreviewProvider {
     static var previews: some View {
         HeartTimerView()

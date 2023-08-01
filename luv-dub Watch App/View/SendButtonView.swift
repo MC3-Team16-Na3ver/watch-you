@@ -70,7 +70,7 @@ struct SendButtonView: View {
                             viewModel.startProgressAnimation()
                         }
                         .onEnded{ _ in
-                            viewModel.longPressDetected = false
+                            viewModel.handsOffBeforeProgressComplete()
                         }
                 )
                 .onDisappear{ stateUI = .SENDING }
@@ -105,6 +105,7 @@ fileprivate struct SendButtonStyle: ButtonStyle {
                         )
                         .frame(width: 116, height: 116)
                         .shadow(color: .black.opacity(configuration.isPressed ? 0.6 : 0.8), radius: 2, x: 0, y: 0)
+                    
                         .mask(Circle())
                     if configuration.isPressed {
                         Circle().fill(
@@ -112,12 +113,12 @@ fileprivate struct SendButtonStyle: ButtonStyle {
                         )
                     }
                 }
+                .shadow(color: configuration.isPressed || !isPossibleToSend ? .clear : Color(red: 1, green: 0.3, blue: 0.48), radius: 15, x: 0, y: 0)
             )
             .scaleEffect(configuration.isPressed ? 0.96 : 1)
             .animation(.easeOut(duration: 0.1), value: configuration.isPressed)
     }
 }
-
 // Button Text Style
 fileprivate struct ButtonTextStyle: ViewModifier {
     func body(content: Content) -> some View {

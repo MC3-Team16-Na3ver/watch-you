@@ -34,11 +34,18 @@ class ButtonViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     
+    /// progressBar가 다 완료되기 전에 손을 뗄 경우 해당 함수 호출
+    func handsOffBeforeProgressComplete() {
+        self.longPressDetected = false
+    }
+    
+    
     /// progressBar 진행
     func startProgressAnimation() {
-        if longPressDetected == true { return }
+        if self.longPressDetected == true { return }
         
-        longPressDetected = true
+        self.longPressDetected = true
+        self.isMainScreen = false
         
         let incrementValue: Double = 0.01
         let totalTime: Double = 2  // 임시 설정 값 (예시 2초동안 누르고 있어야 함)
@@ -49,8 +56,10 @@ class ButtonViewModel: ObservableObject {
 
             if self.longPressDetected == false {
                 timer.invalidate()
+                self.isMainScreen = true
                 return
             }
+            
             currentStep += 1
             if currentStep >= totalSteps {
                 self.finishAnimation()
@@ -75,7 +84,8 @@ class ButtonViewModel: ObservableObject {
     }
     /// 로딩중일 때 - Notification 전송 시도
     func sendPeerToNotification() {
-        isLoading = true
+        self.isLoading = true
+        self.isMainScreen = false
         
         // 서버에 알림 보내는 로직 추가하면 됩니다.
         // 테스트 가정 케이스 -> UI 확인을 위한 임시 코드입니다. (실제 코드로 대체 필요)
@@ -87,7 +97,7 @@ class ButtonViewModel: ObservableObject {
                 if isSuccess {
                     // 알림 전송 성공
                     self?.isSendComplete = true
-                    self?.remainingHearts -= 1    // 하트 개수 감소 
+                    self?.remainingHearts -= 1    // 하트 개수 감소
                     // 성공 콜백 함수 호출
                 } else {
                     // 알림 전송 실패
@@ -125,7 +135,7 @@ class ButtonViewModel: ObservableObject {
     }
     
     /// Notification 전송 시도가 완료됐을 때 호출하는 함수
-//    func stopLoading() {
-//        self?.isLoading = false
-//    }
+    //    func stopLoading() {
+    //        self?.isLoading = false
+    //    }
 }

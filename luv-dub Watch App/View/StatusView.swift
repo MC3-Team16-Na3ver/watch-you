@@ -21,28 +21,29 @@ struct StatusView: View {
                 .onDisappear {
                     isAnimating = false
                 }
+        }
     }
-}
-
-// 완료 원 배경
-struct CircleCheckmarkStyle: ViewModifier {
-    let isSuccess: Bool
     
-    func body(content: Content) -> some View {
-        content
-            .overlay(
-                Image(systemName: isSuccess ? "checkmark" : "xmark")
-                    .font(Font.system(size: 13, weight: .bold))
-                    .foregroundColor(Color(red: 1, green: 0.22, blue: 0.37))
-            )
-            .padding()
+    // 완료 원 배경
+    struct CircleCheckmarkStyle: ViewModifier {
+        let isSuccess: Bool
+        
+        func body(content: Content) -> some View {
+            content
+                .overlay(
+                    Image(systemName: isSuccess ? "checkmark" : "xmark")
+                        .font(Font.system(size: 13, weight: .bold))
+                        .foregroundColor(Color(red: 1, green: 0.22, blue: 0.37))
+                )
+                .padding()
+        }
     }
-}
-
-
-struct StatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatusView()
-            .environmentObject(ButtonViewModel())
+    
+    
+    struct StatusView_Previews: PreviewProvider {
+        static var previews: some View {
+            StatusView()
+                .environmentObject(ButtonViewModel())
+        }
     }
 }
