@@ -67,6 +67,18 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
             self.token = message["token"] as? String ?? "UNKNOWN"
         }
     }
+    func createRequest(notificationData: [String: Any])-> URLRequest {
+        let url = URL(string: "https://fcm.googleapis.com/v1/projects/loveduk-539e3/messages:send")!
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "POST"
+        
+        let jsonBody = try! JSONSerialization.data(withJSONObject: notificationData, options: [])
+        request.httpBody = jsonBody
+        
+        return request
+    }
     
     func pushNotification(notificationData: [String: Any]) {
         var isRefreshed = false
@@ -78,29 +90,28 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
         
         let jsonBody = try! JSONSerialization.data(withJSONObject: notificationData, options: [])
         request.httpBody = jsonBody
-        DispatchQueue.main.async {
+        
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
+            guard let _ = data, error == nil else {
                 return
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 if httpStatus.statusCode == 404 {
-                    
-                }
-                    
-                    if httpStatus.statusCode == 401 {
-                        self.refreshAccessToken(refreshToken: self.refreshToken)
-                        isRefreshed = true
-                    }
                 }
                 
-                guard isRefreshed else { return }
+                if httpStatus.statusCode == 401 {
+                    self.refreshAccessToken(refreshToken: self.refreshToken)
+                    isRefreshed = true
+                }
             }
-            
-            task.resume()
+            guard isRefreshed else { return }
         }
+        
+        task.resume()
+        
     }
     func testSuccess() async -> CompleteViewStatus {
         Thread.sleep(forTimeInterval: 2)
