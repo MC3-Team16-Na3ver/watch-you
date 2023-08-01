@@ -82,6 +82,20 @@ struct SendButtonView: View {
 }
 
 
+// 완료 원 배경
+struct CircleCheckmarkStyle: ViewModifier {
+    let isSuccess: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                Image(systemName: isSuccess ? "checkmark" : "xmark")
+                    .font(Font.system(size: 13, weight: .bold))
+                    .foregroundColor(Color(red: 1, green: 0.22, blue: 0.37))
+            )
+            .padding()
+    }
+}
 
 // Button Style
 fileprivate struct SendButtonStyle: ButtonStyle {

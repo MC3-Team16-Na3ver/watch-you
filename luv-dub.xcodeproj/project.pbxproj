@@ -67,6 +67,7 @@
 		30AA82A62A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */; };
 		30AA82A72A5E7A620047B0B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AA82A52A5E7A610047B0B6 /* GoogleService-Info.plist */; };
 		7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343935E2A66814500AB3555 /* CompleteWaveView.swift */; };
+		7349AFA22A78E18D002CE9C6 /* CompleteViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */; };
 		739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B971B2A6988AD00986A2D /* NotificationView.swift */; };
 		739B97282A6988EA00986A2D /* WatchProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B97262A6988EA00986A2D /* WatchProfileView.swift */; };
 		739B97312A698A6300986A2D /* GeometryProxy+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B972F2A698A6300986A2D /* GeometryProxy+Extensions.swift */; };
@@ -203,6 +204,7 @@
 		7343935A2A66813E00AB3555 /* GeometryProxy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeometryProxy+Extensions.swift"; sourceTree = "<group>"; };
 		7343935B2A66813E00AB3555 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		7343935E2A66814500AB3555 /* CompleteWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteWaveView.swift; sourceTree = "<group>"; };
+		7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewStatus.swift; sourceTree = "<group>"; };
 		739B971B2A6988AD00986A2D /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		739B97262A6988EA00986A2D /* WatchProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchProfileView.swift; path = "luv-dub Watch App/WatchProfileView.swift"; sourceTree = SOURCE_ROOT; };
 		739B972F2A698A6300986A2D /* GeometryProxy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeometryProxy+Extensions.swift"; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 		1844A3432A713F630083A04E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */,
 				1844A3442A713FB30083A04E /* TransmissionStatus.swift */,
 				182E2CC72A724E3900E7255D /* HeartStatus.swift */,
 			);
@@ -855,6 +858,7 @@
 				184E98332A701EBA00335BE9 /* MainPushViewModel.swift in Sources */,
 				18AE9C332A7037F500D543DB /* ProgressViewModel.swift in Sources */,
 				307F27102A6E603B00DB4DD1 /* UserInfo.xcdatamodeld in Sources */,
+				7349AFA22A78E18D002CE9C6 /* CompleteViewStatus.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
 				18AE9C372A710DB400D543DB /* ContentView.swift in Sources */,
 				739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */,
