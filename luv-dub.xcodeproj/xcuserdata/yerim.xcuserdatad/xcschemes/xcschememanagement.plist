@@ -4,26 +4,94 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Promises (Playground) 1.xcscheme</key>
+		<key>Notification.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>1</integer>
 		</dict>
-		<key>Promises (Playground) 2.xcscheme</key>
+		<key>Promises (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>Promises (Playground).xcscheme</key>
+		<key>Promises (Playground) 10.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>Promises (Playground) 11.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>Promises (Playground) 2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Promises (Playground) 3.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+		<key>Promises (Playground) 4.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>Promises (Playground) 5.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Promises (Playground) 6.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>Promises (Playground) 7.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>Promises (Playground) 8.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>Promises (Playground) 9.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+		<key>Promises (Playground).xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>luv-dub Watch App (Notification).xcscheme_^#shared#^_</key>
 		<dict>
@@ -38,7 +106,35 @@
 		<key>luv-dub.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>9</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1839B6512A5E71CE00066D47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1839B6772A5E71D000066D47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1839B6892A5E71D100066D47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1839B6932A5E71D100066D47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>309AA8CF2A612F0600039E5C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -19,6 +19,7 @@ class MainViewModel: ObservableObject {
     @Published var loverData = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
     @Published var path: [ViewType] = []
     @Published var users: [UserInfo] = []
+    let auth = Auth.auth()
     
     func getRefreshToken(completion: @escaping (String) -> Void) {
         let db = Firestore.firestore().collection("Token").document("refresh_token")

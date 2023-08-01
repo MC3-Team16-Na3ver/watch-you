@@ -18,11 +18,12 @@ struct luv_dub_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
-//                TestView()
-                MainPushView()
+                ContentView()
+
                 ProfileView()
             }
             .environment(\.managedObjectContext, watchDataController.container.viewContext)
+            .environmentObject(ButtonViewModel())
         }
         
         #if os(watchOS)

@@ -89,7 +89,7 @@ struct MainPushView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainPushView_Previews: PreviewProvider {
     static var previews: some View {
         MainPushView()
     }

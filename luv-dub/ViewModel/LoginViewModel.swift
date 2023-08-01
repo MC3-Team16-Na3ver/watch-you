@@ -18,9 +18,30 @@ import SwiftUI
 
 
 class LoginViewModel: ObservableObject {
-    @Published var nonce = ""
+    var nonce = "" // @Published 필요없지 않나요?
     @Published var user = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
+    let auth = Auth.auth()
     @Published var path: [ViewType] = []
+
+    // MARK: Create
+    func addUserToDatabase() {
+        guard let currentUser = Auth.auth().currentUser else {
+            print("Auth.auth().currentUser is null")
+            return
+        }
+        
+        self.user.userID = currentUser.uid
+        self.user.deviceToken = Messaging.messaging().fcmToken!
+        self.path.append(.coupleCodeView)
+        
+        do {
+            let _ = try Firestore.firestore().collection("User").document(user.userID)
+                .setData(from: self.user)
+            	
+        } catch {
+            print(error)
+        }
+    }
     
     //MARK: KAKAO
     func signInWithKakao() {

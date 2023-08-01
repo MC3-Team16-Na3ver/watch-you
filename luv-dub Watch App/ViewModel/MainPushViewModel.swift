@@ -102,6 +102,25 @@ class MainPushViewModel: NSObject, WCSessionDelegate, ObservableObject {
             task.resume()
         }
     }
+    func testSuccess() async -> CompleteViewStatus {
+        Thread.sleep(forTimeInterval: 2)
+        return .SUCCESS
+    }
+    
+    func testFail() async -> CompleteViewStatus {
+        Thread.sleep(forTimeInterval: 2)
+        return .FAIL
+    }
+    
+    func testPending() async -> CompleteViewStatus {
+        Thread.sleep(forTimeInterval: 2)
+        return .SENDING
+    }
+    
+    func testIDLE() async -> CompleteViewStatus {
+        Thread.sleep(forTimeInterval: 2)
+        return .IDLE
+    }
     
     func refreshAccessToken(refreshToken: String) {
         let urlString = "https://oauth2.googleapis.com/token"

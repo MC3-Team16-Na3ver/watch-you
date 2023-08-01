@@ -13,7 +13,6 @@ struct MainView: View {
     var viewModelPhone = ViewModelPhone()
     @State private var syncNotice = ""
     @Environment(\.managedObjectContext) var moc
-
     var body: some View {
         VStack {
             Text(syncNotice)
