@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SendButtonView: View {
     @EnvironmentObject private var viewModel: ButtonViewModel
+    @StateObject private var mainPushViewModel: MainPushViewModel = MainPushViewModel()
+    @State private var stateUI: CompleteViewStatus = .SENDING
     
     var body: some View {
         ZStack {
@@ -16,10 +18,46 @@ struct SendButtonView: View {
                 ProgressBar()
             }
             if viewModel.isProgressComplete {
-                StatusView()
-                    .onAppear {
-                        viewModel.sendPeerToNotification()
+                switch stateUI {
+                case .SENDING:
+                    StatusView()
+                        .task{ stateUI = await mainPushViewModel.testSuccess() }
+                case .SUCCESS:
+                    VStack{
+                        Circle()
+                            .fill(Color(red: 1, green: 0.22, blue: 0.37).opacity(0.2))
+                            .frame(width: 30, height: 30)
+                            .modifier(CircleCheckmarkStyle(isSuccess: true))
+                        
+                        Text("전송 완료")
+                            .modifier(TextStyle(textSize: 15, textWeight: .semibold, textKerning: 0.015))
+                            .padding(5)
+                        
+                        Text("상대방에게 \n 나의 마음을 보냈어요")
+                            .modifier(TextStyle(textSize: 10, textWeight: .regular, textKerning: 0.01))
                     }
+                    .task{ stateUI = await mainPushViewModel.testIDLE() }
+                    .onAppear{ viewModel.finishSend() }
+                case .FAIL:
+                    VStack{
+                        
+                        Circle()
+                            .fill(Color(red: 1, green: 0.22, blue: 0.37).opacity(0.2))
+                            .frame(width: 30, height: 30)
+                            .modifier(CircleCheckmarkStyle(isSuccess: viewModel.isSendComplete))
+                        
+                        Text("전송 실패")
+                            .modifier(TextStyle(textSize: 15, textWeight: .semibold, textKerning: 0.015))
+                            .padding(5)
+                        
+                        Text("알림 전송이 실패했습니다 \n 다시 시도해 주세요")
+                            .modifier(TextStyle(textSize: 10, textWeight: .regular, textKerning: 0.01))
+                    }
+                    .task{ stateUI = await mainPushViewModel.testIDLE() }
+                    .onAppear{ viewModel.finishSend() }
+                case .IDLE:
+                    Text("문제가 발생했습니다.")
+                }
             } else {
                 Button(action: { }) {
                     Text("SEND")
@@ -35,6 +73,7 @@ struct SendButtonView: View {
                             viewModel.handsOffBeforeProgressComplete()
                         }
                 )
+                .onDisappear{ stateUI = .SENDING }
                 .disabled(viewModel.remainingHearts == 0)
 
             }
@@ -43,6 +82,20 @@ struct SendButtonView: View {
 }
 
 
+// 완료 원 배경
+struct CircleCheckmarkStyle: ViewModifier {
+    let isSuccess: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                Image(systemName: isSuccess ? "checkmark" : "xmark")
+                    .font(Font.system(size: 13, weight: .bold))
+                    .foregroundColor(Color(red: 1, green: 0.22, blue: 0.37))
+            )
+            .padding()
+    }
+}
 
 // Button Style
 fileprivate struct SendButtonStyle: ButtonStyle {
