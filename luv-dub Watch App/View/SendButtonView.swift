@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SendButtonView: View {
     @EnvironmentObject private var viewModel: ButtonViewModel
     @StateObject private var mainPushViewModel: MainPushViewModel = MainPushViewModel()
     @State private var stateUI: CompleteViewStatus = .SENDING
-    
+    @FetchRequest(sortDescriptors: []) var tokens: FetchedResults<WatchToken>
+    @State private var token: [WatchToken] = []
+       
     var body: some View {
         ZStack {
             if viewModel.longPressDetected {
@@ -21,7 +24,28 @@ struct SendButtonView: View {
                 switch stateUI {
                 case .SENDING:
                     StatusView()
-                        .task{ stateUI = await mainPushViewModel.testSuccess() }
+                        .task{
+                            let request: URLRequest = mainPushViewModel.createRequest(notificationData: self.notificationData)
+                            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                                guard let _ = data, error == nil else {
+                                    return
+                                }
+
+                                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                                    if httpStatus.statusCode == 404 {
+                                        setFailView()
+                                        return
+                                    }
+                                    if httpStatus.statusCode == 401 {
+                                        setFailView()
+                                        return
+                                    }
+                                }
+                                self.stateUI = .SUCCESS
+                            }
+                            task.resume()
+                        }
                 case .SUCCESS:
                     VStack{
                         Circle()
@@ -79,6 +103,55 @@ struct SendButtonView: View {
             }
         }
     }
+    func setSuccessView() {
+        self.stateUI = .SUCCESS
+    }
+    func setFailView() {
+        self.stateUI = .FAIL
+    }
+    
+    // @escaping @Sendable (Data?, URLResponse?, Error?) -> Void
+    var testHandler: ((Data?, URLResponse?, Error?)->Void)?
+    
+}
+
+extension SendButtonView {
+    
+    private var notificationData: [String: Any] {
+        let request: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
+        
+        do {
+            token = try WatchDataController.shared.container.viewContext.fetch(request)
+            
+            if let loverDeviceToken = tokens.last?.loverDeviceToken {
+                let notificationJSON = [
+                    "message": [
+                        "token": loverDeviceToken,
+                        "apns": [
+                            "payload": [
+                                "aps": [
+                                    "alert" : [
+                                        "title" : "Game Request",
+                                        "subtitle" : "Five Card Draw",
+                                        "body" : "Bob wants to play poker"
+                                    ],
+                                    "category" : "hello"
+                                ],
+                            ]
+                        ]
+                    ]
+                ]
+                
+                return notificationJSON
+            }
+        } catch {
+            print(error)
+        }
+        
+        return [:]
+    }
+
+
 }
 
 
