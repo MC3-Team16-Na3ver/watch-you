@@ -12,7 +12,6 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
-    
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var users: FetchedResults<UserInfo>
     
@@ -20,13 +19,36 @@ struct ContentView: View {
         VStack {
             if users.isEmpty {
                 LoginView()
-            } else {
+            }
+            
+            else if isUserHasLover() {
                 LoginView()
                     .onAppear {
                         loginViewModel.path.append(.mainView)
                     }
             }
+            
+            else if isUserHasNickname() {
+                LoginView()
+                    .onAppear {
+                        loginViewModel.path.append(.coupleCodeView)
+                    }
+            }
         }
         .padding()
+    }
+    
+    private func isUserHasNickname() -> Bool {
+        if let _ = users.last!.nickname {
+            return true
+        }
+        return false
+    }
+    
+    private func isUserHasLover() -> Bool {
+        if let _ = users.last!.connectedID {
+            return true
+        }
+        return false
     }
 }

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SuccessView: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var userInfo: FetchedResults<UserInfo>
     
     var body: some View {
         VStack {
@@ -18,14 +16,8 @@ struct SuccessView: View {
             
             Spacer()
             
-            Button {
-                let user = UserInfo(context: moc)
-                user.id = loginViewModel.user.id
-                user.uid = loginViewModel.user.userID
-                user.nickname = loginViewModel.user.nickname
-                
-                try? moc.save()
-                loginViewModel.path.append(.mainView)
+            NavigationLink {
+                MainView()
             } label: {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(.pink)

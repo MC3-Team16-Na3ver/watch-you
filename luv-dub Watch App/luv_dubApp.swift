@@ -5,25 +5,25 @@
 //  Created by 김예림 on 2023/07/12.
 //
 
-import FirebaseMessaging
+import Firebase
 import SwiftUI
 import UserNotifications
-import WatchConnectivity
 import WatchKit
 
 @main
 struct luv_dub_Watch_AppApp: App {
     @WKApplicationDelegateAdaptor(ExtensionDelegate.self) var appDelegate: ExtensionDelegate
+    var watchDataController = WatchDataController.shared
     
-    @StateObject private var viewModel = ButtonViewModel()
     var body: some Scene {
         WindowGroup {
             TabView{
-//                MainPushView()
                 ContentView()
-                    .environmentObject(viewModel)
+
                 ProfileView()
             }
+            .environment(\.managedObjectContext, watchDataController.container.viewContext)
+            .environmentObject(ButtonViewModel())
         }
         
         #if os(watchOS)
@@ -34,10 +34,8 @@ struct luv_dub_Watch_AppApp: App {
 
 class ExtensionDelegate: NSObject, WKApplicationDelegate, UNUserNotificationCenterDelegate {
     
-    let session = WCSession.default
-    
     func applicationDidFinishLaunching() {
- 
+        FirebaseApp.configure(options: FirebaseOptions(contentsOfFile: Bundle.main.path(forResource: "GoogleService-Info-Watch", ofType: "plist")!)!)
     }
     
     func didReceiveRemoteNotification(_ userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (WKBackgroundFetchResult) -> Void) {

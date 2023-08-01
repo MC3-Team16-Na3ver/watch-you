@@ -13,26 +13,16 @@ struct MainView: View {
     var viewModelPhone = ViewModelPhone()
     @State private var syncNotice = ""
     @Environment(\.managedObjectContext) var moc
-//    @FetchRequest(sortDescriptors: []) var users: FetchedResults<Users>
-    
     var body: some View {
-        NavigationView {
         VStack {
-            HStack {
-                NavigationLink {
-                    CoupleCodeView()
-                } label: {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(.pink)
-                        .overlay(Text("연동하기").foregroundColor(.accentColor))
-                }
-                
-                Spacer()
-            }
-            
-            Spacer()
-            
             Text(syncNotice)
+            
+            NavigationLink {
+                CoupleCodeView()
+            } label: {
+                Text("커플 연동하기")
+            }
+
             
             Button {
                 self.viewModelPhone.session.sendMessage(["token": mainViewModel.loverData.deviceToken], replyHandler: nil) { error in
@@ -58,19 +48,25 @@ struct MainView: View {
                 }
             }
             .onAppear {
-                DispatchQueue.global(qos: .userInteractive).async {
-                    mainViewModel.fetchDatas()
-                    let user = UserInfo(context: moc)
+                let user = UserInfo(context: moc)
+
+                    mainViewModel.fetchDatas() {
+                        mainViewModel.getRefreshToken { refreshToken in
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.viewModelPhone.session.transferUserInfo(["token": mainViewModel.loverData.deviceToken, "refreshToken": refreshToken])
+                            }
+                        }
+                    }
+
                     user.id = mainViewModel.myData.id
                     user.nickname = mainViewModel.myData.nickname
                     user.uid = mainViewModel.myData.userID
                     user.connectedID = mainViewModel.myData.connectedID
                     
                     try? moc.save()
-                }
+                
             }
         }
-    }
     }
     
     private func connectedwithWatch() {

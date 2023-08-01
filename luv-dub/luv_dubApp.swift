@@ -7,6 +7,7 @@
 
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 import FirebaseMessaging
 import KakaoSDKAuth
 import KakaoSDKCommon
@@ -17,12 +18,11 @@ import WatchConnectivity
 @main
 struct luv_dubApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-//    @StateObject private var dataController = DataController()
+    var dataController = DataController()
     
     init() {
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
-
     }
     
     var body: some Scene {
@@ -50,8 +50,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     @Published var isAlertOn: Bool = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
         
+        FirebaseApp.configure()
+    
         Messaging.messaging().delegate = self
         
         let center = UNUserNotificationCenter.current()
@@ -59,11 +60,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         checkNotificationPermission()
         
         application.registerForRemoteNotifications()
+        
         return true
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
@@ -74,7 +75,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
         let userInfo = notification.request.content.userInfo
         
         if let messageID = userInfo[gcmMessageIDKey] {
@@ -121,6 +121,12 @@ extension AppDelegate: MessagingDelegate {
         
         let deviceToken: [String:String] = ["token": fcmToken ?? ""]
         print("Device token: ", deviceToken)
+        
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        Firestore.firestore().collection("User").document(userUid)
+            .updateData(["deviceToken": fcmToken ?? ""])
+        
+        print("deviceToken updated")
 
     }
 }

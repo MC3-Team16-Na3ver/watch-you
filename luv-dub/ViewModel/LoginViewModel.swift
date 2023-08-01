@@ -10,15 +10,16 @@ import CoreData
 import CryptoKit
 import Firebase
 import FirebaseAuth
-import KakaoSDKAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import KakaoSDKAuth
 import KakaoSDKUser
 import SwiftUI
 
+
 class LoginViewModel: ObservableObject {
     var nonce = "" // @Published 필요없지 않나요?
-    @Published var user = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
+    @Published var user = User(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
     let auth = Auth.auth()
     @Published var path: [ViewType] = []
 
@@ -42,24 +43,14 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    func createUserWithEmail(email: String, userName: String, password: Int64, profileImage: URL) {
-        let passwordToString = String(describing: password)
-        Auth.auth().createUser(withEmail: email, password: passwordToString) { result, error in
-            if let error = error {
-                print(error)
-                return
-            }
-            self.loginUser(email: email, password: passwordToString)
-        }
-    }
-
+    //MARK: KAKAO
     func signInWithKakao() {
-        self.user = .init(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
+        self.user = .init(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
         
         if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { oauthToken, error in
-                print(error)
                 if let error = error {
+                    print(error)
                 }
                 self.fetchUserDataFromKakao()
             }
@@ -68,9 +59,7 @@ class LoginViewModel: ObservableObject {
                 if let error = error {
                     print(error)
                 }
-                
                 self.fetchUserDataFromKakao()
-                
             }
         }
     }
@@ -80,93 +69,166 @@ class LoginViewModel: ObservableObject {
             if let error = error {
                 print("\(error)")
                 return
+                
             }
             guard let name = user?.kakaoAccount?.profile?.nickname else { return }
             guard let email = user?.kakaoAccount?.email else { return }
             guard let id = user?.id else { return }
             guard let profileImage = user?.kakaoAccount?.profile?.profileImageUrl else { return }
-            self.checkEmailForDuplication(email: email) { isDuplicated in
-                if isDuplicated {
-                    self.loginUser(email: email, password: String(describing: id))
+            
+            self.checkIfUserAlreadyRegistered(email: email) { isRegistered in
+                if isRegistered {
+                    self.login(email: email, password: String(describing: id))
                     self.path.append(.mainView)
                 } else {
-                   self.createUserWithEmail(email: email, userName: name, password: id, profileImage: profileImage)
-                   self.updateUserModel(user: User(name: name, nickname: "", dDay: "", userID: "", email: email, deviceToken: "", connectedID: ""))
+                   self.createUserInAuth(email: email, userName: name, password: id, profileImage: profileImage)
+                    self.updateUserModel(user: User(name: name, nickname: "", dDay: "", userID: "", email: email, deviceToken: "", connectedID: "", invitationCode: ""))
                    self.path.append(.nicknameView)
                }
             }
         }
     }
-    
+
+    //MARK: APPLE
     func signInWithApple(credential: ASAuthorizationAppleIDCredential) {
-        self.user = .init(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "")
+        self.user = .init(name: "", nickname: "", dDay: "", userID: "", email: "", deviceToken: "", connectedID: "", invitationCode: "")
         
         guard let token = credential.identityToken else { return }
         guard let tokenString = String(data: token, encoding: .utf8) else { return }
         
         let firebaseCredential = OAuthProvider.credential(withProviderID: "apple.com", idToken: tokenString, rawNonce: nonce)
-        
+
         Auth.auth().signIn(with: firebaseCredential) { result, error in
-            if let error = error {
+            if let error = error, result != nil {
                 print(error)
                 return
             }
-            if result == nil {
-                self.fetchUserDataFromApple(credential: credential)
-                self.path.append(.nicknameView)
-            } else {
-                self.path.append(.mainView)
+            guard let user = result?.user else { return }
+            let document = Firestore.firestore().collection("User").document(user.uid)
+            document.getDocument { document, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                if let document = document, document.exists {
+                    self.path.append(.mainView)
+                } else {
+                    self.fetchUserDataFromApple(credential: credential)
+                    self.path.append(.nicknameView)
+                    do {
+                        let userInfo = User(name: "", nickname: "", dDay: "", userID: user.uid, email: user.email ?? "", deviceToken: "", connectedID: "", invitationCode: "")
+                        try Firestore.firestore().collection("User").document(user.uid).setData(from: userInfo)
+                    } catch {
+                        print(error)
+                    }
+                }
             }
-            
         }
-        
-        
         
     }
     
     func fetchUserDataFromApple(credential: ASAuthorizationAppleIDCredential) {
         guard let givenName = credential.fullName?.givenName else { return }
-        self.updateUserModel(user: User(name: givenName, nickname: "", dDay: "", userID: "", email: credential.email ?? "", deviceToken: "", connectedID: ""))
+        self.updateUserModel(user: User(name: givenName, nickname: "", dDay: "", userID: "", email: credential.email ?? "", deviceToken: "", connectedID: "", invitationCode: ""))
     }
     
-    // MARK: Read
+    func setUserInvitationCode(uid: String, invitationCode: String) {
+        Firestore.firestore().collection("User").document(uid)
+            .setData(["invitationCode" : invitationCode])
+    }
     
-    // MARK: Update
-    func connectUsertoUser(to loverUid: String) {
-        let db = Firestore.firestore()
-        guard let currentUserUid = Auth.auth().currentUser?.uid else { return }
+    func addUserToFirestore() {
+        guard let currentUser = Auth.auth().currentUser else { return }
         
-        if loverUid.isEmpty {
-            self.path.append(.coupleCodeView)
-            return
+        setUserInvitationCode(uid: currentUser.uid, invitationCode: createInvitationCode())
+        setUserId(uid: currentUser.uid)
+        setUserDeviceToken(deviceToken: Messaging.messaging().fcmToken!)
+        
+        self.path.append(.coupleCodeView)
+        
+        do {
+            let _ = try Firestore.firestore().collection("User").document(user.userID)
+                .setData(from: self.user)
+                
+        } catch {
+            print(error)
         }
+    }
+    
+    private func createInvitationCode() -> String {
+        let element = "0123456789"
+        let invitationCode = element.createRandomString(length: 6)
         
-        db.collection("User").document(loverUid).getDocument { document, error in
+        return invitationCode
+    }
+    
+    func setUserNickname(nickname: String) {
+        self.user.nickname = nickname
+    }
+    
+    func setUserId(uid: String) {
+        self.user.userID = uid
+    }
+    
+    func setUserDeviceToken(deviceToken: String) {
+        self.user.deviceToken = deviceToken
+    }
+    
+    func createUserInAuth(email: String, userName: String, password: Int64, profileImage: URL) {
+        let passwordToString = String(describing: password)
+        Auth.auth().createUser(withEmail: email, password: passwordToString) { result, error in
             if let error = error {
                 print(error)
                 return
             }
             
-            let currentUserData = db.collection("User").document(currentUserUid)
-            let _ = currentUserData.updateData(["connectedID": loverUid])
-            
-            let loverUserData = db.collection("User").document(loverUid)
-            let _ = currentUserData.addSnapshotListener { snapshot, error in
-                if let error = error {
-                    return
-                }
-                if let change = snapshot?.exists {
-                    let _ = loverUserData.updateData(["connectedID": currentUserUid])
-                    self.path.append(.successView)
-                }
+            self.login(email: email, password: passwordToString)
+        }
+    }
+
+    func connectUsertoUser(to loverCode: String) {
+        let db = Firestore.firestore()
+        guard let currentUserUid = Auth.auth().currentUser?.uid else { return }
+        let query = db.collection("User").whereField("invitationCode", isEqualTo: loverCode)
+        
+        query.getDocuments { querySnapShot, error in
+            if let error = error {
+                print(error.localizedDescription)
             }
             
-            
+            guard let documents = querySnapShot?.documents else { return }
+            for document in documents {
+                let loverUid = document.documentID
+                
+                db.collection("User").document(loverUid).getDocument { document, error in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+                    
+                    let currentUserData = db.collection("User").document(currentUserUid)
+                    let _ = currentUserData.updateData(["connectedID": loverUid])
+                    
+                    let loverUserData = db.collection("User").document(loverUid)
+                    let _ = currentUserData.addSnapshotListener { snapshot, error in
+                        if let _ = error {
+                            return
+                        }
+                        if let _ = snapshot?.exists {
+                            let _ = loverUserData.updateData(["connectedID": currentUserUid])
+                        }
+                        
+                        self.path.append(.successView)
+                    }
+                }
+                
+            }
+                
         }
         
     }
     
-    private func loginUser(email: String, password: String) {
+    private func login(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) {
             result, err in
             
@@ -181,13 +243,24 @@ class LoginViewModel: ObservableObject {
     
     func updateUserModel(user: User) {
         self.user = user
-        
+    }
+
+    private func checkIfUserAlreadyRegistered(email: String, completion: @escaping (Bool) -> Void) {
+        Auth.auth().fetchSignInMethods(forEmail: email) { result, error in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+            } else {
+                let isUserRegistered = result != nil && !result!.isEmpty
+                completion(isUserRegistered)
+            }
+        }
     }
     
     
-    // MARK: Delete
     
-    private func checkEmailForDuplication(email: String, completion: @escaping (Bool) -> Void) {
+    // 로그인했는데, 닉네임 안정하고 껐을 때
+    func checkIfUserSetNickname(email: String, completion: @escaping (Bool) -> Void) {
         let query = Firestore.firestore().collection("User")
             .whereField("email", isEqualTo: email)
         
@@ -197,7 +270,6 @@ class LoginViewModel: ObservableObject {
                 isDuplicated = !duplicationResult
             } else {
                 isDuplicated = false
-                
             }
             
            completion(isDuplicated)
@@ -238,6 +310,4 @@ class LoginViewModel: ObservableObject {
 
       return String(nonce)
     }
-    
-    
 }
