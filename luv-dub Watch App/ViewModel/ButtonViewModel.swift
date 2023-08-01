@@ -45,27 +45,29 @@ class ButtonViewModel: ObservableObject {
         let totalSteps = totalTime / incrementValue
         var currentStep: Double = 0
         
-        Timer.scheduledTimer(withTimeInterval: incrementValue, repeats: true) { [weak self] timer in
-            guard let self = self else {
                 timer.invalidate()
                 return
             }
-            
-            if longPressDetected == false {
-                timer.invalidate()
-                return
-            }
-            
             currentStep += 1
-            
             if currentStep >= totalSteps {
                 timer.invalidate()
                 self.isProgressComplete = true
-                self.longPressDetected = false
                 return
             }
-            
+
             self.progress = currentStep / totalSteps
+        }
+    }
+    func finishAnimation() {
+        self.isProgressComplete = true
+        self.longPressDetected = false
+    }
+    
+    func finishSend() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.remainingHearts -= 1    // 하트 개수 감소
+            self.isProgressComplete = false
+            self.isMainScreen = true
         }
     }
     /// 로딩중일 때 - Notification 전송 시도
