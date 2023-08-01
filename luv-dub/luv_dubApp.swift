@@ -58,6 +58,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         checkNotificationPermission()
+        requestNotificationPermission()
         
         application.registerForRemoteNotifications()
         
