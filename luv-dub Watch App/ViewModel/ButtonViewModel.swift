@@ -45,13 +45,16 @@ class ButtonViewModel: ObservableObject {
         let totalSteps = totalTime / incrementValue
         var currentStep: Double = 0
         
+        Timer.scheduledTimer(withTimeInterval: incrementValue, repeats: true) { timer in
+
+            if self.longPressDetected == false {
                 timer.invalidate()
                 return
             }
             currentStep += 1
             if currentStep >= totalSteps {
+                self.finishAnimation()
                 timer.invalidate()
-                self.isProgressComplete = true
                 return
             }
 
