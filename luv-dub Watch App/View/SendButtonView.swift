@@ -39,9 +39,15 @@ struct SendButtonView: View {
                                     }
                                     if httpStatus.statusCode == 401 {
                                         setFailView()
+                                        mainPushViewModel.refreshAccessToken(refreshToken: mainPushViewModel.refreshToken)
+                                        print("mainPushViewModel.refreshToken: \(mainPushViewModel.refreshToken)")
                                         return
                                     }
                                 }
+                                if let httpStatus = response as? HTTPURLResponse {
+                                    print("statusCode: \(httpStatus.statusCode)")
+                                }
+                                
                                 self.stateUI = .SUCCESS
                             }
                             task.resume()
