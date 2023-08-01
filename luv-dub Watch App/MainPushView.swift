@@ -15,7 +15,6 @@ struct MainPushView: View {
     @StateObject var mainPushViewModel = MainPushViewModel()
     @FetchRequest(sortDescriptors: []) var tokens: FetchedResults<WatchToken>
     @State private var token: [WatchToken] = []
-    
     private var notificationData: [String: Any] {
         let request: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
         
@@ -59,8 +58,6 @@ struct MainPushView: View {
             
             Button {
                 mainPushViewModel.pushNotification(notificationData: notificationData)
-                print("토큰값인디여 \(mainPushViewModel.token)")
-                print("리프레시여 \(mainPushViewModel.refreshToken)")
             }
             label: {
                 Circle()

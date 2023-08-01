@@ -39,9 +39,15 @@ struct SendButtonView: View {
                                     }
                                     if httpStatus.statusCode == 401 {
                                         setFailView()
+                                        mainPushViewModel.refreshAccessToken(refreshToken: mainPushViewModel.refreshToken)
+                                        print("mainPushViewModel.refreshToken: \(mainPushViewModel.refreshToken)")
                                         return
                                     }
                                 }
+                                if let httpStatus = response as? HTTPURLResponse {
+                                    print("statusCode: \(httpStatus.statusCode)")
+                                }
+                                
                                 self.stateUI = .SUCCESS
                             }
                             task.resume()
@@ -100,6 +106,20 @@ struct SendButtonView: View {
                 .onDisappear{ stateUI = .SENDING }
                 .disabled(viewModel.remainingHearts == 0)
 
+            }
+        }
+        .onAppear {
+            let request: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
+            do {
+               token = try WatchDataController.shared.container.viewContext.fetch(request)
+                
+                if let refreshToken = tokens.last?.refreshToken {
+                    mainPushViewModel.refreshAccessToken(refreshToken: refreshToken)
+                    mainPushViewModel.refreshToken = refreshToken
+                    mainPushViewModel.token = tokens.last!.loverDeviceToken!
+                }
+            } catch {
+                print(error)
             }
         }
     }
