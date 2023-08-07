@@ -26,7 +26,6 @@
 		184E98372A70220200335BE9 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E98362A70220200335BE9 /* ButtonViewModel.swift */; };
 		184E98392A7029F000335BE9 /* ViewModelWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E98382A7029EF00335BE9 /* ViewModelWatch.swift */; };
 		18AE9C312A702B4500D543DB /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE9C302A702B4500D543DB /* ProgressBar.swift */; };
-		18AE9C332A7037F500D543DB /* ProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE9C322A7037F500D543DB /* ProgressViewModel.swift */; };
 		18AE9C352A70E2CC00D543DB /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE9C342A70E2CC00D543DB /* StatusView.swift */; };
 		18AE9C372A710DB400D543DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE9C362A710DB400D543DB /* ContentView.swift */; };
 		3028397B2A768985004504DB /* GoogleService-Info-Watch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3028397A2A768985004504DB /* GoogleService-Info-Watch.plist */; };
@@ -166,7 +165,6 @@
 		184E98362A70220200335BE9 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
 		184E98382A7029EF00335BE9 /* ViewModelWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelWatch.swift; sourceTree = "<group>"; };
 		18AE9C302A702B4500D543DB /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		18AE9C322A7037F500D543DB /* ProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewModel.swift; sourceTree = "<group>"; };
 		18AE9C342A70E2CC00D543DB /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		18AE9C362A710DB400D543DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3028397A2A768985004504DB /* GoogleService-Info-Watch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Watch.plist"; sourceTree = "<group>"; };
@@ -363,7 +361,6 @@
 				184E98322A701EBA00335BE9 /* MainPushViewModel.swift */,
 				184E98382A7029EF00335BE9 /* ViewModelWatch.swift */,
 				184E98362A70220200335BE9 /* ButtonViewModel.swift */,
-				18AE9C322A7037F500D543DB /* ProgressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -748,7 +745,6 @@
 				182E2CC42A71846900E7255D /* HeartNumbersView.swift in Sources */,
 				1844A3482A7147EB0083A04E /* BlinkLoading.swift in Sources */,
 				184E98332A701EBA00335BE9 /* MainPushViewModel.swift in Sources */,
-				18AE9C332A7037F500D543DB /* ProgressViewModel.swift in Sources */,
 				307F27102A6E603B00DB4DD1 /* UserProgress.xcdatamodeld in Sources */,
 				7349AFA22A78E18D002CE9C6 /* CompleteViewStatus.swift in Sources */,
 				1839B67E2A5E71D000066D47 /* luv_dubApp.swift in Sources */,
