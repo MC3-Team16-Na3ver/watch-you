@@ -69,7 +69,6 @@
 		30AA82A32A5E77F90047B0B6 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82A22A5E77F90047B0B6 /* KakaoSDKUser */; };
 		30FE86322A7179380050DA1D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 30FE86312A7179380050DA1D /* FirebaseDatabase */; };
 		30FE86342A71793A0050DA1D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30FE86332A71793A0050DA1D /* FirebaseDatabaseSwift */; };
-		7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343935E2A66814500AB3555 /* CompleteWaveView.swift */; };
 		7349AFA22A78E18D002CE9C6 /* CompleteViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */; };
 		739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B971B2A6988AD00986A2D /* NotificationView.swift */; };
 		739B97282A6988EA00986A2D /* WatchProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B97262A6988EA00986A2D /* WatchProfileView.swift */; };
@@ -182,9 +181,7 @@
 		306376952A64B0AB002B2A77 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		306376972A64B218002B2A77 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		306376992A64BCCA002B2A77 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
-		306F80082A5F12FD0088A57F /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		307DE7032A731A15007E9F88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		307F270B2A6E5C6900DB4DD1 /* MainPushViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPushViewModel.swift; sourceTree = "<group>"; };
 		307F270E2A6E603B00DB4DD1 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 		309AA8D02A612F0600039E5C /* Notification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Notification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		309AA8D22A612F0600039E5C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -199,12 +196,9 @@
 		30AA82A42A5E780B0047B0B6 /* luv-dub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "luv-dub.entitlements"; sourceTree = "<group>"; };
 		30AA82A82A5E7B7F0047B0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		30FE86372A719E930050DA1D /* luv-dub-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "luv-dub-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
-		7343935A2A66813E00AB3555 /* GeometryProxy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeometryProxy+Extensions.swift"; sourceTree = "<group>"; };
-		7343935B2A66813E00AB3555 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		7343935E2A66814500AB3555 /* CompleteWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteWaveView.swift; sourceTree = "<group>"; };
 		7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewStatus.swift; sourceTree = "<group>"; };
 		739B971B2A6988AD00986A2D /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
-		739B97262A6988EA00986A2D /* WatchProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchProfileView.swift; path = "luv-dub Watch App/WatchProfileView.swift"; sourceTree = SOURCE_ROOT; };
+		739B97262A6988EA00986A2D /* WatchProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchProfileView.swift; path = "luv-dub Watch App/View/WatchProfileView.swift"; sourceTree = SOURCE_ROOT; };
 		739B972F2A698A6300986A2D /* GeometryProxy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeometryProxy+Extensions.swift"; sourceTree = "<group>"; };
 		739B97302A698A6300986A2D /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		739B97332A698A8800986A2D /* MainPushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPushView.swift; sourceTree = "<group>"; };
@@ -284,7 +278,6 @@
 				73AB70372A7A330E00AB75B6 /* lub-dub Complication */,
 				1839B6532A5E71CE00066D47 /* Products */,
 				303CFE9B2A5F2D31003931F3 /* Frameworks */,
-				739B97172A69886400986A2D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -337,10 +330,7 @@
 				1839B67D2A5E71D000066D47 /* luv_dubApp.swift */,
 				739B97332A698A8800986A2D /* MainPushView.swift */,
 				739B97342A698A8800986A2D /* NotificationController.swift */,
-				7343935E2A66814500AB3555 /* CompleteWaveView.swift */,
-				739B971B2A6988AD00986A2D /* NotificationView.swift */,
 				18191BC32A63BD1200E9719B /* RoundAnimation.swift */,
-				739B97262A6988EA00986A2D /* WatchProfileView.swift */,
 				1839B6812A5E71D100066D47 /* Assets.xcassets */,
 				1839B6832A5E71D100066D47 /* Preview Content */,
 				30A1C6B32A72E7F300D425C8 /* TestView.swift */,
@@ -391,12 +381,11 @@
 		18AE9C2F2A702B0C00D543DB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1844A3462A7147A00083A04E /* Components */,
 				18AE9C362A710DB400D543DB /* ContentView.swift */,
-				184E98302A70185F00335BE9 /* SendButtonView.swift */,
-				182E2CC32A71846900E7255D /* HeartNumbersView.swift */,
-				182E2CC52A724D5700E7255D /* HeartTimerView.swift */,
-				18AE9C342A70E2CC00D543DB /* StatusView.swift */,
+				739B97262A6988EA00986A2D /* WatchProfileView.swift */,
+				1844A3462A7147A00083A04E /* Components */,
+				731E20262A80D05500805561 /* InMain */,
+				731E20272A80D09000805561 /* InNotification */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -478,15 +467,23 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
-		739B97172A69886400986A2D /* Recovered References */ = {
+		731E20262A80D05500805561 /* InMain */ = {
 			isa = PBXGroup;
 			children = (
-				7343935A2A66813E00AB3555 /* GeometryProxy+Extensions.swift */,
-				7343935B2A66813E00AB3555 /* Color+Extensions.swift */,
-				306F80082A5F12FD0088A57F /* NotificationController.swift */,
-				307F270B2A6E5C6900DB4DD1 /* MainPushViewModel.swift */,
+				182E2CC52A724D5700E7255D /* HeartTimerView.swift */,
+				182E2CC32A71846900E7255D /* HeartNumbersView.swift */,
+				18AE9C342A70E2CC00D543DB /* StatusView.swift */,
+				184E98302A70185F00335BE9 /* SendButtonView.swift */,
 			);
-			name = "Recovered References";
+			path = InMain;
+			sourceTree = "<group>";
+		};
+		731E20272A80D09000805561 /* InNotification */ = {
+			isa = PBXGroup;
+			children = (
+				739B971B2A6988AD00986A2D /* NotificationView.swift */,
+			);
+			path = InNotification;
 			sourceTree = "<group>";
 		};
 		739B972E2A698A6300986A2D /* Extension */ = {
@@ -761,7 +758,6 @@
 				304341432A765F5700934BFA /* WatchInfo.xcdatamodeld in Sources */,
 				182E2CC82A724E3900E7255D /* HeartStatus.swift in Sources */,
 				184E98392A7029F000335BE9 /* ViewModelWatch.swift in Sources */,
-				7343935F2A66814500AB3555 /* CompleteWaveView.swift in Sources */,
 				30A1C6B42A72E7F300D425C8 /* TestView.swift in Sources */,
 				18191BC42A63BD1200E9719B /* RoundAnimation.swift in Sources */,
 			);
