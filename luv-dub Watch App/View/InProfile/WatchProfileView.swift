@@ -84,12 +84,12 @@ struct NicknameView: View {
         }
     }
 }
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
-}
+//
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView()
+//    }
+//}
 
 //CornerRadius를 특정 모서리에만 줄 수 있도록 하는 익스텐션
 extension View {
