@@ -82,6 +82,11 @@
 		73AB70422A7A330F00AB75B6 /* lub-dub ComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 73AB70322A7A330E00AB75B6 /* lub-dub ComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73E18FDB2A769782005141BD /* AppDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */; };
 		73E18FE02A769816005141BD /* ShareTextModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDF2A769816005141BD /* ShareTextModalView.swift */; };
+		C26B22082AA89AA900F6B8C3 /* D_DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22032AA89AA900F6B8C3 /* D_DayView.swift */; };
+		C26B22092AA89AA900F6B8C3 /* AlarmSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22042AA89AA900F6B8C3 /* AlarmSuccessView.swift */; };
+		C26B220A2AA89AA900F6B8C3 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22052AA89AA900F6B8C3 /* AlarmView.swift */; };
+		C26B220B2AA89AA900F6B8C3 /* AlarmFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */; };
+		C26B220C2AA89AA900F6B8C3 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22072AA89AA900F6B8C3 /* NicknameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +210,11 @@
 		73AB703D2A7A330F00AB75B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateViewModel.swift; sourceTree = "<group>"; };
 		73E18FDF2A769816005141BD /* ShareTextModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTextModalView.swift; sourceTree = "<group>"; };
+		C26B22032AA89AA900F6B8C3 /* D_DayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = D_DayView.swift; sourceTree = "<group>"; };
+		C26B22042AA89AA900F6B8C3 /* AlarmSuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSuccessView.swift; sourceTree = "<group>"; };
+		C26B22052AA89AA900F6B8C3 /* AlarmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
+		C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmFailView.swift; sourceTree = "<group>"; };
+		C26B22072AA89AA900F6B8C3 /* NicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +378,11 @@
 		18AE9C2F2A702B0C00D543DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */,
+				C26B22042AA89AA900F6B8C3 /* AlarmSuccessView.swift */,
+				C26B22052AA89AA900F6B8C3 /* AlarmView.swift */,
+				C26B22032AA89AA900F6B8C3 /* D_DayView.swift */,
+				C26B22072AA89AA900F6B8C3 /* NicknameView.swift */,
 				1844A3462A7147A00083A04E /* Components */,
 				731E202D2A80D39700805561 /* InProfile */,
 				731E20262A80D05500805561 /* InMain */,
@@ -754,11 +769,16 @@
 				182E2CC62A724D5700E7255D /* HeartTimerView.swift in Sources */,
 				184E98372A70220200335BE9 /* ButtonViewModel.swift in Sources */,
 				739B97322A698A6300986A2D /* Color+Extensions.swift in Sources */,
+				C26B220B2AA89AA900F6B8C3 /* AlarmFailView.swift in Sources */,
 				304341452A76600600934BFA /* WatchDataController.swift in Sources */,
 				739B97312A698A6300986A2D /* GeometryProxy+Extensions.swift in Sources */,
+				C26B22082AA89AA900F6B8C3 /* D_DayView.swift in Sources */,
 				73AB703F2A7A330F00AB75B6 /* lub_dub_Complication.intentdefinition in Sources */,
+				C26B22092AA89AA900F6B8C3 /* AlarmSuccessView.swift in Sources */,
+				C26B220C2AA89AA900F6B8C3 /* NicknameView.swift in Sources */,
 				304341432A765F5700934BFA /* WatchInfo.xcdatamodeld in Sources */,
 				182E2CC82A724E3900E7255D /* HeartStatus.swift in Sources */,
+				C26B220A2AA89AA900F6B8C3 /* AlarmView.swift in Sources */,
 				184E98392A7029F000335BE9 /* ViewModelWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
