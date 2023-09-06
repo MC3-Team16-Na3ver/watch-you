@@ -82,11 +82,14 @@
 		73AB70422A7A330F00AB75B6 /* lub-dub ComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 73AB70322A7A330E00AB75B6 /* lub-dub ComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73E18FDB2A769782005141BD /* AppDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */; };
 		73E18FE02A769816005141BD /* ShareTextModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDF2A769816005141BD /* ShareTextModalView.swift */; };
-		C26B22082AA89AA900F6B8C3 /* D_DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22032AA89AA900F6B8C3 /* D_DayView.swift */; };
-		C26B22092AA89AA900F6B8C3 /* AlarmSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22042AA89AA900F6B8C3 /* AlarmSuccessView.swift */; };
-		C26B220A2AA89AA900F6B8C3 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22052AA89AA900F6B8C3 /* AlarmView.swift */; };
-		C26B220B2AA89AA900F6B8C3 /* AlarmFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */; };
-		C26B220C2AA89AA900F6B8C3 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22072AA89AA900F6B8C3 /* NicknameView.swift */; };
+		C26B221F2AA8A4B700F6B8C3 /* AlarmFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */; };
+		C26B22202AA8A4B700F6B8C3 /* D_DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22032AA89AA900F6B8C3 /* D_DayView.swift */; };
+		C26B22212AA8A4B700F6B8C3 /* AlarmSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22042AA89AA900F6B8C3 /* AlarmSuccessView.swift */; };
+		C26B22222AA8A4B700F6B8C3 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22052AA89AA900F6B8C3 /* AlarmView.swift */; };
+		C26B22232AA8A4B700F6B8C3 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22072AA89AA900F6B8C3 /* NicknameView.swift */; };
+		C26B22252AA8A4F200F6B8C3 /* OnboardingTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22242AA8A4F200F6B8C3 /* OnboardingTopView.swift */; };
+		C26B22292AA8A67D00F6B8C3 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22272AA8A67D00F6B8C3 /* NextButton.swift */; };
+		C26B222A2AA8A67D00F6B8C3 /* DisabledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22282AA8A67D00F6B8C3 /* DisabledButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +218,9 @@
 		C26B22052AA89AA900F6B8C3 /* AlarmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmFailView.swift; sourceTree = "<group>"; };
 		C26B22072AA89AA900F6B8C3 /* NicknameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		C26B22242AA8A4F200F6B8C3 /* OnboardingTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTopView.swift; sourceTree = "<group>"; };
+		C26B22272AA8A67D00F6B8C3 /* NextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		C26B22282AA8A67D00F6B8C3 /* DisabledButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisabledButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,11 +384,6 @@
 		18AE9C2F2A702B0C00D543DB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */,
-				C26B22042AA89AA900F6B8C3 /* AlarmSuccessView.swift */,
-				C26B22052AA89AA900F6B8C3 /* AlarmView.swift */,
-				C26B22032AA89AA900F6B8C3 /* D_DayView.swift */,
-				C26B22072AA89AA900F6B8C3 /* NicknameView.swift */,
 				1844A3462A7147A00083A04E /* Components */,
 				731E202D2A80D39700805561 /* InProfile */,
 				731E20262A80D05500805561 /* InMain */,
@@ -403,6 +404,7 @@
 		306376942A649579002B2A77 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				C26B22242AA8A4F200F6B8C3 /* OnboardingTopView.swift */,
 				309AA8E72A64655600039E5C /* CoupleCodeView.swift */,
 				309AA8E92A646CEF00039E5C /* InvitationView.swift */,
 				309AA8E52A644FBD00039E5C /* NicknameSetView.swift */,
@@ -423,6 +425,11 @@
 		309AA8DC2A644F1400039E5C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */,
+				C26B22042AA89AA900F6B8C3 /* AlarmSuccessView.swift */,
+				C26B22052AA89AA900F6B8C3 /* AlarmView.swift */,
+				C26B22032AA89AA900F6B8C3 /* D_DayView.swift */,
+				C26B22072AA89AA900F6B8C3 /* NicknameView.swift */,
 				73E18FE22A769829005141BD /* System */,
 				306376942A649579002B2A77 /* OnBoarding */,
 				309AA8DF2A644F7900039E5C /* LoginView.swift */,
@@ -434,6 +441,7 @@
 		309AA8DD2A644F1A00039E5C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C26B22262AA8A67D00F6B8C3 /* Components */,
 				73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */,
 				309AA8E12A644F9600039E5C /* LoginViewModel.swift */,
 				739B97372A698B3300986A2D /* ViewModelPhone.swift */,
@@ -533,6 +541,15 @@
 			name = System;
 			path = "luv-dub/View/System";
 			sourceTree = SOURCE_ROOT;
+		};
+		C26B22262AA8A67D00F6B8C3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C26B22272AA8A67D00F6B8C3 /* NextButton.swift */,
+				C26B22282AA8A67D00F6B8C3 /* DisabledButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -730,17 +747,25 @@
 			files = (
 				309AA8E22A644F9600039E5C /* LoginViewModel.swift in Sources */,
 				306376962A64B0AB002B2A77 /* MainView.swift in Sources */,
+				C26B22222AA8A4B700F6B8C3 /* AlarmView.swift in Sources */,
+				C26B222A2AA8A67D00F6B8C3 /* DisabledButton.swift in Sources */,
 				309AA8EA2A646CEF00039E5C /* InvitationView.swift in Sources */,
+				C26B22292AA8A67D00F6B8C3 /* NextButton.swift in Sources */,
 				309AA8E02A644F7900039E5C /* LoginView.swift in Sources */,
 				73E18FE02A769816005141BD /* ShareTextModalView.swift in Sources */,
+				C26B22232AA8A4B700F6B8C3 /* NicknameView.swift in Sources */,
 				1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */,
+				C26B22202AA8A4B700F6B8C3 /* D_DayView.swift in Sources */,
 				306376982A64B218002B2A77 /* MainViewModel.swift in Sources */,
 				309AA8E82A64655600039E5C /* CoupleCodeView.swift in Sources */,
+				C26B22252AA8A4F200F6B8C3 /* OnboardingTopView.swift in Sources */,
 				3057E2062A7042D1005A3858 /* DataController.swift in Sources */,
 				3063769A2A64BCCA002B2A77 /* SuccessView.swift in Sources */,
 				309AA8E62A644FBD00039E5C /* NicknameSetView.swift in Sources */,
 				739B97382A698B3300986A2D /* ViewModelPhone.swift in Sources */,
+				C26B22212AA8A4B700F6B8C3 /* AlarmSuccessView.swift in Sources */,
 				309AA8E42A644FA500039E5C /* User.swift in Sources */,
+				C26B221F2AA8A4B700F6B8C3 /* AlarmFailView.swift in Sources */,
 				307F270F2A6E603B00DB4DD1 /* UserProgress.xcdatamodeld in Sources */,
 				1839B6562A5E71CE00066D47 /* luv_dubApp.swift in Sources */,
 				73E18FDB2A769782005141BD /* AppDelegateViewModel.swift in Sources */,
@@ -769,16 +794,11 @@
 				182E2CC62A724D5700E7255D /* HeartTimerView.swift in Sources */,
 				184E98372A70220200335BE9 /* ButtonViewModel.swift in Sources */,
 				739B97322A698A6300986A2D /* Color+Extensions.swift in Sources */,
-				C26B220B2AA89AA900F6B8C3 /* AlarmFailView.swift in Sources */,
 				304341452A76600600934BFA /* WatchDataController.swift in Sources */,
 				739B97312A698A6300986A2D /* GeometryProxy+Extensions.swift in Sources */,
-				C26B22082AA89AA900F6B8C3 /* D_DayView.swift in Sources */,
 				73AB703F2A7A330F00AB75B6 /* lub_dub_Complication.intentdefinition in Sources */,
-				C26B22092AA89AA900F6B8C3 /* AlarmSuccessView.swift in Sources */,
-				C26B220C2AA89AA900F6B8C3 /* NicknameView.swift in Sources */,
 				304341432A765F5700934BFA /* WatchInfo.xcdatamodeld in Sources */,
 				182E2CC82A724E3900E7255D /* HeartStatus.swift in Sources */,
-				C26B220A2AA89AA900F6B8C3 /* AlarmView.swift in Sources */,
 				184E98392A7029F000335BE9 /* ViewModelWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

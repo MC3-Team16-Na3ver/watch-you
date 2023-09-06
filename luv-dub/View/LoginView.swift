@@ -33,6 +33,7 @@ struct LoginView: View {
                     switch viewType {
                     case .nicknameView:
                         NicknameSetView(coreDataController: DataController())
+//                        NicknameView()
                     case .coupleCodeView:
                         CoupleCodeView()
                     case .invitationView:
