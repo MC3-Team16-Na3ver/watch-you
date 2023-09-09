@@ -49,6 +49,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     @Published var isAlertOn: Bool = false
     
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         FirebaseApp.configure()
@@ -61,6 +62,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         requestNotificationPermission()
         
         application.registerForRemoteNotifications()
+        
         
         return true
     }

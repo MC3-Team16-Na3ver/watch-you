@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HeartTimerView: View {
     @EnvironmentObject private var viewModel: ButtonViewModel
-    
     var body: some View {
         HStack() {
             if viewModel.isMainScreen {
@@ -33,6 +32,7 @@ struct HeartTimerView: View {
         }
     }
 }
+
 struct HeartTimerView_Previews: PreviewProvider {
     static var previews: some View {
         HeartTimerView()

@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import WatchKit
+import WatchConnectivity
 
 class ButtonViewModel: ObservableObject {
     @Published var isMainScreen = true  // 메인 버튼 누르기 스크린 여부 확인
@@ -19,13 +21,12 @@ class ButtonViewModel: ObservableObject {
     @Published var isSendComplete = false       // 알림 전송 성공 여부
     
     @Published var maxHearts: Int = 5      // 전체 하트 개수
-//    @Published private(set) var remainingHearts: Int = 5    // 남은 하트 개수
     
     @Published var isTimerRunning = false   // 타이머 실행 여부
     @Published var remainingTime = 1 * 60  // 30분 설정
     
     let watchDataController = WatchDataController.shared
-
+    
     var timerText: String {
         let minutes = remainingTime / 60
         let seconds = remainingTime % 60
@@ -40,16 +41,86 @@ class ButtonViewModel: ObservableObject {
             watchDataController.saveRemainingHearts(newValue)
         }
     }
-
+    
     private var timer: Timer?
     private var cancellables = Set<AnyCancellable>()
+    private var backgroundTask: WKWatchConnectivityRefreshBackgroundTask?
     
+    init() {
+        // 백그라운드 작업을 관리하기 위한 Observer 등록
+        NotificationCenter.default.addObserver(self, selector: #selector(handleApplicationDidEnterBackground(_:)), name: WKExtension.applicationDidEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleApplicationWillEnterForeground(_:)), name: WKExtension.applicationWillEnterForegroundNotification, object: nil)
+        
+        // 앱 시작 시 타이머를 초기화합니다.
+        startTimer()
+    }
+    
+    deinit {
+        // Observer 해제
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleApplicationDidEnterBackground(_ notification: Notification) {
+        // 앱이 백그라운드로 들어갈 때, 타이머 상태를 저장
+        UserDefaults.standard.set(remainingTime, forKey: "remainingTime")
+        UserDefaults.standard.set(isTimerRunning, forKey: "isTimerRunning")
+        
+        // 백그라운드 업데이트 요청
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Date(), userInfo: nil) { error in
+            if let error = error {
+                print("백그라운드 업데이트 요청 중 에러: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    @objc func handleApplicationWillEnterForeground(_ notification: Notification) {
+        // 앱이 다시 활성화될 때, 타이머 상태를 복원
+        if let savedRemainingTime = UserDefaults.standard.value(forKey: "remainingTime") as? Int,
+           let savedIsTimerRunning = UserDefaults.standard.value(forKey: "isTimerRunning") as? Bool {
+            remainingTime = savedRemainingTime
+            isTimerRunning = savedIsTimerRunning
+        }
+        
+        // 앱이 완전히 종료되었고 타이머가 실행 중이면 타이머를 다시 시작
+        if !isTimerRunning && WKExtension.shared().applicationState == .active {
+            startTimer()
+        }
+    }
+    
+    private func scheduleBackgroundTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                return
+            }
+            
+            if self.remainingTime > 0 {
+                self.remainingTime -= 1
+            } else {
+                if self.remainingHearts < self.maxHearts {
+                    self.remainingHearts += 1
+                } else {
+                    timer.invalidate()
+                    // 타이머 종료
+                }
+                self.remainingTime = 1 * 60
+            }
+        })
+    }
+    
+    func startTimer() {
+        // 타이머 시작
+        guard !isTimerRunning else { return }
+        isTimerRunning = true
+        
+        // 백그라운드 타이머도 시작
+        scheduleBackgroundTimer()
+    }
     
     /// progressBar가 다 완료되기 전에 손을 뗄 경우 해당 함수 호출
     func handsOffBeforeProgressComplete() {
         self.longPressDetected = false
     }
-    
     
     /// progressBar 진행
     func startProgressAnimation() {
@@ -64,7 +135,7 @@ class ButtonViewModel: ObservableObject {
         var currentStep: Double = 0
         
         Timer.scheduledTimer(withTimeInterval: incrementValue, repeats: true) { timer in
-
+            
             if self.longPressDetected == false {
                 timer.invalidate()
                 self.isMainScreen = true
@@ -77,10 +148,11 @@ class ButtonViewModel: ObservableObject {
                 timer.invalidate()
                 return
             }
-
+            
             self.progress = currentStep / totalSteps
         }
     }
+    
     func finishAnimation() {
         self.isProgressComplete = true
         self.longPressDetected = false
@@ -93,6 +165,7 @@ class ButtonViewModel: ObservableObject {
             self.isMainScreen = true
         }
     }
+    
     /// 로딩중일 때 - Notification 전송 시도
     func sendPeerToNotification() {
         self.isLoading = true
@@ -118,35 +191,4 @@ class ButtonViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
-    /// 타이머 실행 함수
-    func startTimer() {
-        guard !isTimerRunning else { return }
-        isTimerRunning = true
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
-            guard let self = self else {
-                timer.invalidate()
-                return
-            }
-            
-            if self.remainingTime > 0 {
-                self.remainingTime -= 1
-            } else {
-                if self.remainingHearts < self.maxHearts {
-                    self.remainingHearts += 1
-                } else {
-                    self.isTimerRunning = false
-                    timer.invalidate()
-                }
-                self.remainingTime = 1 * 60
-                self.isTimerRunning = false
-            }
-        })
-    }
-    
-    /// Notification 전송 시도가 완료됐을 때 호출하는 함수
-    //    func stopLoading() {
-    //        self?.isLoading = false
-    //    }
 }

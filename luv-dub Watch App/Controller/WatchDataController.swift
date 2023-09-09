@@ -59,7 +59,7 @@ class WatchDataController {
             container.viewContext.rollback()
         }
     }
-
+    
     func loadRemainingHearts() -> Int {
         let fetchRequest: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
         
@@ -70,5 +70,4 @@ class WatchDataController {
             return 5
         }
     }
-
 }
