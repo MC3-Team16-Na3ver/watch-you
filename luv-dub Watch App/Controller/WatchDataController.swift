@@ -47,4 +47,28 @@ class WatchDataController {
             return []
         }
     }
+    
+    func saveRemainingHearts(_ remainingHearts: Int) {
+        let fetchRequest: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
+        
+        do {
+            let watchInfo = try container.viewContext.fetch(fetchRequest).first ?? WatchToken(context: container.viewContext)
+            watchInfo.remainingHearts = Int16(remainingHearts)
+            try container.viewContext.save()
+        } catch {
+            container.viewContext.rollback()
+        }
+    }
+
+    func loadRemainingHearts() -> Int {
+        let fetchRequest: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
+        
+        do {
+            let watchInfo = try container.viewContext.fetch(fetchRequest).first
+            return Int(watchInfo?.remainingHearts ?? 5)
+        } catch {
+            return 5
+        }
+    }
+
 }

@@ -19,17 +19,28 @@ class ButtonViewModel: ObservableObject {
     @Published var isSendComplete = false       // 알림 전송 성공 여부
     
     @Published var maxHearts: Int = 5      // 전체 하트 개수
-    @Published private(set) var remainingHearts: Int = 5    // 남은 하트 개수
+//    @Published private(set) var remainingHearts: Int = 5    // 남은 하트 개수
     
     @Published var isTimerRunning = false   // 타이머 실행 여부
     @Published var remainingTime = 1 * 60  // 30분 설정
     
+    let watchDataController = WatchDataController.shared
+
     var timerText: String {
         let minutes = remainingTime / 60
         let seconds = remainingTime % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
+    var remainingHearts: Int {
+        get {
+            return watchDataController.loadRemainingHearts()
+        }
+        set {
+            watchDataController.saveRemainingHearts(newValue)
+        }
+    }
+
     private var timer: Timer?
     private var cancellables = Set<AnyCancellable>()
     
