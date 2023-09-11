@@ -25,27 +25,30 @@ struct SendButtonView: View {
                 case .SENDING:
                     StatusView()
                         .task{
-                            let request: URLRequest = mainPushViewModel.createRequest(notificationData: self.notificationData)
-                            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                                guard let _ = data, error == nil else {
+                            let req: URLRequest = mainPushViewModel.createRequest()
+                            
+                            let task = URLSession.shared.dataTask(with: req) { data, response, error in
+                                if let error = error{
+                                    setFailView()
                                     return
                                 }
-
-                                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                                    if httpStatus.statusCode == 404 {
-                                        setFailView()
-                                        return
-                                    }
-                                    if httpStatus.statusCode == 401 {
-                                        setFailView()
-                                        mainPushViewModel.refreshAccessToken(refreshToken: mainPushViewModel.refreshToken)
-                                        print("mainPushViewModel.refreshToken: \(mainPushViewModel.refreshToken)")
-                                        return
-                                    }
+                                guard let data = data else {
+                                    setFailView()
+                                    return
                                 }
-                                if let httpStatus = response as? HTTPURLResponse {
-                                    print("statusCode: \(httpStatus.statusCode)")
+                                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                                    setFailView()
+                                    return
+                                }
+                                
+                                do {
+                                    let decodedData: HttpResult = try JSONDecoder().decode(HttpResult.self, from: data)
+                                    if(decodedData.status_code != 200) {
+                                        setFailView()
+                                        return
+                                    }
+                                } catch {
+                                    print("decoding has problem")
                                 }
                                 
                                 self.stateUI = .SUCCESS
