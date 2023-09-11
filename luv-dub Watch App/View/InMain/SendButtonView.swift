@@ -130,48 +130,6 @@ struct SendButtonView: View {
         self.stateUI = .FAIL
     }
     
-    // @escaping @Sendable (Data?, URLResponse?, Error?) -> Void
-    var testHandler: ((Data?, URLResponse?, Error?)->Void)?
-    
-}
-
-extension SendButtonView {
-    
-    private var notificationData: [String: Any] {
-        let request: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
-        
-        do {
-            token = try WatchDataController.shared.container.viewContext.fetch(request)
-            
-            if let loverDeviceToken = tokens.last?.loverDeviceToken {
-                let notificationJSON = [
-                    "message": [
-                        "token": loverDeviceToken,
-                        "apns": [
-                            "payload": [
-                                "aps": [
-                                    "alert" : [
-                                        "title" : "Game Request",
-                                        "subtitle" : "Five Card Draw",
-                                        "body" : "Bob wants to play poker"
-                                    ],
-                                    "category" : "hello"
-                                ],
-                            ]
-                        ]
-                    ]
-                ]
-                
-                return notificationJSON
-            }
-        } catch {
-            print(error)
-        }
-        
-        return [:]
-    }
-
-
 }
 
 
