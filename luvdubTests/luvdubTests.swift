@@ -9,7 +9,7 @@ import XCTest
 
 final class luvdubTests: XCTestCase {
     
-    let DEVICE_TOKEN = "daUZJczXkk7YiV76klag1b:APA91bEl47208_5JDqJSZPPVmILjQq3XHzrxkELC0NFN4OQFNajtccADFc-CfCtlOvl2W0SE6XsJSVs5hglCzObXUc9yQH-ZYTLYnpebmY3wIUYdu4GHP8utTbPao5XOxc33OjxX1pF2"
+    let FIREBASEUID = "NXkfsqsdkcZHpBoLzeG9qi9ktmJ2"
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -23,7 +23,7 @@ final class luvdubTests: XCTestCase {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         let body = [
-            "deviceToken": DEVICE_TOKEN
+            "deviceToken": FIREBASEUID
         ]
         let jsonBody = try! JSONSerialization.data(withJSONObject: body, options: [])
         request.httpBody = jsonBody
@@ -31,24 +31,36 @@ final class luvdubTests: XCTestCase {
         return request
     }
     
-    func http_post_test() throws {
+    func test_http_post() throws {
         // given
         var req = createRequest()
         let expectation = XCTestExpectation(description: "HTTP request")
         // when
         let task = URLSession.shared.dataTask(with: req) { data, response, error in
+            if let error = error{
+                XCTFail("error가 발생함")
+                return
+            }
             
-            guard let _ = data, error == nil else {
-                XCTFail("response has no data")
+            guard let data = data else {
+                XCTFail("Data가 없음")
                 return
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 XCTFail("response.statusCode is not 200")
             }
+            do {
+                let decodedData = try JSONDecoder().decode(HttpResult.self, from: data)
+                print(decodedData.status_code)
+            } catch {
+                print("decoding has problem")
+            }
+            
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 {
                 XCTAssertEqual(httpStatus.statusCode, 200, "http statuscode should be 200")
             }
+            
         }
         task.resume()
         
@@ -63,4 +75,9 @@ final class luvdubTests: XCTestCase {
         }
     }
     
+}
+
+struct HttpResult: Codable {
+    let status_code: Int
+    let body: String
 }
