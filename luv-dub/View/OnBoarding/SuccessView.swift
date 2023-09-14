@@ -29,8 +29,8 @@ struct SuccessView: View {
     }
 }
 
-struct SuccessView_Previews: PreviewProvider {
-    static var previews: some View {
-        SuccessView()
-    }
-}
+//struct SuccessView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SuccessView()
+//    }
+//}
