@@ -12,8 +12,6 @@ struct SendButtonView: View {
     @EnvironmentObject private var viewModel: ButtonViewModel
     @StateObject private var mainPushViewModel: MainPushViewModel = MainPushViewModel()
     @State private var stateUI: CompleteViewStatus = .SENDING
-    @FetchRequest(sortDescriptors: []) var tokens: FetchedResults<WatchToken>
-    @State private var token: [WatchToken] = []
        
     var body: some View {
         ZStack {
@@ -42,7 +40,7 @@ struct SendButtonView: View {
                                 }
                                 
                                 do {
-                                    let decodedData: HttpResult = try JSONDecoder().decode(HttpResult.self, from: data)
+                                    let decodedData: HttpResponse = try JSONDecoder().decode(HttpResponse.self, from: data)
                                     if(decodedData.status_code != 200) {
                                         setFailView()
                                         return
@@ -109,20 +107,6 @@ struct SendButtonView: View {
                 .onDisappear{ stateUI = .SENDING }
                 .disabled(viewModel.remainingHearts == 0)
 
-            }
-        }
-        .onAppear {
-            let request: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
-            do {
-               token = try WatchDataController.shared.container.viewContext.fetch(request)
-                
-                if let refreshToken = tokens.last?.refreshToken {
-                    mainPushViewModel.refreshAccessToken(refreshToken: refreshToken)
-                    mainPushViewModel.refreshToken = refreshToken
-                    mainPushViewModel.token = tokens.last!.loverDeviceToken!
-                }
-            } catch {
-                print(error)
             }
         }
     }
