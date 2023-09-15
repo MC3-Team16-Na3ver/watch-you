@@ -41,10 +41,6 @@ struct luv_dubApp: App {
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    let gcmMessageIDKey = "gcm.message_id"
-    let aps = "aps"
-    let data1Key = "DATA1"
-    let data2Key = "DATA2"
 
 
     @Published var isAlertOn: Bool = false
@@ -66,9 +62,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
         print("userInfo:", userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -78,21 +71,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-        if let data1 = userInfo[data1Key] {
-            print("data1: \(data1)")
-        }
-        
-        if let data2 = userInfo[data1Key] {
-            print("data1: \(data2)")
-        }
-        
-        if let apsData = userInfo[aps] {
-            print("apsData: \(apsData)")
-        }
         
         completionHandler([[.banner, .badge, .sound]])
     }
@@ -107,27 +85,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID from usernotificationCenter didReceive: \(messageID)")
-        }
-        
         completionHandler()
     }
 }
 
 extension AppDelegate: MessagingDelegate {
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("messaging")
-        
-        let deviceToken: [String:String] = ["token": fcmToken ?? ""]
-        print("Device token: ", deviceToken)
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken deviceToken: String?) {
         
         guard let userUid = Auth.auth().currentUser?.uid else { return }
         Firestore.firestore().collection("User").document(userUid)
-            .updateData(["deviceToken": fcmToken ?? ""])
-        
-        print("deviceToken updated")
-
+            .updateData(["deviceToken": deviceToken ])
     }
 }
