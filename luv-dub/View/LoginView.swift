@@ -32,7 +32,7 @@ struct LoginView: View {
                 .navigationDestination(for: ViewType.self, destination: { viewType in
                     switch viewType {
                     case .nicknameView:
-                        NicknameSetView(coreDataController: DataController())
+                        NicknameSetView()
                     case .coupleCodeView:
                         CoupleCodeView()
                     case .invitationView:

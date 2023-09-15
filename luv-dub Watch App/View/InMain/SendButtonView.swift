@@ -111,20 +111,6 @@ struct SendButtonView: View {
 
             }
         }
-        .onAppear {
-            let request: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
-            do {
-               token = try WatchDataController.shared.container.viewContext.fetch(request)
-                
-                if let refreshToken = tokens.last?.refreshToken {
-                    mainPushViewModel.refreshAccessToken(refreshToken: refreshToken)
-                    mainPushViewModel.refreshToken = refreshToken
-                    mainPushViewModel.token = tokens.last!.loverDeviceToken!
-                }
-            } catch {
-                print(error)
-            }
-        }
     }
     func setSuccessView() {
         self.stateUI = .SUCCESS
