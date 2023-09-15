@@ -66,7 +66,6 @@
 		30AA82A32A5E77F90047B0B6 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 30AA82A22A5E77F90047B0B6 /* KakaoSDKUser */; };
 		30FE86322A7179380050DA1D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 30FE86312A7179380050DA1D /* FirebaseDatabase */; };
 		30FE86342A71793A0050DA1D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30FE86332A71793A0050DA1D /* FirebaseDatabaseSwift */; };
-		730033042AB357740037F7E9 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730033022AB356670037F7E9 /* HttpResponse.swift */; };
 		7349AFA22A78E18D002CE9C6 /* CompleteViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */; };
 		737808812AAC83720048B9F4 /* luvdubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737808802AAC83720048B9F4 /* luvdubTests.swift */; };
 		739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B971B2A6988AD00986A2D /* NotificationView.swift */; };
@@ -82,6 +81,7 @@
 		73AB703E2A7A330F00AB75B6 /* lub_dub_Complication.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 73AB703A2A7A330E00AB75B6 /* lub_dub_Complication.intentdefinition */; };
 		73AB703F2A7A330F00AB75B6 /* lub_dub_Complication.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 73AB703A2A7A330E00AB75B6 /* lub_dub_Complication.intentdefinition */; };
 		73AB70422A7A330F00AB75B6 /* lub-dub ComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 73AB70322A7A330E00AB75B6 /* lub-dub ComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73CAE0E02AB4ABCC0062A532 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CAE0DF2AB4ABCC0062A532 /* HttpResponse.swift */; };
 		73E18FDB2A769782005141BD /* AppDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */; };
 		73E18FE02A769816005141BD /* ShareTextModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDF2A769816005141BD /* ShareTextModalView.swift */; };
 		C26B221F2AA8A4B700F6B8C3 /* AlarmFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */; };
@@ -206,7 +206,6 @@
 		30AA82A42A5E780B0047B0B6 /* luv-dub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "luv-dub.entitlements"; sourceTree = "<group>"; };
 		30AA82A82A5E7B7F0047B0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		30FE86372A719E930050DA1D /* luv-dub-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "luv-dub-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
-		730033022AB356670037F7E9 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpResponse.swift; path = "../../luv-dub/Model/HttpResponse.swift"; sourceTree = "<group>"; };
 		7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewStatus.swift; sourceTree = "<group>"; };
 		7378087E2AAC83720048B9F4 /* luvdubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = luvdubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		737808802AAC83720048B9F4 /* luvdubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luvdubTests.swift; sourceTree = "<group>"; };
@@ -223,6 +222,7 @@
 		73AB703A2A7A330E00AB75B6 /* lub_dub_Complication.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = lub_dub_Complication.intentdefinition; sourceTree = "<group>"; };
 		73AB703B2A7A330F00AB75B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73AB703D2A7A330F00AB75B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73CAE0DF2AB4ABCC0062A532 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateViewModel.swift; sourceTree = "<group>"; };
 		73E18FDF2A769816005141BD /* ShareTextModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTextModalView.swift; sourceTree = "<group>"; };
 		C26B22032AA89AA900F6B8C3 /* D_DayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = D_DayView.swift; sourceTree = "<group>"; };
@@ -375,10 +375,10 @@
 		1844A3432A713F630083A04E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				730033022AB356670037F7E9 /* HttpResponse.swift */,
 				7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */,
 				1844A3442A713FB30083A04E /* TransmissionStatus.swift */,
 				182E2CC72A724E3900E7255D /* HeartStatus.swift */,
+				73CAE0DF2AB4ABCC0062A532 /* HttpResponse.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -851,12 +851,12 @@
 				18AE9C372A710DB400D543DB /* ContentView.swift in Sources */,
 				739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */,
 				18AE9C312A702B4500D543DB /* ProgressBar.swift in Sources */,
+				73CAE0E02AB4ABCC0062A532 /* HttpResponse.swift in Sources */,
 				182E2CC62A724D5700E7255D /* HeartTimerView.swift in Sources */,
 				184E98372A70220200335BE9 /* ButtonViewModel.swift in Sources */,
 				739B97322A698A6300986A2D /* Color+Extensions.swift in Sources */,
 				304341452A76600600934BFA /* WatchDataController.swift in Sources */,
 				739B97312A698A6300986A2D /* GeometryProxy+Extensions.swift in Sources */,
-				730033042AB357740037F7E9 /* HttpResponse.swift in Sources */,
 				73AB703F2A7A330F00AB75B6 /* lub_dub_Complication.intentdefinition in Sources */,
 				304341432A765F5700934BFA /* WatchInfo.xcdatamodeld in Sources */,
 				182E2CC82A724E3900E7255D /* HeartStatus.swift in Sources */,
