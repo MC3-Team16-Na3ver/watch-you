@@ -67,6 +67,7 @@
 		30FE86322A7179380050DA1D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 30FE86312A7179380050DA1D /* FirebaseDatabase */; };
 		30FE86342A71793A0050DA1D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30FE86332A71793A0050DA1D /* FirebaseDatabaseSwift */; };
 		7349AFA22A78E18D002CE9C6 /* CompleteViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */; };
+		737808812AAC83720048B9F4 /* luvdubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737808802AAC83720048B9F4 /* luvdubTests.swift */; };
 		739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B971B2A6988AD00986A2D /* NotificationView.swift */; };
 		739B97282A6988EA00986A2D /* WatchProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B97262A6988EA00986A2D /* WatchProfileView.swift */; };
 		739B97312A698A6300986A2D /* GeometryProxy+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B972F2A698A6300986A2D /* GeometryProxy+Extensions.swift */; };
@@ -80,6 +81,7 @@
 		73AB703E2A7A330F00AB75B6 /* lub_dub_Complication.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 73AB703A2A7A330E00AB75B6 /* lub_dub_Complication.intentdefinition */; };
 		73AB703F2A7A330F00AB75B6 /* lub_dub_Complication.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 73AB703A2A7A330E00AB75B6 /* lub_dub_Complication.intentdefinition */; };
 		73AB70422A7A330F00AB75B6 /* lub-dub ComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 73AB70322A7A330E00AB75B6 /* lub-dub ComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73CAE0E02AB4ABCC0062A532 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CAE0DF2AB4ABCC0062A532 /* HttpResponse.swift */; };
 		73E18FDB2A769782005141BD /* AppDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */; };
 		73E18FE02A769816005141BD /* ShareTextModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E18FDF2A769816005141BD /* ShareTextModalView.swift */; };
 		C26B221F2AA8A4B700F6B8C3 /* AlarmFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */; };
@@ -106,6 +108,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 309AA8CF2A612F0600039E5C;
 			remoteInfo = Notification;
+		};
+		737808822AAC83720048B9F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1839B64A2A5E71CD00066D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1839B6772A5E71D000066D47;
+			remoteInfo = "luv-dub Watch App";
 		};
 		73AB70402A7A330F00AB75B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -198,6 +207,8 @@
 		30AA82A82A5E7B7F0047B0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		30FE86372A719E930050DA1D /* luv-dub-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "luv-dub-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewStatus.swift; sourceTree = "<group>"; };
+		7378087E2AAC83720048B9F4 /* luvdubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = luvdubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		737808802AAC83720048B9F4 /* luvdubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = luvdubTests.swift; sourceTree = "<group>"; };
 		739B971B2A6988AD00986A2D /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		739B97262A6988EA00986A2D /* WatchProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchProfileView.swift; path = "luv-dub Watch App/View/InProfile/WatchProfileView.swift"; sourceTree = SOURCE_ROOT; };
 		739B972F2A698A6300986A2D /* GeometryProxy+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeometryProxy+Extensions.swift"; sourceTree = "<group>"; };
@@ -211,6 +222,7 @@
 		73AB703A2A7A330E00AB75B6 /* lub_dub_Complication.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = lub_dub_Complication.intentdefinition; sourceTree = "<group>"; };
 		73AB703B2A7A330F00AB75B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73AB703D2A7A330F00AB75B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73CAE0DF2AB4ABCC0062A532 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		73E18FDA2A769782005141BD /* AppDelegateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateViewModel.swift; sourceTree = "<group>"; };
 		73E18FDF2A769816005141BD /* ShareTextModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTextModalView.swift; sourceTree = "<group>"; };
 		C26B22032AA89AA900F6B8C3 /* D_DayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = D_DayView.swift; sourceTree = "<group>"; };
@@ -264,6 +276,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7378087B2AAC83720048B9F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73AB702F2A7A330E00AB75B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +303,7 @@
 				1839B67C2A5E71D000066D47 /* luv-dub Watch App */,
 				309AA8D12A612F0600039E5C /* Notification */,
 				73AB70372A7A330E00AB75B6 /* lub-dub Complication */,
+				7378087F2AAC83720048B9F4 /* luvdubTests */,
 				1839B6532A5E71CE00066D47 /* Products */,
 				303CFE9B2A5F2D31003931F3 /* Frameworks */,
 			);
@@ -296,6 +316,7 @@
 				1839B6782A5E71D000066D47 /* luvdub.app */,
 				309AA8D02A612F0600039E5C /* Notification.appex */,
 				73AB70322A7A330E00AB75B6 /* lub-dub ComplicationExtension.appex */,
+				7378087E2AAC83720048B9F4 /* luvdubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -357,6 +378,7 @@
 				7349AFA12A78E18D002CE9C6 /* CompleteViewStatus.swift */,
 				1844A3442A713FB30083A04E /* TransmissionStatus.swift */,
 				182E2CC72A724E3900E7255D /* HeartStatus.swift */,
+				73CAE0DF2AB4ABCC0062A532 /* HttpResponse.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -513,6 +535,14 @@
 			path = InProfile;
 			sourceTree = "<group>";
 		};
+		7378087F2AAC83720048B9F4 /* luvdubTests */ = {
+			isa = PBXGroup;
+			children = (
+				737808802AAC83720048B9F4 /* luvdubTests.swift */,
+			);
+			path = luvdubTests;
+			sourceTree = "<group>";
+		};
 		739B972E2A698A6300986A2D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +664,24 @@
 			productReference = 309AA8D02A612F0600039E5C /* Notification.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		7378087D2AAC83720048B9F4 /* luvdubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 737808862AAC83720048B9F4 /* Build configuration list for PBXNativeTarget "luvdubTests" */;
+			buildPhases = (
+				7378087A2AAC83720048B9F4 /* Sources */,
+				7378087B2AAC83720048B9F4 /* Frameworks */,
+				7378087C2AAC83720048B9F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				737808832AAC83720048B9F4 /* PBXTargetDependency */,
+			);
+			name = luvdubTests;
+			productName = luvdubTests;
+			productReference = 7378087E2AAC83720048B9F4 /* luvdubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		73AB70312A7A330E00AB75B6 /* lub-dub ComplicationExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73AB70462A7A330F00AB75B6 /* Build configuration list for PBXNativeTarget "lub-dub ComplicationExtension" */;
@@ -670,6 +718,10 @@
 					309AA8CF2A612F0600039E5C = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
+					7378087D2AAC83720048B9F4 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 1839B6772A5E71D000066D47;
+					};
 					73AB70312A7A330E00AB75B6 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -697,6 +749,7 @@
 				1839B6772A5E71D000066D47 /* luv-dub Watch App */,
 				309AA8CF2A612F0600039E5C /* Notification */,
 				73AB70312A7A330E00AB75B6 /* lub-dub ComplicationExtension */,
+				7378087D2AAC83720048B9F4 /* luvdubTests */,
 			);
 		};
 /* End PBXProject section */
@@ -724,6 +777,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		309AA8CE2A612F0600039E5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7378087C2AAC83720048B9F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -791,6 +851,7 @@
 				18AE9C372A710DB400D543DB /* ContentView.swift in Sources */,
 				739B971F2A6988AD00986A2D /* NotificationView.swift in Sources */,
 				18AE9C312A702B4500D543DB /* ProgressBar.swift in Sources */,
+				73CAE0E02AB4ABCC0062A532 /* HttpResponse.swift in Sources */,
 				182E2CC62A724D5700E7255D /* HeartTimerView.swift in Sources */,
 				184E98372A70220200335BE9 /* ButtonViewModel.swift in Sources */,
 				739B97322A698A6300986A2D /* Color+Extensions.swift in Sources */,
@@ -808,6 +869,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				309AA8D32A612F0600039E5C /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7378087A2AAC83720048B9F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				737808812AAC83720048B9F4 /* luvdubTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +901,11 @@
 			isa = PBXTargetDependency;
 			target = 309AA8CF2A612F0600039E5C /* Notification */;
 			targetProxy = 309AA8D52A612F0600039E5C /* PBXContainerItemProxy */;
+		};
+		737808832AAC83720048B9F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1839B6772A5E71D000066D47 /* luv-dub Watch App */;
+			targetProxy = 737808822AAC83720048B9F4 /* PBXContainerItemProxy */;
 		};
 		73AB70412A7A330F00AB75B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1145,6 +1219,45 @@
 			};
 			name = Release;
 		};
+		737808842AAC83720048B9F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = moon.luvdubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/luvdub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/luvdub";
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		737808852AAC83720048B9F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = moon.luvdubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/luvdub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/luvdub";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
 		73AB70442A7A330F00AB75B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1241,6 +1354,15 @@
 			buildConfigurations = (
 				309AA8D92A612F0600039E5C /* Debug */,
 				309AA8DA2A612F0600039E5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		737808862AAC83720048B9F4 /* Build configuration list for PBXNativeTarget "luvdubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				737808842AAC83720048B9F4 /* Debug */,
+				737808852AAC83720048B9F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

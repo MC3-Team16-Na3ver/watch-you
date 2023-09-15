@@ -12,8 +12,6 @@ struct SendButtonView: View {
     @EnvironmentObject private var viewModel: ButtonViewModel
     @StateObject private var mainPushViewModel: MainPushViewModel = MainPushViewModel()
     @State private var stateUI: CompleteViewStatus = .SENDING
-    @FetchRequest(sortDescriptors: []) var tokens: FetchedResults<WatchToken>
-    @State private var token: [WatchToken] = []
        
     var body: some View {
         ZStack {
@@ -25,27 +23,30 @@ struct SendButtonView: View {
                 case .SENDING:
                     StatusView()
                         .task{
-                            let request: URLRequest = mainPushViewModel.createRequest(notificationData: self.notificationData)
-                            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                                guard let _ = data, error == nil else {
+                            let req: URLRequest = mainPushViewModel.createRequest()
+                            
+                            let task = URLSession.shared.dataTask(with: req) { data, response, error in
+                                if let error = error{
+                                    setFailView()
                                     return
                                 }
-
-                                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                                    if httpStatus.statusCode == 404 {
-                                        setFailView()
-                                        return
-                                    }
-                                    if httpStatus.statusCode == 401 {
-                                        setFailView()
-                                        mainPushViewModel.refreshAccessToken(refreshToken: mainPushViewModel.refreshToken)
-                                        print("mainPushViewModel.refreshToken: \(mainPushViewModel.refreshToken)")
-                                        return
-                                    }
+                                guard let data = data else {
+                                    setFailView()
+                                    return
                                 }
-                                if let httpStatus = response as? HTTPURLResponse {
-                                    print("statusCode: \(httpStatus.statusCode)")
+                                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                                    setFailView()
+                                    return
+                                }
+                                
+                                do {
+                                    let decodedData: HttpResponse = try JSONDecoder().decode(HttpResponse.self, from: data)
+                                    if(decodedData.status_code != 200) {
+                                        setFailView()
+                                        return
+                                    }
+                                } catch {
+                                    print("decoding has problem")
                                 }
                                 
                                 self.stateUI = .SUCCESS
@@ -108,20 +109,6 @@ struct SendButtonView: View {
 
             }
         }
-        .onAppear {
-            let request: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
-            do {
-               token = try WatchDataController.shared.container.viewContext.fetch(request)
-                
-                if let refreshToken = tokens.last?.refreshToken {
-                    mainPushViewModel.refreshAccessToken(refreshToken: refreshToken)
-                    mainPushViewModel.refreshToken = refreshToken
-                    mainPushViewModel.token = tokens.last!.loverDeviceToken!
-                }
-            } catch {
-                print(error)
-            }
-        }
     }
     func setSuccessView() {
         self.stateUI = .SUCCESS
@@ -130,48 +117,6 @@ struct SendButtonView: View {
         self.stateUI = .FAIL
     }
     
-    // @escaping @Sendable (Data?, URLResponse?, Error?) -> Void
-    var testHandler: ((Data?, URLResponse?, Error?)->Void)?
-    
-}
-
-extension SendButtonView {
-    
-    private var notificationData: [String: Any] {
-        let request: NSFetchRequest<WatchToken> = WatchToken.fetchRequest()
-        
-        do {
-            token = try WatchDataController.shared.container.viewContext.fetch(request)
-            
-            if let loverDeviceToken = tokens.last?.loverDeviceToken {
-                let notificationJSON = [
-                    "message": [
-                        "token": loverDeviceToken,
-                        "apns": [
-                            "payload": [
-                                "aps": [
-                                    "alert" : [
-                                        "title" : "Game Request",
-                                        "subtitle" : "Five Card Draw",
-                                        "body" : "Bob wants to play poker"
-                                    ],
-                                    "category" : "hello"
-                                ],
-                            ]
-                        ]
-                    ]
-                ]
-                
-                return notificationJSON
-            }
-        } catch {
-            print(error)
-        }
-        
-        return [:]
-    }
-
-
 }
 
 

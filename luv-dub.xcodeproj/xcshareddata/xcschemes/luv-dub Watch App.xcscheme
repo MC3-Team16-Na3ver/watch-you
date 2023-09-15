@@ -87,6 +87,17 @@
                ReferencedContainer = "container:luv-dub.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7378087D2AAC83720048B9F4"
+               BuildableName = "luvdubTests.xctest"
+               BlueprintName = "luvdubTests"
+               ReferencedContainer = "container:luv-dub.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
