@@ -8,27 +8,18 @@
 import FirebaseFirestoreSwift
 import SwiftUI
 
-struct User: Identifiable, Codable {
-    @DocumentID var id: String?
-    let name: String
-    var nickname: String
-    let dDay: String
-    var userID: String
-    let email: String
-    var deviceToken: String
-    var connectedID: String
-    var invitationCode: String
+class User: Encodable, Decodable {
+    static let shared = User()
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case nickname
-        case dDay
-        case userID
-        case email
-        case deviceToken
-        case connectedID
-        case invitationCode
-    }
+    @DocumentID var id: String?
+    var name: String?
+    var nickname: String?
+    var dDay: String?
+    var userID: String?
+    var email: String?
+    var deviceToken: String?
+    var connectedID: String?
+    var invitationCode: String?
+    
     
 }
