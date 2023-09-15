@@ -12,7 +12,6 @@ struct NicknameSetView: View {
     @State private var nickname: String = ""
     @EnvironmentObject var loginViewModel: LoginViewModel
     @Environment(\.managedObjectContext) var moc
-    let coreDataController: DataController
     
     var body: some View {
             nicknameSetView
@@ -33,7 +32,7 @@ struct NicknameSetView: View {
             Button {
                 loginViewModel.setUserNickname(nickname: self.nickname)
                 loginViewModel.addUserToFirestore()
-                updateUserInfo()
+                saveUserInfoLocal()
             } label: {
                 RoundedRectangle(cornerRadius: 16)
                     .overlay(
@@ -44,7 +43,7 @@ struct NicknameSetView: View {
         }
     }
     
-    private func updateUserInfo() {
+    private func saveUserInfoLocal() {
         let user = UserInfo(context: moc)
         user.id = loginViewModel.user.id
         user.uid = loginViewModel.user.userID
