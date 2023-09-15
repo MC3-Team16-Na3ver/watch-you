@@ -9,7 +9,7 @@ import SwiftUI
 import WatchConnectivity
 
 struct MainView: View {
-    @StateObject var mainViewModel = MainViewModel()
+    @State var user: User = User.shared
     var viewModelPhone = ViewModelPhone()
     @State private var syncNotice = ""
     @Environment(\.managedObjectContext) var moc
@@ -25,9 +25,6 @@ struct MainView: View {
 
             
             Button {
-                self.viewModelPhone.session.sendMessage(["token": mainViewModel.loverData.deviceToken], replyHandler: nil) { error in
-                    print(error.localizedDescription)
-                }
                 connectedwithWatch()
             } label: {
                 Text("UPDATE")
@@ -35,35 +32,27 @@ struct MainView: View {
             
             HStack {
                 VStack {
-                    Text(mainViewModel.myData.nickname)
+                    Text(user.nickname ?? "닉네임")
                         .font(.callout)
-                    Text(mainViewModel.myData.userID)
+                    Text(user.userID ?? "uid")
                     
                 }
                 
                 VStack {
-                    Text(mainViewModel.loverData.nickname)
+                    Text("상대방의 닉네임")
                         .font(.callout)
-                    Text(mainViewModel.loverData.userID)
+                    Text("상대방의 uid")
                 }
             }
             .onAppear {
-                let user = UserInfo(context: moc)
-
-                    mainViewModel.fetchDatas() {
-                        mainViewModel.getRefreshToken { refreshToken in
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                self.viewModelPhone.session.transferUserInfo(["token": mainViewModel.loverData.deviceToken, "refreshToken": refreshToken])
-                            }
-                        }
-                    }
-
-                    user.id = mainViewModel.myData.id
-                    user.nickname = mainViewModel.myData.nickname
-                    user.uid = mainViewModel.myData.userID
-                    user.connectedID = mainViewModel.myData.connectedID
+                let localUser = UserInfo(context: moc)
+                
+                localUser.id = self.user.id
+                localUser.nickname = self.user.nickname
+                localUser.uid = self.user.userID
+                localUser.connectedID = self.user.connectedID
                     
-                    try? moc.save()
+                try? moc.save()
                 
             }
         }
