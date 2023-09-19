@@ -90,6 +90,7 @@
 		C26B22252AA8A4F200F6B8C3 /* OnboardingTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22242AA8A4F200F6B8C3 /* OnboardingTopView.swift */; };
 		C26B22292AA8A67D00F6B8C3 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22272AA8A67D00F6B8C3 /* NextButton.swift */; };
 		C26B222A2AA8A67D00F6B8C3 /* DisabledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26B22282AA8A67D00F6B8C3 /* DisabledButton.swift */; };
+		C93E573B2AB9C1DA00E02F39 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E573A2AB9C1DA00E02F39 /* TutorialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +222,7 @@
 		C26B22242AA8A4F200F6B8C3 /* OnboardingTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTopView.swift; sourceTree = "<group>"; };
 		C26B22272AA8A67D00F6B8C3 /* NextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		C26B22282AA8A67D00F6B8C3 /* DisabledButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisabledButton.swift; sourceTree = "<group>"; };
+		C93E573A2AB9C1DA00E02F39 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				C26B22062AA89AA900F6B8C3 /* AlarmFailView.swift */,
+				C93E573A2AB9C1DA00E02F39 /* TutorialView.swift */,
 				C26B22042AA89AA900F6B8C3 /* AlarmSuccessView.swift */,
 				C26B22052AA89AA900F6B8C3 /* AlarmView.swift */,
 				C26B22032AA89AA900F6B8C3 /* D_DayView.swift */,
@@ -753,6 +756,7 @@
 				C26B22292AA8A67D00F6B8C3 /* NextButton.swift in Sources */,
 				309AA8E02A644F7900039E5C /* LoginView.swift in Sources */,
 				73E18FE02A769816005141BD /* ShareTextModalView.swift in Sources */,
+				C93E573B2AB9C1DA00E02F39 /* TutorialView.swift in Sources */,
 				C26B22232AA8A4B700F6B8C3 /* NicknameView.swift in Sources */,
 				1839B6582A5E71CE00066D47 /* ContentView.swift in Sources */,
 				C26B22202AA8A4B700F6B8C3 /* D_DayView.swift in Sources */,
